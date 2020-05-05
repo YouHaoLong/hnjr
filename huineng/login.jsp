@@ -1,0 +1,151 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String product_host = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>登录页</title>
+
+		<!-- Bootstrap core CSS -->
+		<script type="text/javascript">
+            var basePath = "<%=product_host%>";
+		</script>
+		<link href="<%=product_host%>static/view/css/bootstrap.min.css" rel="stylesheet">
+		<script src="<%=product_host%>static/view/js/jquery.min.js"></script>
+		<script src="<%=product_host%>static/view/js/bootstrap.min.js"></script>
+		<script src="<%=product_host%>static/view/js/login.js"></script>
+	</head>
+	<style>
+		.main{
+		height: 100%;
+		background-image: url(/static/view/images/background.png);
+		background-size: 100% 100%;
+		}
+		.nav_title{
+			position:relative;
+			left: 5%;
+		    top:6%;
+		     transform:translateY(-50%);
+		}
+		.nav{
+			width: 100%;
+			height: ;
+		}
+		.logo{
+			height: 10%;
+			text-align: center;
+			position: relative;
+			top: 22%;
+		}
+		.login{
+			height: 40%;
+			background-image: url(/static/view/images/loginbar.png);
+			background-size: 100% 100%;
+			position:relative;
+		    top:40%;
+		    transform:translateY(-50%);
+		    text-align: center;
+		    padding: 20px;
+		}
+		.logo1{
+			height: 60%;
+			width: 70%;
+		}
+		.login_title{
+			height: 25%;
+			position:relative;
+		    top:20%;
+		    transform:translateY(-50%);
+		
+			color: #FFF;
+		}
+		.foate{
+			position:relative;
+			top: 95%;
+			left: -33%;
+		   	text-align: center;
+			color: #fff;
+		}
+		
+		.has-success .form-control {
+			border-color: #e5e5e5;
+		}
+		.has-success .input-group-addon {
+		    color: #7c7c7c;
+		    background-color: #fff;
+		    border-color: #e5e5e5;
+		}
+		.input-group{
+			margin-bottom: 10%;
+		}
+		
+		.baten{
+			width: 95%;
+			position: absolute;
+			top:80%;
+			left: 0;
+			padding: 0 40px 0 0;
+		}
+		.btn{
+			background: #c5523d;
+			color: #fff;
+		}
+			
+	</style>
+
+	<body>
+		<div class="main navbar-fixed-top" style="min-width:900px;min-height:676px">
+			<div class="col-md-4  col-xs-4 nav_title ">
+				<img src="/static/view/images/5.png" class="nav" />
+			</div>
+			<div class="col-md-4  col-xs-4 logo">
+				<img src="/static/view/images/logo2.png" class="logo1"/>
+			</div>
+			
+			<div class="login col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4">
+				<p class="login_title col-md-10 col-md-offset-1 ">登录汇能金融财务系统</p>
+				<form class="form-inline">
+				  <div class="form-group col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+				  	<div class="input-group">
+				      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				      <input type="text" class="form-control" id="name" aria-describedby="inputGroupSuccess3Status">
+				    </div>
+				  </div>
+				  <div class="form-group col-md-10 col-md-offset-1  col-xs-10 col-xs-offset-1">
+				  	<div class="input-group">
+				      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				      <input type="password" class="form-control" id="pass" aria-describedby="inputGroupSuccess3Status">
+				    </div>
+				  </div>
+				  <div class="baten">
+				  	<div class="checkbox col-md-5  col-xs-5">
+				    <label>
+				      <input type="checkbox" id="che"> 记住密码
+				    </label>
+				 	 </div>
+				   <button type="submit" class="btn btn-default  col-xs-4 col-xs-offset-3 col-md-4 col-md-offset-3" onclick="login()">登录</button>
+				  	
+				  </div>
+				  
+				</form>
+			</div>
+			
+			<div class="foate ">
+				<span>2015 深圳前海汇能金融集团版权所有</span>
+			</div>
+		</div>
+	</body>
+
+</html>

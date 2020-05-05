@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>客户管理</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/dashboard.css" rel="stylesheet">
+		<link href="../css/index.css" rel="stylesheet">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="../images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li>
+							<a href="../index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li>
+							<a href="../product/productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li>
+							<a href="../project/projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li class="active">
+							<a href="customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="../assets/enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="../assets/outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li>
+								<a href="../totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>资源管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon  glyphicon-user "></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>部门管理</a>
+									</li>
+									
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+					<div class="panel panel-default" style="margin-top: 20px;">
+						<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button">添加客户</a>
+												</div>
+												
+												
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-xs-2">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+												
+											</div>
+
+										</form>
+
+									</div>
+						<div class="panel-body">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>编号</th>
+										<th>称呼</th>
+										<th>性别</th>
+										<th>联系电话</th>
+										<th>类别</th>
+										<th>业务员</th>
+										<th>创建日期</th>
+										<th>投资记录</th>
+										
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										
+										<td>100125</td>
+										<td>张三</td>
+										<td>男</td>
+										<td>131****1234</td>
+										<td>个人</td>
+										<td>李四</td>
+										<td>2018-08-23</td>
+										<td>
+											<a href="" class="btn btn-default btn-sm">查看</a>
+										</td>
+										
+										<td>
+											
+											<a href="" class="btn btn-default btn-sm">详细</a>
+											
+										</td>
+									</tr>
+								
+								</tbody>
+							</table>
+							<!--<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">上一页</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">下一页</span>
+										</a>
+									</li>
+								</ul>
+							</nav>-->
+						</div>
+
+					</div>
+				</div>
+			</div>
+</div>
+	</body>
+
+</html>

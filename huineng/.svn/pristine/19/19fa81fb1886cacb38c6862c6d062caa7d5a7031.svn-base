@@ -1,0 +1,42 @@
+
+@media (min-width: 768px) {
+ .total{
+ 	margin-bottom: 30px;
+ }
+ .totalborder{
+ 	border-right:1px solid #ececec ;
+ }
+ .totalbtn{
+ 	margin-top: 10px;
+ }
+ .margin{
+ 	margin-left: 0;
+ 	margin-right: 0;
+ }
+ .chanpinmarrgin{
+ 	margin-top: 20px;
+ }
+ .chanpinborder{
+ 	border-bottom:1px solid #ddd ;
+ 	height: 45px;
+ 	line-height: 45px;
+ }
+ .padding{
+ 	padding-left: 5px;
+ 	padding-right: 5px;
+ }
+ .Wdate.form-control[readonly] {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.Wdate{
+	 border: 1px solid #ccc;
+}
+.form-control{
+	font-size: 12px;
+}
+.btn-sm{
+	margin-right: 5px !important;
+}
+}
+

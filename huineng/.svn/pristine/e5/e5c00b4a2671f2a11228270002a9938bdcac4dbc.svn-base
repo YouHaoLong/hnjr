@@ -1,0 +1,199 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String product_host = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>提成</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="<%=product_host%>static/view/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<%=product_host%>static/view/css/dashboard.css" rel="stylesheet">
+		<link href="<%=product_host%>static/view/css/index.css" rel="stylesheet">
+		
+		
+		<script src="<%=product_host%>static/view/js/jquery.min.js"></script>
+		<script src="<%=product_host%>static/view/js/bootstrap.min.js"></script>
+	
+		<script type="text/javascript" src="<%=product_host%>static/view/js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+		.row_tit,.row_tit1{
+			font-size:16px ;
+			margin-bottom: 15px;
+		}
+		.row_tit1{
+			color: #0000FF;
+		}
+		.pad{
+			padding: 0;
+		}
+		.margin{
+			margin-bottom: 15px;
+		}
+		.btn1{
+			background: #eee;
+			padding: 3px 15px;
+			color: #000;
+		}
+		th{
+			text-align: center;
+		}
+	</style>
+
+	<body>
+		<jsp:include page="/static/view/top.jsp" flush="true"></jsp:include>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					<jsp:include page="/static/view/left.jsp" flush="true"></jsp:include>
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+					<div class="panel panel-default" style="margin-top: 20px;">
+						<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-sm-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="javascript:duopay()" role="button">批量确认</a>
+												</div>
+												
+												
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-xs-2">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+												
+											</div>
+
+										</form>
+
+									</div>
+						<div class="panel-body">
+						
+							<table class="table table-bordered  table-striped" style="word-break:break-all; word-wrap:break-all;" data-height="350">
+								<thead>
+									<tr>
+										<th></th>
+										<th>所属产品</th>
+										<th>产品发行日期</th>
+										<th>用户名</th>
+										<th>用户手机</th>
+										<th>用户申购金额</th>
+								
+										<th>申购状态</th>
+										<th>申购完成时间</th>
+										<th>理财经理</th>
+										<th>理财经理手机</th>
+										<th>提成金额</th>
+										<th>提成类别</th>
+										<th>发放状态</th>
+										<th>发放日期</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="jtbody"></tbody>
+							</table>
+							<input type="hidden" id="now" value="" />
+							<nav aria-label="Page navigation">
+								<div class="col-md-2">
+									<div class="input-group" style="margin: 20px 0;">
+										<span class="input-group-addon">显示条数</span>
+										<select class="form-control" id="ChangChart">
+											<option value="10">10</option>
+											<option value="20">20</option>
+										</select>
+									</div>
+								</div>
+								<ul class="pagination" id="page">
+									<input type="hidden" id="pagess" value="" />
+									<li>
+										<a href="javascript:fenye1()" aria-label="Previous">
+											<span aria-hidden="true">上一页</span>
+										</a>
+									</li>
+
+									<li id="last">
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">下一页</span>
+										</a>
+									</li>
+								</ul>
+								</nav>
+					</div>
+					<!--发放奖励-->
+					<div class="modal fade" id="grant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">发放奖励确认提示</h4>
+							</div>
+							<div class="modal-body">确认该费用已经发放？</div>
+							<div class="modal-footer" id="delcon">
+								<!--<button type="button" class="btn ">是</button>
+								<button type="button" class="btn ">否</button>-->
+							</div>
+						</div>
+					</div>
+				</div>
+							
+				</div>
+			</div>
+</div>
+	</body>
+	<script type="text/javascript" src="<%=product_host%>static/view/js/commission.js" ></script>
+	<script>
+		var clas = $('#ChangChart option:selected').attr('value');
+		listload(1, clas);
+		
+	
+	</script>
+
+</html>

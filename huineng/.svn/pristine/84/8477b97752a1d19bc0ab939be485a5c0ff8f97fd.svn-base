@@ -1,0 +1,259 @@
+jQuery(document).ready(function() {
+	//alert(2);
+});
+
+$("#ChangChart").change(function() {
+	console.log('改变');
+	var clas = $('#ChangChart option:selected').attr('value');
+
+	listload(1, clas);
+
+});
+
+function listload(page, rows) {
+	$('#page').html('');
+	$('#mytab').html('');
+	$('#now').val(page);
+	$.ajax({
+		url: '/role/dataGrid', // 跳转到 action
+		type: 'POST',
+		data: {
+			"page": page,
+			'rows': rows,
+			'sort': 'id',
+			'order': 'asc'
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			var allList = data.rows;
+
+			for(var i = 0; i < allList.length; i++) {
+
+				if(allList[i].status == 0) {
+					var status = '正常';
+				} else if(allList[i].status == 1) {
+					var status = '停用';
+				}
+
+				var html = '';
+
+				html += '<tr><td>' + allList[i].id + '</td><td>' + allList[i].name + '</td><td>' + allList[i].seq + '</td><td>' + allList[i].description + '</td><td>' + status + '</td><td><a href="javascript:sot(' + allList[i].id + ')" class="btn btn-default btn-sm">授权</a><a href="javascript:edit(' + allList[i].id + ')" class="btn btn-default btn-sm">编辑</a><a href="javascript:del(' + allList[i].id + ')" class="btn btn-default btn-sm">删除</a></td></tr>';
+
+				$('#mytab').append(html);
+
+			}
+			
+
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+$('#pagess').val(data.total);
+			pagess();
+
+		},
+		error: function() {
+
+		}
+	});
+
+}
+
+function pagess() {
+
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last");
+
+		newNode.innerHTML = "<a href='javascript:fenye(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+
+function fenye(index) {
+
+	var clas = $('#ChangChart option:selected').attr('value');
+	listload(index, clas);
+
+}
+
+function fenye1(index) {
+
+	var now = $('#now').val();
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			listload(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			listload(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+
+function add() {
+
+	$('#myModal').modal('show')
+}
+
+function addcon() {
+	var name = $('#addname').val();
+	var num = $('#addnum').val();
+	var stats = $('#addstats option:selected').attr('value');
+	var com = $('#addcom').val();
+
+	if(name == '') {
+		alert('请输入角色名称');
+
+	} else {
+		$.ajax({
+			url: '/role/add', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'name': name,
+				'seq': num,
+				'status': stats,
+				'description': com
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+
+				alert(data.msg);
+				$('#myModal').modal('hide');
+				listload(1, clas);
+
+			},
+			error: function() {
+				// view("异常！");
+				//				$.alert("异常！");
+			}
+		});
+	}
+}
+
+function del(index) {
+	$('#delcon').html('');
+	$('#del').modal('show');
+	var html = '';
+	html += '<button type="button" class="btn btn-default" data-dismiss="modal">否</button><button type="button" class="btn btn-primary" onclick="delcon(' + index + ')">是</button>';
+	$('#delcon').append(html);
+}
+
+function delcon(index) {
+var now = $('#now').val();
+	$.ajax({
+		url: '/role/delete', // 跳转到 action
+		type: 'POST',
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data: {
+			'id': index,
+			
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			alert(data.msg);
+			$('#del').modal('hide');
+			listload(now, clas);
+
+		},
+		error: function() {
+			// view("异常！");
+			//				$.alert("异常！");
+		}
+	});
+
+}
+
+
+function edit(index) {
+	
+		$('#edit').attr('src','/role/editPage?id='+index+'');
+
+	$('#myModaledit').modal('show')
+}
+
+
+
+function editcon() {
+			var name = $("#edit").contents().find("#name").val();
+			var id = $("#edit").contents().find("#id").val();
+		
+		
+			var seq = $("#edit").contents().find('#seq').val();
+			var status = $("#edit").contents().find('#status option:selected').attr('value');
+			var addcom = $("#edit").contents().find('#addcom').val();
+
+			if(name == '') {
+				alert('请输入名称');
+			} else {
+				$.ajax({
+					url: '/role/edit', // 跳转到 action
+					type: 'POST',
+					data: {
+						'id':id,
+						'name': name,
+						'seq': seq,
+						'status': status,
+						'description': addcom
+					},
+					contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+
+					dataType: "json", //返回结果格式
+					success: function(data) {
+
+						alert(data.msg);
+						$('#myModaledit').modal('hide');
+						window.location.reload();
+						
+
+					},
+					error: function() {
+
+						// view("异常！");
+						//				$.alert("异常！");
+					}
+				});
+			}
+}
+
+
+function sot(index){
+	$('#sot').attr('src','/role/grantPage?id='+index+'');
+
+	$('#myModalsot').modal('show');
+	
+}
+function sothide(){
+	$('#myModalsot').modal('hide');
+	
+}
+
+
+
+

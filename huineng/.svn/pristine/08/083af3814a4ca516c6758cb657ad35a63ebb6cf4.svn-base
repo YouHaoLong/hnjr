@@ -1,0 +1,785 @@
+
+$("#ChangChart").change(function() {
+	
+	var clas = $('#ChangChart option:selected').attr('value');
+
+	listload(1, clas);
+
+});
+
+function pagess() {
+	
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last");
+		
+		newNode.innerHTML = "<a href='javascript:fenye(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+function fenye(index) {
+	var clas = $('#ChangChart option:selected').attr('value');
+	listload(index, clas);
+}
+
+function fenye1(index) {
+	var now = $('#now').val();
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			listload(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			listload(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+//添加申购记录
+function purchase() {
+	$('#purchase').modal('show')
+	
+	$('#user_name').html('');
+	$('#user_mobile').html('');
+	$('#user_time').html('');
+	$('#user_referee').html('');
+	$('#user_department').html('');
+	$('#user_deposit').html('');
+	$('#user_code').html('');
+	$('#projectname').html('');
+	$('#productcode').html('');
+	$('#type').html('');
+	$('#applymoney').val('');
+	$('#applytime').val('');
+	$('#fileupload').val('')
+}
+function hidepurchase() {
+	$('#purchase').modal('hide')
+}
+
+//用户设置
+function user() {
+	$('#user_tbody').html('');
+	$.ajax({
+			url: '/userInfo/getAllUser', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'page':1,
+				'pagesize':1000
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			console.log(data)
+			var allList = data.obj.list;
+			for(var i = 0; i < allList.length; i++) {
+				$('#user_settings').modal('show')
+				if (allList[i].sex==0) {
+					sex= '男';
+				} else if (allList[i].sex==1){
+					sex= '女';
+				}else if (allList[i].sex==2){
+					sex= '不明';
+				}
+				if (allList[i].user_type==0) {
+					user_type= '个人';
+				} else if (allList[i].user_type==1){
+					user_type= '机构';
+				}
+				var html = '';
+				html += '<tr><td class=" col-xs-1">'+allList[i].userNum+'</td><td class=" col-xs-1">'+allList[i].name+'</td><td class=" col-xs-1">'+sex+'</td><td class=" col-xs-2">'+allList[i].mobile_one+'</td><td class=" col-xs-1">'+user_type+'</td><td class=" col-xs-1">'+allList[i].employeeName+'</td><td class=" col-xs-2">'+allList[i].create_date+'</td><td class=" col-xs-1"><a class="btn btn1" href="javascript:xmxz('+allList[i].id+')" >选择</a></td></tr>';
+				$('#user_tbody').append(html);
+			}
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+function xmxz(index){
+	console.log(1111)
+	$('#user_settings').modal('hide');
+	$.ajax({
+		url: '/userInfo/findUserBuUserID', // 跳转到 action
+		type: 'POST',
+		data: {
+			"userId":index,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			$('#userId').val(data.obj.id)
+			$('#user_name').html(data.obj.name);
+			$('#user_mobile').html(data.obj.mobileOne);
+			$('#user_time').html(data.obj.createDate);
+			$('#user_referee').html(data.obj.refereename);
+			$('#user_department').html(data.obj.refereeDepartment);
+			$('#user_deposit').html(data.obj.bankDeposit);
+			$('#user_code').html(data.obj.bankCode);
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+	
+	
+}
+//购买设置
+
+
+function buy() {
+	$('#buy_tbody').html('');
+	$.ajax({
+			url: '/product/findProductList', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'page':1,
+				'pagesize':1000,
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			console.log(data)
+			var allList = data.obj.list;
+			for(var i = 0; i < allList.length; i++) {
+				$('#buy_settings').modal('show')
+				
+				if (allList[i].type==1) {
+					type= '债券型';
+				} else if (allList[i].type==2){
+					type= '股权型';
+				}
+				if(allList[i].state==1){
+					state='待审核'
+				}else if(allList[i].state==2){
+					state='审核通过'
+				}else if(allList[i].state==3){
+					state='审核不通过'
+				}
+				
+				var html = '';
+				html += '<tr><td class=" col-xs-1">'+allList[i].name+'</td><td class=" col-xs-1">'+type+'</td><td class=" col-xs-1">'+allList[i].grantTime+'</td><td class=" col-xs-2">'+state+'</td><td class=" col-xs-1">'+allList[i].employeeName+'</td><td class=" col-xs-1"><a class="btn btn1" href="javascript:choice('+allList[i].id+')" >选择</a></td></tr>';
+				$('#buy_tbody').append(html);
+			}
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+
+function choice(index){
+	$('#productid').val(index)
+	$('#buy_settings').modal('hide');
+	$.ajax({
+		url: '/product/findProductByID', // 跳转到 action
+		type: 'POST',
+		data: {
+			"id":index,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			if (data.obj[0].type==1) {
+				type='债券型'
+			} else if(data.obj[0].type==2){
+				type='股权型'
+			}
+			$('#projectname').html(data.obj[0].name);
+			$('#productcode').html(data.obj[0].grantTime);
+			$('#type').html(type);
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+
+//确认到款
+function confirm(recordId,orderId) {
+	$('#buy_tbody').html('');
+	$.ajax({
+			url: '/product/updatePaymentRecord', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'recordId':recordId,
+				'orderId':orderId,
+				'state':2,
+				'employeeId':0
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			alert(data.msg);
+			$('#btn_cle').css("display","block");
+			append(id,useId);
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+			
+		});
+}
+
+//添加付款记录
+function record(){
+	
+	console.log(useId)
+	$.ajax({
+		url: '/product/insertPaymentRecord', // 跳转到 action
+		type: 'POST',
+		data: {
+			"userId":useId,
+			"money":$("#pay_money").val(),
+			"orderId":id,
+			'createId':1
+			
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			if(data.success==true){
+				
+				alert(data.msg)
+				$('#apend_tbody').empty();
+				append(id,useId)
+				$("#pay_money").val('')
+			}else{
+				alert(data.msg)
+			}
+			
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+//付款完成
+function pay_complete(){
+	console.log(1111)
+	$.ajax({
+		url: '/product/completePaymentRecord', // 跳转到 action
+		type: 'POST',
+		data: {
+			"orderId":id,
+			"createId":1
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			alert(data.msg)
+			$('#append').modal('hide')
+			listload(1,clas)
+		
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+//删除
+
+function del(oid,useid) {
+	useId = useid;
+	$('#delcon').html('');
+	$('#del').modal('show');
+	var html = '';
+	html += '<button type="button" class="btn btn-default" onclick="delcon('+oid+')">是</button><button type="button" class="btn btn-default" data-dismiss="modal">否</button>';
+	$('#delcon').append(html);
+}
+
+function delcon(oid) {
+var now = $('#now').val();
+	$.ajax({
+		url: '/product/deletePaymentRecordById', // 跳转到 action
+		type: 'POST',
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data: {
+			'id': oid,
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			alert(data.msg);
+			$('#apend_tbody tr'+oid).remove()
+			$('#del').modal('hide');
+			$('#apend_tbody').empty();
+			
+			append(id,useId)
+		
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+
+}
+function queding(){
+	$('#append').modal('hide')
+}
+//查看
+var orderId = '';
+var productId = "";
+function details(index,productid) {
+	orderId = index
+	productId = productid
+	$('#details').modal('show')
+	$.ajax({
+		url: '/product/getUserProductOrderByOrderId', // 跳转到 action
+		type: 'POST',
+		data: {
+			"orderId":index,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data);
+			
+			var all = data.obj;
+			if(all.periodization==0){
+				period='否'
+			}else if(all.periodization==1){
+				period='是'
+			}
+			if(all.incomeType==1){
+				income='固定'
+			}else if(all.incomeType==2){
+				income='浮动'
+			}else if(all.incomeType==3){
+				income='浮动加固定'
+			}
+			if(all.profiTypet==1){
+				profiTypet='股权型'
+			}else if(all.profiTypet==2){
+				profiTypet='货币型'
+			}else if(all.profiTypet==3){
+				profiTypet='偏股型'
+			}else if(all.profiTypet==4){
+				profiTypet='股债平衡型'
+			}else if(all.profiTypet==5){
+				profiTypet='偏债型'
+			}else if(all.profiTypet==6){
+				profiTypet='债券型'
+			}else if(all.profiTypet==7){
+				profiTypet='保本型型'
+			}else if(all.profiTypet==8){
+				profiTypet='指数型型'
+			}else if(all.profiTypet==9){
+				profiTypet='短债型'
+			}
+			
+			if(all.payingInterest==1){
+				payingInterest = '定期'
+			}else if(all.payingInterest==2){
+				payingInterest = '不定期'
+			}
+			$('#userName').html(all.userName);
+			$('#mobile_one').html(all.mobile_one);
+			$('#create_date').html(all.create_date);
+			$('#employeeName').html(all.employeeName);
+			$('#organizationName').html(all.organizationName);
+			$('#bankName').html(all.bankName);
+			$('#bank_code').html(all.bank_code);
+			$('#productName').html(all.productName);
+			$('#productIdNum').html(all.productIdNum);
+			$('#profiTypet').html(profiTypet);
+			$('#applyMoney').html(all.applyMoney);
+			$('#applyTime').html(all.applyTime);
+			$('#periodization').html(period);
+			$('#payingInterest').html(payingInterest);
+			$('#incomeType').html(income);
+			
+			if(all.fileUrl==''||all.fileUrl==null){
+				var stc = '#';
+				$('#fileUrl').html('无附件');
+				
+			}else{
+				var stc='/project/downloadFile?realPath='+all.fileUrl+'';
+				$('#fileUrl').attr('href',stc);
+				$('#fileUrl').html('下载附件');
+			
+			}
+			
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+//打印
+function print() {
+	window.location.href='/product/getWord?orderId='+orderId;
+}
+function finance() {
+//	alert(dayinid);
+	window.location.href='/product/getExcel?orderId='+orderId+'&produtId='+productId;
+}
+function deta(index) {
+	$('#details').modal('hide')
+}
+
+	
+
+//回款记录
+$("#ChangChart1").change(function() {
+	var clas = $('#ChangChart1 option:selected').attr('value');
+	payment(1, clas);
+
+});
+
+function pagess1() {
+
+	var pagess = $('#pagess1').val();
+	var clas = $('#ChangChart1 option:selected').attr('value');
+	pagess = pagess / clas;
+	paget=pagess % clas;
+//	alert(paget);
+	if(paget==0){
+		var page=parseInt(pagess);
+	}else{
+		var page = parseInt(pagess + 1);
+	}
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page1");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last1");
+
+		newNode.innerHTML = "<a href='javascript:fen(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+function fen(index) {
+	var clas = $('#ChangChart1 option:selected').attr('value');
+	payment(index, clas);
+
+}
+
+
+function fen1(index) {
+
+	var now = $('#now1').val();
+	var pagess = $('#pagess1').val();
+	var clas = $('#ChangChart1 option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			payment(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			payment(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+
+function payme() {
+	$('#payment').modal('hide')
+}
+function payment1() {
+	$('#payment').modal('show')
+}
+function hksut() {
+	$('#addxmxz').html('');
+	$('#sutup').modal('show');
+
+	$.ajax({
+		url: '/project/findProjectAll', // 跳转到 action
+		type: 'POST',
+		data: {
+			"page": 1,
+			'pagesize': 10000,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			var allList = data.obj.list;
+
+			for(var i = 0; i < allList.length; i++) {
+
+				if(allList[i].financingType == 1) {
+					var type = '股票型';
+				} else if(allList[i].financingType == 2) {
+					var type = '货币型';
+				} else if(allList[i].financingType == 3) {
+					var type = '偏股型';
+				} else if(allList[i].financingType == 4) {
+					var type = '股债平衡型';
+				} else if(allList[i].financingType == 5) {
+					var type = '偏债型';
+				} else if(allList[i].financingType == 6) {
+					var type = '债券型';
+				} else if(allList[i].financingType == 7) {
+					var type = '保本型';
+				} else if(allList[i].financingType == 8) {
+					var type = '指数型';
+				} else if(allList[i].financingType == 9) {
+					var type = '短债型';
+				}
+
+				if(allList[i].state == 1) {
+					var state = '立项';
+				} else if(allList[i].state == 2) {
+					var state = '立项审核';
+
+				} else if(allList[i].state == 3) {
+					var state = '立项尽职调查';
+
+				}else if(allList[i].state == 4){
+					var state = '项目评审';
+				}else if(allList[i].state == 5){
+					var state = '项目小组跟进';
+				}else if(allList[i].state == 6){
+					var state = '申请出款';
+				}else if(allList[i].state == 7){
+					var state = '财务放款';
+				}else if(allList[i].state == 8){
+					var state = '清算';
+				}else if(allList[i].state == 9){
+					var state = '结束';
+				}
+
+				var html = '';
+
+				html += '<tr><td class=" col-xs-1">'+allList[i].projectName+'</td><td class=" col-xs-1">'+type+'</td><td class=" col-xs-1">'+allList[i].createTime+'</td><td class=" col-xs-2">'+allList[i].name+'</td><td class=" col-xs-1">'+state+'</td><td class=" col-xs-1">'+allList[i].empName+'</td><td class=" col-xs-1"><a class="btn btn1" href="javascript:xmxz1('+allList[i].id+')" >选择</a></td></tr>';
+
+				$('#addxmxz').append(html);
+
+			}
+
+		},
+		error: function() {
+
+		}
+	});
+
+}
+
+function xmxz1(index){
+	$('#sutup').modal('hide');
+	
+	$.ajax({
+		url: '/project/findProjectByProjectNum', // 跳转到 action
+		type: 'POST',
+		data: {
+			"id":index,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			if(data.obj.financingtype == 1) {
+					var type = '股票型';
+				} else if(data.obj.financingtype == 2) {
+					var type = '货币型';
+				} else if(data.obj.financingtype == 3) {
+					var type = '偏股型';
+				} else if(data.obj.financingtype == 4) {
+					var type = '股债平衡型';
+				} else if(data.obj.financingtype == 5) {
+					var type = '偏债型';
+				} else if(data.obj.financingtype == 6) {
+					var type = '债券型';
+				} else if(data.obj.financingtype == 7) {
+					var type = '保本型';
+				} else if(data.obj.financingtype == 8) {
+					var type = '指数型';
+				} else if(data.obj.financingtype == 9) {
+					var type = '短债型';
+				}
+
+			$('#hktk8').html(data.obj.projectname);
+			$('#hktk9').html(data.obj.projectidnum);
+			$('#projectId1').val(data.obj.id);
+			$('#hktk10').html(type);
+			chaxun1(data.obj.id);
+
+
+		},
+		error: function() {
+
+		}
+	});
+	
+	
+}
+function chaxun1(oid) {
+	$.ajax({
+		url: '/project/getUserInfoAndProjectByBrojectId', // 跳转到 action
+		type: 'POST',
+		data: {
+			"projectId": oid,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+	
+			$('#hktk1').html(data.obj.userName);
+			$('#hktk2').html(data.obj.mobile);
+			$('#hktk3').html(data.obj.createTime);
+			$('#hktk4').html(data.obj.name);
+			$('#hktk5').html(data.obj.department);
+			$('#hktk6').html(data.obj.bankName);
+			$('#hktk7').html(data.obj.bankCode);
+			
+			$('#bankId1').val(data.obj.bankId);
+			$('#number1').val(data.obj.bankCode);
+			$('#projectId1').val(data.obj.id);
+				},
+		error: function() {
+
+		}
+	});
+}
+
+//查看回款记录
+function pmt_deta(index,recordId) {
+
+	$('#payment_deta').modal('show')
+	$.ajax({
+		url: '/project/findProjectLoanRecordInfo', // 跳转到 action
+		type: 'POST',
+		data: {
+			"projectId":index,
+			"projectLoanRecordId":recordId
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data);
+			
+			var all = data.obj;
+			if(all.financingType==1){
+			var	financingType='股权型'
+			}else if(all.financingType==2){
+			var	financingType='债券型'
+			}else if(all.financingType==3){
+			var	financingType='收益权型'
+			}else if(all.financingType==4){
+			var	financingType='其他类型'
+			}
+			if(all.payType==1){
+			var	payType='银行代付'
+			}else if(all.payType==2){
+			var	payType='企业打款'
+			}
+			if(all.paymentType==1){
+			var	paymentType='利息'
+			}else if(all.paymentType==2){
+			var	paymentType='本金'
+			}else if(all.paymentType==2){
+			var	paymentType='本息'
+			}
+			$('#paymt1').html(all.userName);
+			$('#paymt2').html(all.mobile);
+			$('#paymt3').html(all.createTime);
+			$('#paymt4').html(all.name);
+			$('#paymt5').html(all.department);
+			$('#paymt6').html(all.bankName);
+			$('#paymt7').html(all.bankCode);
+			$('#paymt8').html(all.projectName);
+			$('#paymt9').html(all.ProjectIdNum);
+			$('#paymt10').html(financingType);
+			$('#paymt11').html(all.money);
+			$('#paymt12').html(all.createTile);
+			$('#paymt13').html(payType);
+			$('#paymt14').html(paymentType);
+			if(all.url==''||all.url==null){
+				var stc = '#';
+				$('#paymt15').html('无附件');
+			}else{
+				var stc='/project/downloadFile?realPath='+all.url+'';
+				$('#paymt15').attr('href',stc);
+				$('#paymt15').html('下载附件');
+			}
+		
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+function pmt() {
+	$('#payment_deta').modal('hide')
+}
+function dzqr(index) {
+	$('#delc').html('');
+	$('#queren').modal('show');
+	var html = '';
+	html += '<button type="button" class="btn" onclick="qued(' + index + ')">是</button><button type="button" class="btn btn" data-dismiss="modal">否</button>';
+	$('#delc').append(html);
+	
+	
+}
+
+function qued(index){
+	var clas = $('#ChangChart option:selected').attr('value');
+	$.ajax({
+		url: '/project/updatePayment', // 跳转到 action
+		type: 'POST',
+		data: {
+			"projectLoanRecordId": index,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			$('#queren').modal('hide');
+			alert(data.msg);
+			payment(1,clas);
+		},
+		error: function() {
+
+		}
+	});
+	
+}
+
+
+
+
+

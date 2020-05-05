@@ -1,0 +1,426 @@
+jQuery(document).ready(function() {
+	//alert(2);
+});
+$("#ChangChart").change(function() {
+	console.log('改变');
+	var clas = $('#ChangChart option:selected').attr('value');
+
+	listload(1, clas);
+
+});
+function pagess() {
+	
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last");
+		
+		newNode.innerHTML = "<a href='javascript:fenye(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+function fenye(index) {
+	var clas = $('#ChangChart option:selected').attr('value');
+	listload(index, clas);
+}
+
+function fenye1(index) {
+	var now = $('#now').val();
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			listload(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			listload(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+//用户申购
+var id = '';
+console.log(id)
+function listload(page, pagesize) {
+	$('#page').html('');
+	$('#mytbody').html('');
+	$('#now').val(page);
+	$.ajax({
+		url: '/product/getAllUserProductOrder', // 跳转到 action
+		type: 'POST',
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data:{
+			'page':page,
+			'pagesize':pagesize,
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			
+			var allList = data.obj.list;
+			for(var i = 0; i < allList.length; i++) {
+				var html = '';
+				html += '<tr><td>'+allList[i].name+'</td><td>'+allList[i].mobile_one+'</td><td>'+allList[i].createTime+'</td><td>'+allList[i].updateTime+'</td><td>'+allList[i].productName+'</td><td>'+allList[i].organization_name+'</td><td>'+allList[i].employee_name+'</td><td>'+allList[i].endTime+'</td><td>'+allList[i].state+'</td><td>'+allList[i].bank_deposit+'</td><td>'+allList[i].bank_code+'</td><td><button type="button" class="btn btn-primary btn-sm" onclick="append('+allList[i].id+')">付款</button><button type="button" class="btn btn-default btn-sm">查看</button></td></tr>';
+				$('#mytbody').append(html);
+			}
+			
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+$('#pagess').val(data.total);
+			pagess();
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+//	$('#t-payment').removeClass("in")
+}
+
+//添加申购记录
+function purchase() {
+	$('#purchase').modal('show')
+}
+function hidepurchase() {
+	$('#purchase').modal('hide')
+}
+function addpurchase(){
+	console.log(111)
+	var applymoney = $('#applymoney').val();
+	var applytime = $('#applytime').val();
+	var periodization = $('#periodization').val();
+	var payinginterest = $('#payinginterest').val();
+	var incometype = $('#incometype').val();
+	if(periodization=='否'){
+		var periodi = 0
+	}else if(periodization=='是'){
+		var periodi = 1
+	}
+	$.ajax({
+			url: '/product/insertProductOrder', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'productId': 1234,
+				'applyMoney': applymoney,
+				'applyTime': applytime,
+				'periodization': periodi,
+				'payingInterest': payinginterest,
+				'incomeType': incometype,
+				'userId': 123,
+				'creareID': 123,
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+				console.log(data)
+				if(applymoney==''){
+					alert('请输入申购金额')
+				}else if(applytime==''){
+					alert('请输入申购期限')
+				}else if(periodization==''){
+					alert('请输入是否分期')
+				}else if(payinginterest==''){
+					alert('请输入付息方式')
+				}else if(incometype==''){
+					alert('请输入产品收益类型')
+				}else{
+					alert(data.msg);
+					$('#myModal').modal('hide');
+					listload(1, clas);
+				}
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+//用户设置
+function user(page,pagesize) {
+	$('#page').html('');
+	$('#user_tbody').html('');
+	$('#now').val(page);
+	$.ajax({
+			url: '/userInfo/getAllUser', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'page':page,
+				'pagesize':pagesize,
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			console.log(data)
+			var allList = data.obj.list;
+			for(var i = 0; i < allList.length; i++) {
+				$('#user_settings').modal('show')
+			
+				var html = '';
+				html += '<tr><td class=" col-xs-1">'+allList[i].userNum+'</td><td class=" col-xs-1">'+allList[i].name+'</td><td class=" col-xs-1">'+allList[i].sex+'</td><td class=" col-xs-2">'+allList[i].mobile_one+'</td><td class=" col-xs-1">'+allList[i].user_type+'</td><td class=" col-xs-1">'+allList[i].employeeName+'</td><td class=" col-xs-2">'+allList[i].create_date+'</td><td class=" col-xs-2"><a class="btn btn1" href="#" role="button" data-toggle="modal">查看</a></td><td class=" col-xs-1"><a class="btn btn1" href="javascript:xmxz('+allList[i].id+')" >选择</a></td></tr>';
+				$('#user_tbody').append(html);
+			}
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+$('#pagess').val(data.total);
+			pagess();
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+function xmxz(index){
+	console.log(1111)
+	$('#user_settings').modal('hide');
+	$.ajax({
+		url: '/userInfo/findUserBuUserID', // 跳转到 action
+		type: 'POST',
+		data: {
+			"userId":index,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			$('#user_name').html(data.obj.name);
+			$('#user_mobile').html(data.obj.mobileOne);
+			$('#user_time').html(data.obj.createDate);
+			$('#user_referee').html(data.obj.refereeId);
+			$('#user_department').html(data.obj.refereeDepartment);
+			$('#user_deposit').html(data.obj.bankDeposit);
+			$('#user_code').html(data.obj.bankCode);
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+	
+	
+}
+//购买设置
+function buy(page,pagesize) {
+	$('#page').html('');
+	$('#buy_tbody').html('');
+	$('#now').val(page);
+	$.ajax({
+			url: '/product/findProductList', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'page':page,
+				'pagesize':pagesize,
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			console.log(data)
+			var allList = data.obj.list;
+			for(var i = 0; i < allList.length; i++) {
+				$('#buy_settings').modal('show')
+				var html = '';
+				html += '<tr><td class=" col-xs-1">'+allList[i].name+'</td><td class=" col-xs-1">'+allList[i].type+'</td><td class=" col-xs-1">'+allList[i].grantTime+'</td><td class=" col-xs-2">'+allList[i].collectionSchedule+'</td><td class=" col-xs-1">'+allList[i].employeeName+'</td><td class=" col-xs-1"><a class="btn btn1" href="javascript:choice('+allList[i].id+')" >选择</a></td></tr>';
+				$('#buy_tbody').append(html);
+			}
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+$('#pagess').val(data.total);
+			pagess();
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+function choice(index){
+	console.log(1111)
+	$('#buy_settings').modal('hide');
+	$.ajax({
+		url: '/product/findProductByID', // 跳转到 action
+		type: 'POST',
+		data: {
+			"id":index,
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			$('#projectname').html(data.obj[0].projectName);
+			$('#productcode').html(data.obj[0].productCode);
+			$('#type').html(data.obj[0].type);
+		
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+//付款
+var id = ''
+function append(orderId) {
+	id = orderId
+	$('#buy_tbody').html('');
+	$.ajax({
+			url: '/product/getPaymentRecordList', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'orderId':orderId,
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			$('#append').modal('show')	
+			console.log(data)
+			var allList = data.obj;
+			for(var i = 0; i < allList.length; i++) {
+				var html = '';
+				
+				html += '<tr><td class="col-sm-2">'+allList[i].money+'</td><td class="col-sm-2">'+allList[i].createTime+'</td><td class="col-sm-2">'+allList[i].createName+'</td><td class="col-sm-2">'+allList[i].endTime+'</td><td class="col-sm-1"  style="padding: 0 2px;">'+allList[i].name+'</td><td class="col-sm-3"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick=confirm("'+allList[i].id+'","'+allList[i].orderId+'")>确认到款</a><a id = "btn_cle"class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">删除</a></td></tr>';
+				$('#apend_tbody').append(html);
+				
+			}
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+//确认到款
+function confirm(recordId,orderId) {
+	$('#buy_tbody').html('');
+	$.ajax({
+			url: '/product/updatePaymentRecord', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'recordId':recordId,
+				'orderId':orderId,
+				'state':2,
+				'employeeId':0
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			alert(data.msg);
+			$('#btn_cle').css("display","block")
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}
+//删除
+/*function confirm(recordId,orderId) {
+	$('#buy_tbody').html('');
+	$.ajax({
+			url: '/product/updatePaymentRecord', // 跳转到 action
+			type: 'POST',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: {
+				'recordId':recordId,
+				'orderId':orderId,
+				'state':2,
+				'employeeId':213
+			},
+			dataType: "json", //返回结果格式
+			success: function(data) {
+			console.log(data)
+			$('#apend_tbody #conf').html('已确认到款')
+			
+			},
+			error: function() {
+				console.log('请求失败')
+			}
+		});
+}*/
+//添加付款记录
+function record(){
+	console.log(1111)
+	$.ajax({
+		url: '/product/insertPaymentRecord', // 跳转到 action
+		type: 'POST',
+		data: {
+			"userId":$("#pay_money").val(),
+			"money":$("#pay_user").val(),
+			"orderId":1,
+			"createId":0
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			alert(data.msg)
+		
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+//回款记录
+function payment(page, pagesize) {
+	$('#page').html('');
+	$('#mytbody').html('');
+	$('#now').val(page);
+	$.ajax({
+		url: '/project/findProjectLoanRecord', // 跳转到 action
+		type: 'POST',
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data:{
+			'page':page,
+			'pagesize':pagesize,
+			'type':2
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			console.log(data.obj)
+			var allList = data.obj;
+			for(var i = 0; i < allList.length; i++) {
+				var html = '';
+				html += '<tr><td>'+allList[i].financing+'</td><td>'+allList[i].mobile_one+'</td><td>'+allList[i].userName+'</td><td>'+allList[i].dockingcontact+'</td><td>'+allList[i].manageName+'</td><td>'+allList[i].paymentType+'</td><td>'+allList[i].money+'</td><td>'+allList[i].bankName+'</td><td>'+allList[i].accountNumber+'</td><td>'+allList[i].state+'</td><td><button type="button" class="btn btn-default btn-sm">查看</td></tr>';
+				$('#mytbody').append(html);
+			}
+			
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+$('#pagess').val(data.total);
+			pagess();
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+//	$('#t-purchase').removeClass('in')
+//	$('#t-purchase').removeClass('active')
+}
+
+
+
+
+
+
+
+

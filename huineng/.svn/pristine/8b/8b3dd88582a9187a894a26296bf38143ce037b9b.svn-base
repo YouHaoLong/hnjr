@@ -1,0 +1,711 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String product_host = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>入账</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="<%=product_host%>static/view/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<%=product_host%>static/view/css/dashboard.css" rel="stylesheet">
+		<link href="<%=product_host%>static/view/css/index.css" rel="stylesheet">
+		<script src="<%=product_host%>static/view/js/jquery.min.js"></script>
+		<script src="<%=product_host%>static/view/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<%=product_host%>static/view/js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+		.row_tit,.row_tit1{
+			font-size:16px ;
+			margin-bottom: 15px;
+		}
+		.row_tit1{
+			color: #0000FF;
+		}
+		.pad{
+			padding: 0;
+		}
+		.margin{
+			margin-bottom: 15px;
+		}
+		.btn1{
+			background: #eee;
+			padding: 3px 1px;
+			color: #000;
+		}
+		.tab_td,.tab_td tr{
+			margin-top: 15px;
+		}
+		
+		.tab_td td{
+			padding: 0;
+			margin-right:5px ;
+			text-align: center;
+		}
+		#record .row,#check .row{
+			margin-bottom: 15px;
+		}
+		.btn {
+		    border: none;
+		    border-radius: 0;
+		}
+		
+		.btn-default {
+		    background-color: #ccc;
+		}
+		.mytab_td .col-sm-2{
+			padding: 0px;
+		}
+	</style>
+
+	<body>
+		<jsp:include page="/static/view/top.jsp" flush="true"></jsp:include>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					<jsp:include page="/static/view/left.jsp" flush="true"></jsp:include>
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<div class="panel-default">
+						<ul class="nav nav-tabs chanpintab" id="nav-tabs">
+							<li class="active">
+								<a href="#t-purchase" data-toggle="tab"onclick="listload(1, clas);">用户申购</a>
+							</li>
+							<li>
+								<a href="#t-payment" data-toggle="tab" onclick="payment(1,clas)">项目回款</a>
+							</li>
+							
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="t-purchase">
+								<div class="panel panel-default" style="margin-top: 20px;">
+						<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button" onclick="purchase()">添加申购记录</a>
+												</div>
+												
+												
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-xs-2">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+												
+											</div>
+
+										</form>
+
+									</div>
+						<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th>用户</th>
+													<th>手机</th>
+													<th>申购日期</th>
+													<th>入款日期</th>
+													<th>所属产品</th>
+													<th>所属部门</th>
+													<th>理财经理</th>
+													<th>到期日期</th>
+													<th>状态</th>
+													<th>付款银行</th>
+													<th>付款账号</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody id="mytbody">
+												<tr>
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>2017-8-13</td>
+													<td>汇能一号</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>待确认</td>
+													<td>建设银行</td>
+													<td>6220*******1234</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm" onclick="append()">付款</button>
+													</td>
+												</tr>
+												
+											</tbody>
+										</table>
+										<nav aria-label="Page navigation">
+										<div class="col-md-2">
+											<div class="input-group" style="margin: 20px 0;">
+												<span class="input-group-addon">显示条数</span>
+												<select class="form-control" id="ChangChart">
+													<option value="10">10</option>
+													<option value="20">20</option>
+												</select>
+											</div>
+										</div>
+										<ul class="pagination" id="page">
+											<input type="hidden" id="pagess" value="" />
+											<li>
+												<a href="javascript:fenye()" aria-label="Previous">
+													<span aria-hidden="true">上一页</span>
+												</a>
+											</li>
+		
+											<li id="last">
+												<a href="#" aria-label="Next">
+													<span aria-hidden="true">下一页</span>
+												</a>
+											</li>
+										</ul>
+										</nav>
+									</div>
+					</div>
+								<!--添加申购记录弹窗-->
+								<div class="modal fade" id="purchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">添加申购记录</h4>
+										</div>
+										<div class="modal-body">
+											<form class="form-horizontal">
+												<div class="row_tit">
+													<b>用户信息</b>
+												</div>
+												<div class="row">
+													<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b>用户：</b>
+														<span id="user_name"></span>
+														<a class="btn btn-default" href="#" role="button" data-toggle="modal" onclick="user(1,clas)" style="padding: 0 12px;">设置</a>
+													</div>
+													<div class="col-xs-6 col-sm-4"><b>手机号：</b><span id="user_mobile"></span></div>
+													<div class="col-xs-6 col-sm-4"><b>创建日期：</b><span id="user_time"></span></div>
+													
+												</div>
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4"><b>推荐人：</b><span id="user_referee"></span></div>
+													<div class="col-xs-6 col-sm-4"><b>部门：</b><span id="user_department"></span></div>
+													
+												</div>
+												
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4"><b>开户行：</b><span id="user_deposit">行</span></div>
+													<div class="col-xs-6 col-sm-6"><b>银行卡号：</b><span id="user_code"></span></div>
+													
+												</div>
+												</div>
+												<hr />
+												<div style="margin-bottom: 15px;">
+													<b class="row_tit1">购买信息</b>
+												</div>
+												<div class="row">
+													<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b>购买产品：</b><span id="projectname"></span>
+														<a class="btn btn-default" href="#" role="button" data-toggle="modal" style="padding: 0 5px;" onclick="buy(1,clas)">设置</a>													
+													</div>
+													<div class="col-xs-6 col-sm-4"><b>产品ID：</b><span id="productcode"></span></div>
+													<div class="col-xs-6 col-sm-4"><b>产品类型：</b><span id="type"></span></div>
+													
+												</div>
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad" >申购金额：</b>
+														<input type="text" class="col-xs-8 col-sm-6" id="applymoney">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad">申购期限：</b>
+														<input type="text" class="col-xs-8 col-sm-6" id="applytime">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad">是否分期：</b>
+														<input type="text" class="col-xs-8 col-sm-6" id="periodization">															
+													</div>
+												</div>
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad" >付息方式：</b>
+														<input type="text" class="col-xs-8 col-sm-6" id="payinginterest">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad" style="font-size: 12px;">产品收益类型：</b>
+														<input type="text" class="col-xs-8 col-sm-6" id="incometype">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad">附件：</b>
+														<a href="#" class="col-xs-8 col-sm-6 pad">上传附件</a>															
+													</div>
+												</div>
+												
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary" onclick="addpurchase()">确认</button>
+											<button type="button" class="btn btn-primary" onclick="hidepurchase()">取消</button>
+										</div>
+									</div>
+								</div>
+							</div>
+								<!--用户设置-->
+								<div class="modal fade" id="user_settings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">用户选择</h4>
+												</div>
+												<div class="modal-body">
+													<form class="form-horizontal">
+														<div class="row">
+															<b class="col-xs-2" >用户信息</b>
+															<span class="col-xs-4"><span class="col-xs-3" style="padding: 0 5px 0 0;">姓名</span> <input  class="col-xs-6"/></span>
+															<span class="col-xs-4"><span class="col-xs-4"style="padding: 0 5px 0 0;">手机号</span> <input  class="col-xs-6"/></span>
+															
+														 <span class=" col-xs-2"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">查询</a></span>	
+														</div>
+														<table class="tab_td">
+															<thead>
+																<tr>
+																<td class=" col-xs-1">编号</td>
+																<td class=" col-xs-1">称呼</td>
+																<td class=" col-xs-1">性别</td>
+																<td class=" col-xs-2">联系电话</td>
+																<td class=" col-xs-1">类别</td>
+																<td class=" col-xs-1">业务员</td>
+																<td class=" col-xs-2">创建日期</td>
+																<td class=" col-xs-2">投资记录</td>
+																<td class=" col-xs-1">操作</td>
+															</tr>
+															</tdead>
+															<tbody id="user_tbody">
+															</tbody>
+														</table>
+														<nav aria-label="Page navigation">
+														<div class="col-md-2">
+															<div class="input-group" style="margin: 20px 0;">
+																<span class="input-group-addon">显示条数</span>
+																<select class="form-control" id="ChangChart">
+																	<option value="10">10</option>
+																	<option value="20">20</option>
+																</select>
+															</div>
+														</div>
+														<ul class="pagination" id="page">
+															<input type="hidden" id="pagess" value="" />
+															<li>
+																<a href="javascript:fenye()" aria-label="Previous">
+																	<span aria-hidden="true">上一页</span>
+																</a>
+															</li>
+						
+															<li id="last">
+																<a href="#" aria-label="Next">
+																	<span aria-hidden="true">下一页</span>
+																</a>
+															</li>
+														</ul>
+														</nav>
+													</form>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary" >确认</button>
+													<button type="button" class="btn btn-primary" >取消</button>
+												</div>
+											</div>
+										</div>
+									</div>		
+								<!--购买设置-->
+								<div class="modal fade" id="buy_settings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">申购产品查询信息</h4>
+												</div>
+												<div class="modal-body">
+													<form class="form-horizontal">
+														<table class="tab_td">
+														<tdead>
+															<tr>
+																<td class=" col-xs-1">产品名称</td>
+																<td class=" col-xs-1">产品类型</td>
+																<td class=" col-xs-1">发行日期</td>
+																<td class=" col-xs-2">状态</td>
+																<td class=" col-xs-1">产品经理</td>
+																<td class=" col-xs-1">操作</td>
+															</tr>
+														</thead>	
+														<tbody id="buy_tbody">
+															
+														</tbody>	
+															
+														</table>
+														<nav aria-label="Page navigation">
+														<div class="col-md-2">
+															<div class="input-group" style="margin: 20px 0;">
+																<span class="input-group-addon">显示条数</span>
+																<select class="form-control" id="ChangChart">
+																	<option value="10">10</option>
+																	<option value="20">20</option>
+																</select>
+															</div>
+														</div>
+														<ul class="pagination" id="page">
+															<input type="hidden" id="pagess" value="" />
+															<li>
+																<a href="javascript:fenye()" aria-label="Previous">
+																	<span aria-hidden="true">上一页</span>
+																</a>
+															</li>
+						
+															<li id="last">
+																<a href="#" aria-label="Next">
+																	<span aria-hidden="true">下一页</span>
+																</a>
+															</li>
+														</ul>
+														</nav>
+													</form>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary" >关闭</button>
+												</div>
+											</div>
+										</div>
+									</div>		
+								
+									
+								<!--添加付款记录-->
+								<div class="modal fade" id="append" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">付款记录</h4>
+										</div>
+										<div class="modal-body">
+											<form class="form-horizontal">
+												<table class="tab_td">
+														<thead>
+															<tr>
+																<th class="col-sm-2">付款金额</th>
+																<th class="col-sm-2">添加时间</th>
+																<th class="col-sm-2">添加人</th>
+																<th class="col-sm-2">确认时间</th>
+																<th class="col-sm-1" style="padding: 0 2px;">确认人</th>
+																<th class="col-sm-3">操作</th>
+															</tr>
+															
+														</thead>	
+														<tbody id="apend_tbody">
+															
+														</tbody>
+												</table>	
+												<table class="tab_td mytab_td">
+													<tr>
+														<td class="col-sm-2">
+															<input class="col-sm-10 col-xs-10" type="text" name="" id="pay_money" placeholder="手动输入"/>
+														</td>
+														<td class="col-sm-2">
+															<input class="col-sm-10 col-xs-10"  type="text" name="" id="" placeholder="当前时间"/></td>
+														<td class="col-sm-2">
+															<input class="col-sm-10 col-xs-10"  type="text" name="" id="pay_user" placeholder="当前用户"/>
+														</td>
+														<td class="col-sm-2"></td>
+														
+														<td class="col-sm-2"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="record()">添加付款记录</a></td>
+													</tr>
+												</table>			
+														
+												</div>
+											</form>
+										<div class="modal-footer">
+											<button type="button" class="btn ">确定</button>
+											<button type="button" class="btn ">付款完成</button>
+										</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						
+							<div class="tab-pane fade " id="t-payment">
+								<div class="panel panel-default" style="margin-top: 20px;">
+						<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button" onclick="purchase()">添加回款记录</a>
+												</div>
+												
+												
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-xs-2">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+												
+											</div>
+
+										</form>
+
+									</div>
+						<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+
+													<th>单位名称</th>
+													<th>所属项目</th>
+													<th>对接人</th>
+													<th>联系方式</th>
+													<th>项目经理</th>
+													<th>回款类型</th>
+													<th>回款金额</th>
+													<th>到期日期</th>
+													<th>银行</th>
+													<th>账号</th>
+													<th>状态</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>2017-8-13</td>
+													<td>汇能一号</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>待确认</td>
+													<td>建设银行</td>
+													<td>6220*******1234</td>
+													<td>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+							</div>
+								<!--添加申购记录弹窗-->
+								<div class="modal fade" id="purchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">添加申购记录</h4>
+										</div>
+										<div class="modal-body">
+											<form class="form-horizontal">
+												<div class="row_tit">
+													<b>用户信息</b>
+												</div>
+												<div class="row">
+													<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b>用户：</b>
+														<span>黄志良</span>
+														<a class="btn btn-default" href="#" role="button" data-toggle="modal" onclick="sut()"style="padding: 0 12px;">设置</a>
+													</div>
+													<div class="col-xs-6 col-sm-4"><b>手机号：</b><span>134****3254</span></div>
+													<div class="col-xs-6 col-sm-4"><b>创建日期：</b><span>2017-08-24</span></div>
+													
+												</div>
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4"><b>推荐人：</b><span>ZOE</span></div>
+													<div class="col-xs-6 col-sm-4"><b>部门：</b><span>业务一部</span></div>
+													
+												</div>
+												
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4"><b>开户行：</b><span>建设银行</span></div>
+													<div class="col-xs-6 col-sm-6"><b>银行卡号：</b><span>6220***********2455</span></div>
+													
+												</div>
+												</div>
+												<hr />
+												<div style="margin-bottom: 15px;">
+													<b class="row_tit1">购买信息</b>
+												</div>
+												<div class="row">
+													<div class="row margin">
+													<div class="col-xs-6 col-sm-4"><b>购买产品：</b><span>汇能一号</span></div>
+													<div class="col-xs-6 col-sm-4"><b>产品ID：</b><span>13432545</span></div>
+													<div class="col-xs-6 col-sm-4"><b>产品类型：</b><span>债券型</span></div>
+													
+												</div>
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad" >申购金额：</b>
+														<input type="text" class="col-xs-8 col-sm-6">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad">申购期限：</b>
+														<input type="text" class="col-xs-8 col-sm-6">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad">是否分期：</b>
+														<select>
+															<option value="1">是</option>
+															<option value="0">否</option>
+														</select>															
+													</div>
+												</div>
+												<div class="row margin">
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad" >付息方式：</b>
+														<input type="text" class="col-xs-8 col-sm-6">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad" style="font-size: 12px;">产品收益类型：</b>
+														<input type="text" class="col-xs-8 col-sm-6">															
+													</div>
+													<div class="col-xs-6 col-sm-4">
+														<b class="col-xs-4 col-sm-6 pad">附件：</b>
+														<a href="#" class="col-xs-8 col-sm-6 pad">上传附件</a>															
+													</div>
+												</div>
+												
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn ">确认</button>
+											<button type="button" class="btn ">取消</button>
+										</div>
+									</div>
+								</div>
+							</div>
+								<!--添加付款记录-->
+								<div class="modal fade" id="append" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">付款记录</h4>
+										</div>
+										<div class="modal-body">
+											<form class="form-horizontal">
+												<div class="row">
+													<span class="col-xs-4">付款金额：<span>50,000</span></span>
+													<span class="col-xs-4"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">确认到款</a></span>
+													<span class="col-xs-4"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">删除</a></span>
+												</div>
+												<div class="row" style="margin-top: 30px;">
+												 	<span class="col-xs-4"><input/></span>	
+													<span class="col-xs-4"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">添加付款记录</a></span>
+													
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn ">确定</button>
+											<button type="button" class="btn ">付款完成</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+	</body>
+	<script type="text/javascript" src="../js/enterlistr.js" ></script>
+	<script>
+	
+		
+		var clas = $('#ChangChart option:selected').attr('value');
+		listload(1, clas);
+	</script>
+
+</html>

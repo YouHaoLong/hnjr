@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>首页</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/dashboard.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li class="active">
+							<a href="index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li>
+							<a href="product/productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li>
+							<a href="project/projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li>
+							<a href="customer/customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="assets/enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="assets/outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li>
+								<a href="totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-user"></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>菜单管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a>
+									</li>
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+					<div class="row">
+						<div class="col-xs-6">
+							<h3 class="sub-header">进行中的项目</h3>
+							<div class="table-responsive" >
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>项目名称</th>
+											<th>开始时间</th>
+											<th>结束时间</th>
+											<th>项目状态</th>
+											<th>项目目标</th>
+											<th>项目进度</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>前海恒泰金融</td>
+											<td>2017-8-21</td>
+											<td>2017-8-30</td>
+											<td>待审核</td>
+											<td>1000000</td>
+											<td>40%</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<h3 class="sub-header">进行中的产品</h3>
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>项目名称</th>
+											<th>开始时间</th>
+											<th>结束时间</th>
+											<th>项目状态</th>
+											<th>项目目标</th>
+											<th>项目进度</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>前海恒泰金融</td>
+											<td>2017-8-21</td>
+											<td>2017-8-30</td>
+											<td>待审核</td>
+											<td>1000000</td>
+											<td>40%</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<h3 class="sub-header">我的代办</h3>
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>日期</th>
+											<th>名称</th>
+											<th>事物</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>2018-8-21</td>
+											<td>汇能项目审批</td>
+											<td>审批</td>
+											
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>2018-8-21</td>
+											<td>汇能项目用户还款</td>
+											<td>审批</td>
+											
+										</tr>
+									
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

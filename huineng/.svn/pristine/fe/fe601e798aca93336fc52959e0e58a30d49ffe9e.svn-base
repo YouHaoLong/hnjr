@@ -1,0 +1,7 @@
+jQuery(document).ready(function(){
+//alert(2);
+});
+
+function listload(){
+		alert(11);
+	}	

@@ -1,0 +1,289 @@
+var id=''
+
+function loadxx(id){
+	id=id;
+	$.ajax({
+		url: '/project/findProjectByProjectNum', // 跳转到 action
+		type: 'POST',
+		data: {
+			"id": id,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			$('#xxxi1').html(data.obj.projectnum);
+			$('#xxxi2').html(data.obj.projectidnum);
+			$('#xxxi3').html(data.obj.projectname);
+			$('#xxxi4').html(data.obj.createtime);
+			$('#xxxi5').html(data.obj.statetime);
+			$('#xxxi6').html(data.obj.financing);
+			$('#xxxi7').html(data.obj.financingscale);
+			$('#xxxi8').html(data.obj.term);
+			$('#xxxi9').html(data.obj.financingtype);
+			$('#xxxi10').html(data.obj.name);
+			$('#xxxi11').html(data.obj.contactinformation);
+			$('#xxxi12').html(data.obj.userName);
+			$('#xxxi13').html(data.obj.dockingcontact);
+		     if(data.obj.state==1){
+		     	$('#xxzt1').html('立项');
+		     }else if(data.obj.state==2){
+		     	$('#xxzt1').html('立项审核');
+		     }else if(data.obj.state==3){
+		     	$('#xxzt1').html('立项尽职调查');
+		     }else if(data.obj.state==4){
+		     	$('#xxzt1').html('项目评审');
+		     }else if(data.obj.state==5){
+		     	$('#xxzt1').html('项目小组跟进');
+		     }else if(data.obj.state==6){
+		     	$('#xxzt1').html('申请出款');
+		     }else if(data.obj.state==7){
+		     	$('#xxzt1').html('财务放款');
+		     }else if(data.obj.state==8){
+		     	$('#xxzt1').html('清算');
+		     }else if(data.obj.state==9){
+		     	$('#xxzt1').html('清算');
+		     }
+
+			
+		},
+		error: function() {
+
+		}
+	});
+	
+	$.ajax({
+		url: '/projectInfo/findProjectInfoByProjectId', // 跳转到 action
+		type: 'POST',
+		data: {
+			"projectId": id,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			
+			$('#xxzt2').html(data.obj.createtime);
+			if(data.obj.contracttype==1){
+				$('#xxzt3').html('有限合同');
+			}
+			
+			$('#xxzt4').html();
+			$('#xxzt5').html(data.obj.loanrate);
+			$('#xxzt6').html(data.obj.managementrate);
+			$('#xxzt7').html(data.obj.financerate);
+			if(data.obj.profitypet==1){
+				
+				$('#xxzt8').html('固定');
+			}else if(data.obj.profitypet==2){
+				$('#xxzt8').html('浮动');
+			}else if(data.obj.profitypet==3){
+				$('#xxzt8').html('浮动加固定');
+			}
+			
+			$('#xxzt9').html(data.obj.totalmoney);
+			$('#xxzt10').html(data.obj.releasetime);
+			$('#xxzt11').html(data.obj.paymoney);
+			$('#xxzt12').html(data.obj.determinetime);
+			if(data.obj.paymentstate==1){
+				$('#xxzt13').html('待回款');
+			}else if(data.obj.paymentstate==2){
+				$('#xxzt13').html('已回款');
+			}else if(data.obj.paymentstate==3){
+				$('#xxzt13').html('回款中');
+			}
+			
+			$('#xxzt14').html(data.obj.planuploadtime);
+			$('#xxzt15').html(data.obj.estimatetime);
+			$('#xxzt16').html(data.obj.answercollectmoney);
+			$('#xxzt17').html(data.obj.alreadycollectmoney);
+			$('#xxzt18').html(data.obj.astreceivablestime);
+		
+
+			
+		},
+		error: function() {
+
+		}
+	});
+}
+
+
+function project() {
+			$('#project').modal('show')
+		}
+		function examine() {
+			$('#examine').modal('show')
+		}
+		function raise() {
+			$('#raise').modal('show')
+		}
+		function operate() {
+			$('#operate').modal('show')
+		}
+		function list() {
+
+			$('#buylist').modal('show');
+			
+		$.ajax({
+		url: '/project/getUserInfoAndProjectByBrojectId', // 跳转到 action
+		type: 'POST',
+		data: {
+			"projectId": id,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			$('#tcxx1').html(data.obj.userName);
+			$('#tcxx2').html(data.obj.mobile);
+			$('#tcxx3').html(data.obj.createTime);
+			$('#tcxx4').html(data.obj.name);
+			$('#tcxx5').html(data.obj.department);
+			$('#tcxx6').html(data.obj.bankName);
+			$('#tcxx7').html(data.obj.bankCode);
+			$('#tcxx8').html(data.obj.projectName);
+			$('#tcxx9').html(data.obj.productId);
+			$('#tcxx10').html(data.obj.financingType);
+			$('#bankId').val(data.obj.bankId);
+			$('#number').val(data.obj.bankCode);
+			
+		},
+		error: function() {
+
+		}
+	});
+			
+}
+		function payment() {
+
+			$('#payment').modal('show')
+		}
+		function member() {
+
+			$('#member').modal('show')
+		}
+		
+		
+		
+		
+		//放款记录
+		
+		$("#ChangChart").change(function() {
+	console.log('改变');
+	var clas = $('#ChangChart option:selected').attr('value');
+
+	listload(1, clas);
+
+});
+
+function listload(page, rows, id,type) {
+	$('#page').html('');
+	$('#mytab').html('');
+	$('#now').val(page);
+	$.ajax({
+		url: '/project/findProjectLoanRecord', // 跳转到 action
+		type: 'POST',
+		data: {
+			"page": page,
+			'pagesize': rows,
+			'projectId':id,
+			'type':type
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			var allList = data.obj;
+
+			for(var i = 0; i < allList.length; i++) {
+
+				if(allList[i].payType==1){
+					var payType='银行代付'
+				}else if(allList[i].payType==2){
+					var payType='企业打款'
+				}
+				if(allList[i].state==1){
+					var state='已支付,待确定'
+				}else if(allList[i].state==2){
+					var state='已支付,待确定'
+				}
+			
+
+				var html = '';
+
+				html += '<tr><td>'+allList[i].financing+'</td><td>'+allList[i].userName+'</td><td>'+allList[i].dockingcontact+'</td><td>'+allList[i].manageName+'</td><td>'+allList[i].payType+'</td><td>'+allList[i].money+'</td><td>'+allList[i].createTime+'</td><td>'+allList[i].bankName+'</td><td>'+allList[i].accountNumber+'</td><td>'+allList[i].state+'</td><td><button type="button" class="btn btn-primary btn-sm" onclick="append()">到账确认</button><button type="button" class="btn btn-default btn-sm">查看</button></td></tr>';
+
+				$('#mytab').append(html);
+
+			}
+
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+			$('#pagess').val(data.total);
+			pagess();
+
+		},
+		error: function() {
+
+		}
+	});
+
+}
+
+function pagess() {
+
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last");
+
+		newNode.innerHTML = "<a href='javascript:fenye(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+
+function fenye(index) {
+
+	var clas = $('#ChangChart option:selected').attr('value');
+	listload(index, clas);
+
+}
+
+function fenye1(index) {
+
+	var now = $('#now').val();
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			listload(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			listload(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+

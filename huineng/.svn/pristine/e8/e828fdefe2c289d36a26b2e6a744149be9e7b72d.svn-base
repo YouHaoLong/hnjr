@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>首页</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/dashboard.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li>
+							<a href="index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li>
+							<a href="product/productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li>
+							<a href="project/projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li>
+							<a href="customer/customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="assets/enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="assets/outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li class="active">
+								<a href="totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>资源管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon  glyphicon-user "></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>部门管理</a>
+									</li>
+									
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+					<h3 class="sub-header">财务数据汇总</h3>
+					<div class="row total">
+						<div class="col-xs-5">
+							<div class="row">
+								<div class="col-sm-3 totalborder">
+									<h5>今日待收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>今日已收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>今日待付</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3">
+									<h5>今日已付</h5>
+									<p>1,200,000</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-xs-5" style="float: right;">
+							<div class="row">
+								<div class="col-sm-3 totalborder">
+									<h5>昨日待收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>昨日已收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>昨日待付</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3">
+									<h5>昨日已付</h5>
+									<p>1,200,000</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row total">
+						<div class="col-xs-5">
+							<div class="row">
+								<div class="col-sm-3 totalborder">
+									<h5>本周待收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>本周已收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>本周待付</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3">
+									<h5>本周已付</h5>
+									<p>1,200,000</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-xs-5" style="float: right;">
+							<div class="row">
+								<div class="col-sm-3 totalborder">
+									<h5>本月待收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>本月已收</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3 totalborder">
+									<h5>本月待付</h5>
+									<p>1,200,000</p>
+								</div>
+								<div class="col-sm-3">
+									<h5>本月已付</h5>
+									<p>1,200,000</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4 totalborder">
+							<div class="row">
+								<div class="col-sm-4">
+									<h5>当前募集目标</h5>
+									<p>321,200,000</p>
+								</div>
+								<div class="col-sm-4">
+									<h5>已募集</h5>
+									<p>321,200,000</p>
+								</div>
+								<div class="col-sm-4">
+									<h5>差额</h5>
+									<p>20,200,000</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4 totalborder">
+							<div class="col-sm-6">
+								<h5>当前募集总额</h5>
+								<p>421,200,000</p>
+							</div>
+							<div class="col-sm-6">
+								<h5>已放款</h5>
+								<p>101,200,000</p>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="col-sm-6">
+								<h5>预计收益</h5>
+								<p>1,200,000</p>
+							</div>
+							<div class="col-sm-6">
+								<h5>预计支出</h5>
+								<p>200,000</p>
+							</div>
+						</div>
+					</div>
+					<h3 class="sub-header" style="padding-top: 20px;">产品数据汇总</h3>
+					<div class="row total">
+						<div class="col-xs-4">
+							<div class="row">
+								<div class="col-sm-4 totalborder">
+									<h5>待发行</h5>
+									<p>0</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>审核中</h5>
+									<p>2</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>募集中</h5>
+									<p>2</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="row">
+								<div class="col-sm-4 totalborder">
+									<h5>募集成功</h5>
+									<p>3</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>运行中</h5>
+									<p>10</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>运行中</h5>
+									<p>3</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="row">
+								<div class="col-sm-4 totalborder">
+									<h5>运行中</h5>
+									<p>3</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>总产品数量</h5>
+									<p>25</p>
+								</div>
+								<div class="col-sm-4">
+									<a class="btn btn-info totalbtn" href="#" role="button">产品详情</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<h3 class="sub-header" style="padding-top: 20px;">项目数据汇总</h3>
+					<div class="row total">
+						<div class="col-xs-4">
+							<div class="row">
+								<div class="col-sm-4 totalborder">
+									<h5>待发行</h5>
+									<p>0</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>审核中</h5>
+									<p>2</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>募集中</h5>
+									<p>2</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="row">
+								<div class="col-sm-4 totalborder">
+									<h5>募集成功</h5>
+									<p>3</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>运行中</h5>
+									<p>10</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>运行中</h5>
+									<p>3</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="row">
+								<div class="col-sm-4 totalborder">
+									<h5>运行中</h5>
+									<p>3</p>
+								</div>
+								<div class="col-sm-4 totalborder">
+									<h5>总产品数量</h5>
+									<p>25</p>
+								</div>
+								<div class="col-sm-4">
+									<a class="btn btn-info totalbtn" href="#" role="button">产品详情</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!--
+                    	作者：784901633@qq.com
+                    	时间：2017-09-01
+                    	描述：右边
+                    -->
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

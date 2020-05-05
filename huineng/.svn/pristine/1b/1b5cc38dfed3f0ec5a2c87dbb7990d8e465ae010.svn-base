@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>入账</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/dashboard.css" rel="stylesheet">
+		<link href="../css/index.css" rel="stylesheet">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+		.row_tit,.row_tit1{
+			font-size:16px ;
+			margin-bottom: 15px;
+		}
+		.row_tit1{
+			color: #0000FF;
+		}
+		.pad{
+			padding: 0;
+		}
+		.margin{
+			margin-bottom: 15px;
+		}
+		.btn1{
+			background: #eee;
+			padding: 3px 15px;
+			color: #000;
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="../images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li>
+							<a href="../index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li>
+							<a href="../product/productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li>
+							<a href="../project/projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li>
+							<a href="../customer/customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						
+
+							<li class="active">
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li>
+								<a href="../totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>资源管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon  glyphicon-user "></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>部门管理</a>
+									</li>
+									
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+					<div class="panel panel-default" style="margin-top: 20px;">
+						<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button" onclick="purchase()">添加申购记录</a>
+												</div>
+												
+												
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-xs-2">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+												
+											</div>
+
+										</form>
+
+									</div>
+						<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+
+													<th>用户</th>
+													<th>手机</th>
+													<th>申购日期</th>
+													<th>入款日期</th>
+													<th>所属产品</th>
+											
+													<th>所属部门</th>
+													<th>理财经理</th>
+													<th>到期日期</th>
+													<th>状态</th>
+													<th>付款银行</th>
+													<th>付款账号</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr>
+
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>2017-8-13</td>
+													<td>汇能一号</td>
+												
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>待确认</td>
+													<td>建设银行</td>
+													<td>6220*******1234</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">添加付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														<button type="button" class="btn btn-default btn-sm">付款确认</button>
+
+													</td>
+												</tr>
+												<tr>
+
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>2017-8-13</td>
+													<td>汇能一号</td>
+												
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>待确认</td>
+													<td>建设银行</td>
+													<td>6220*******1234</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">添加付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														<button type="button" class="btn btn-default btn-sm">付款确认</button>
+
+													</td>
+												</tr>
+												<tr>
+
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>2017-8-13</td>
+													<td>汇能一号</td>
+												
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>待确认</td>
+													<td>建设银行</td>
+													<td>6220*******1234</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm" onclick="append()">添加付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														<button type="button" class="btn btn-default btn-sm" onclick="append()">付款确认</button>
+
+													</td>
+												</tr>
+												
+
+											</tbody>
+										</table>
+										<!--<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">上一页</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">下一页</span>
+										</a>
+									</li>
+								</ul>
+							</nav>-->
+									</div>
+
+					</div>
+					<!--添加申购记录弹窗-->
+					<div class="modal fade" id="purchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">添加申购记录</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal">
+									<div class="row_tit">
+										<b>用户信息</b>
+									</div>
+									<div class="row">
+										<div class="row margin">
+										<div class="col-xs-6 col-sm-4">
+											<b>用户：</b>
+											<span>黄志良</span>
+											<a class="btn btn-default" href="#" role="button" data-toggle="modal" onclick="sut()"style="padding: 0 12px;">设置</a>
+										</div>
+										<div class="col-xs-6 col-sm-4"><b>手机号：</b><span>134****3254</span></div>
+										<div class="col-xs-6 col-sm-4"><b>创建日期：</b><span>2017-08-24</span></div>
+										
+									</div>
+									<div class="row margin">
+										<div class="col-xs-6 col-sm-4"><b>推荐人：</b><span>ZOE</span></div>
+										<div class="col-xs-6 col-sm-4"><b>部门：</b><span>业务一部</span></div>
+										
+									</div>
+									
+									<div class="row margin">
+										<div class="col-xs-6 col-sm-4"><b>开户行：</b><span>建设银行</span></div>
+										<div class="col-xs-6 col-sm-6"><b>银行卡号：</b><span>6220***********2455</span></div>
+										
+									</div>
+									</div>
+									<hr />
+									<div style="margin-bottom: 15px;">
+										<b class="row_tit1">购买信息</b>
+									</div>
+									<div class="row">
+										<div class="row margin">
+										<div class="col-xs-6 col-sm-4"><b>购买产品：</b><span>汇能一号</span></div>
+										<div class="col-xs-6 col-sm-4"><b>产品ID：</b><span>13432545</span></div>
+										<div class="col-xs-6 col-sm-4"><b>产品类型：</b><span>债券型</span></div>
+										
+									</div>
+									<div class="row margin">
+										<div class="col-xs-6 col-sm-4">
+											<b class="col-xs-4 col-sm-6 pad" >申购金额：</b>
+											<input type="text" class="col-xs-8 col-sm-6">															
+										</div>
+										<div class="col-xs-6 col-sm-4">
+											<b class="col-xs-4 col-sm-6 pad">申购期限：</b>
+											<input type="text" class="col-xs-8 col-sm-6">															
+										</div>
+										<div class="col-xs-6 col-sm-4">
+											<b class="col-xs-4 col-sm-6 pad">是否分期：</b>
+											<input type="text" class="col-xs-8 col-sm-6">															
+										</div>
+									</div>
+									<div class="row margin">
+										<div class="col-xs-6 col-sm-4">
+											<b class="col-xs-4 col-sm-6 pad" >付息方式：</b>
+											<input type="text" class="col-xs-8 col-sm-6">															
+										</div>
+										<div class="col-xs-6 col-sm-4">
+											<b class="col-xs-4 col-sm-6 pad" style="font-size: 12px;">产品收益类型：</b>
+											<input type="text" class="col-xs-8 col-sm-6">															
+										</div>
+										<div class="col-xs-6 col-sm-4">
+											<b class="col-xs-4 col-sm-6 pad">附件：</b>
+											<a href="#" class="col-xs-8 col-sm-6 pad">上传附件</a>															
+										</div>
+									</div>
+									
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn ">确认</button>
+								<button type="button" class="btn ">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+					<!--添加付款记录-->
+					<div class="modal fade" id="append" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">付款记录</h4>
+										</div>
+										<div class="modal-body">
+											<form class="form-horizontal">
+												<div class="row">
+													<span class="col-xs-4">付款金额：<span>50,000</span></span>
+													<span class="col-xs-4"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">确认到款</a></span>
+													<span class="col-xs-4"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">删除</a></span>
+												</div>
+												<div class="row" style="margin-top: 30px;">
+												 	<span class="col-xs-4"><input/></span>	
+													<span class="col-xs-4"><a class="btn btn1" href="#" role="button" data-toggle="modal" onclick="">添加付款记录</a></span>
+													
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn ">确定</button>
+											<button type="button" class="btn ">付款完成</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+				</div>
+			</div>
+</div>
+	</body>
+	<script>
+		function purchase() {
+
+			$('#purchase').modal('show')
+		}
+		function append() {
+
+			$('#append').modal('show')
+		}
+	</script>
+
+</html>

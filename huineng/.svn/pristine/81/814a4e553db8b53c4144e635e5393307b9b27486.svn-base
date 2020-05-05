@@ -1,0 +1,250 @@
+$("#ChangChart").change(function() {
+	console.log('改变');
+	var clas = $('#ChangChart option:selected').attr('value');
+
+	listload(1, clas);
+
+});
+
+function listload(page, rows) {
+	$('#page').html('');
+	$('#mytab').html('');
+	$('#now').val(page);
+	$.ajax({
+		url: '/product/findProductList', // 跳转到 action
+		type: 'POST',
+		data: {
+			"page": page,
+			'pagesize': rows,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			var allList = data.obj.list;
+
+			for(var i = 0; i < allList.length; i++) {
+
+				if(allList[i].type == 1) {
+					var type = '股票型';
+				} else if(allList[i].type == 2) {
+					var type = '货币型';
+				} else if(allList[i].type == 3) {
+					var type = '偏股型';
+				} else if(allList[i].type == 4) {
+					var type = '股债平衡型';
+				} else if(allList[i].type == 5) {
+					var type = '偏债型';
+				} else if(allList[i].type == 6) {
+					var type = '债券型';
+				} else if(allList[i].type == 7) {
+					var type = '保本型';
+				} else if(allList[i].type == 8) {
+					var type = '指数型';
+				} else if(allList[i].type == 9) {
+					var type = '短债型';
+				}
+
+				if(allList[i].profiTypet == 1) {
+					var profiTypet = '固定';
+				} else if(allList[i].profiTypet == 2) {
+					var profiTypet = '浮动';
+
+				} else if(allList[i].profiTypet == 3) {
+					var profiTypet = '浮动加固定';
+
+				}
+
+			
+
+				var html = '';
+
+				html += '<tr><th scope="row">' + allList[i].id + '</th><td>' + allList[i].name + '</td><td>' + type + '</td><td>' + allList[i].grantTime + '</td><td>' + allList[i].projectName + '</td><td>' + allList[i].expectMoney + '</td><td>' + allList[i].paidSumMoney + '</td><td>' + allList[i].collectionSchedule + '%</td><td>' + profiTypet + '</td><td>' + allList[i].employeeName + '</td><td><a href="/product/productDetail?productId='+allList[i].id+'" class="btn btn-default btn-sm">查看</a></td></tr>';
+
+				$('#mytab').append(html);
+
+			}
+
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+			$('#pagess').val(data.total);
+			pagess();
+
+		},
+		error: function() {
+
+		}
+	});
+
+}
+
+function pagess() {
+
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last");
+
+		newNode.innerHTML = "<a href='javascript:fenye(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+
+function fenye(index) {
+
+	var clas = $('#ChangChart option:selected').attr('value');
+	listload(index, clas);
+
+}
+
+function fenye1(index) {
+
+	var now = $('#now').val();
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			listload(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			listload(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+
+function add() {
+
+	$('#myModal').modal('show')
+}
+
+function sut() {
+
+	$('#sutup').modal('show');
+
+	$.ajax({
+		url: '/project/findProjectAll', // 跳转到 action
+		type: 'POST',
+		data: {
+			"page": 1,
+			'pagesize': 10000,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			var allList = data.obj.list;
+
+			for(var i = 0; i < allList.length; i++) {
+
+				if(allList[i].profitypet == 1) {
+					var type = '股票型';
+				} else if(allList[i].profitypet == 2) {
+					var type = '货币型';
+				} else if(allList[i].profitypet == 3) {
+					var type = '偏股型';
+				} else if(allList[i].profitypet == 4) {
+					var type = '股债平衡型';
+				} else if(allList[i].profitypet == 5) {
+					var type = '偏债型';
+				} else if(allList[i].profitypet == 6) {
+					var type = '债券型';
+				} else if(allList[i].profitypet == 7) {
+					var type = '保本型';
+				} else if(allList[i].profitypet == 8) {
+					var type = '指数型';
+				} else if(allList[i].profitypete == 9) {
+					var type = '短债型';
+				}
+
+				if(allList[i].state == 1) {
+					var state = '立项';
+				} else if(allList[i].state == 2) {
+					var state = '立项审核';
+
+				} else if(allList[i].state == 3) {
+					var state = '立项尽职调查';
+
+				}else if(allList[i].state == 4){
+					var state = '项目评审';
+				}else if(allList[i].state == 5){
+					var state = '项目小组跟进';
+				}else if(allList[i].state == 6){
+					var state = '申请出款';
+				}else if(allList[i].state == 7){
+					var state = '财务放款';
+				}else if(allList[i].state == 8){
+					var state = '清算';
+				}else if(allList[i].state == 9){
+					var state = '结束';
+				}
+
+				var html = '';
+
+				html += '<tr><td class=" col-xs-1">'+allList[i].projectName+'</td><td class=" col-xs-1">'+type+'</td><td class=" col-xs-1">'+allList[i].createTime+'</td><td class=" col-xs-2">'+allList[i].name+'</td><td class=" col-xs-1">'+state+'</td><td class=" col-xs-1">'+allList[i].empName+'</td><td class=" col-xs-1"><a class="btn btn1" href="javascript:xmxz('+allList[i].id+')" >选择</a></td></tr>';
+
+				$('#addxmxz').append(html);
+
+			}
+
+		},
+		error: function() {
+
+		}
+	});
+
+}
+
+
+function xmxz(index){
+	$('#sutup').modal('hide');
+	
+	$.ajax({
+		url: '/project/findProjectByProjectNum', // 跳转到 action
+		type: 'POST',
+		data: {
+			"id":index,
+
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			$('#prjname').val(data.obj.projectname);
+			$('#prjid').val(data.obj.id);
+			$('#prj1').val(data.obj.financing);
+			$('#prj2').val(data.obj.userName);
+			$('#prj3').val(data.obj.dockingcontact);
+
+
+
+		},
+		error: function() {
+
+		}
+	});
+	
+	
+}

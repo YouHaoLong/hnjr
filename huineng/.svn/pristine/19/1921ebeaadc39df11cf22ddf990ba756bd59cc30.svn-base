@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>项目管理</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/dashboard.css" rel="stylesheet">
+		<link href="../css/index.css" rel="stylesheet">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+		.modal-dialog {
+			    width: 80%;
+		}
+		#myModal label{
+			font-size:12px ;
+			font-weight: 100;
+			text-align: left;
+		}
+		#myModal b{
+			font-size:16px ;
+		}
+		.form-group-sm .col-sm-3{
+			padding-right: 0;
+		}
+		.btn1{
+			background: #eee;
+			padding: 3px 15px;
+			color: #000;
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="../images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li>
+							<a href="../index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li>
+							<a href="../product/productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li  class="active">
+							<a href="projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li>
+							<a href="../customer/customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="../assets/enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="../assets/outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li>
+								<a href="../totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>资源管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon  glyphicon-user "></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>部门管理</a>
+									</li>
+									
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+					<div class="panel panel-default" style="margin-top: 20px;">
+						<div class="panel-heading">
+							<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<div class="col-md-3">
+														<a class="btn btn-default" href="#" role="button" onclick="add()">添加项目</a>
+													</div>
+													
+												</div>
+												<div class="col-xs-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">名称</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="名称">
+													</div>
+												</div>
+												
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">类型</span>
+														<select class="form-control" >
+															<option></option>
+														</select>
+													</div>
+												</div>
+												
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<select class="form-control" >
+															<option></option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">产品经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="产品经理">
+													</div>
+												</div>
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;"></div>
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+											</div>
+
+										</form>
+							
+
+								
+
+							
+						</div>
+						<div class="panel-body">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>产品名称</th>
+										<th>类型</th>
+										<th>发行日期</th>
+										<th>绑定项目</th>
+										<th>募集目标</th>
+										<th>已募集金额</th>
+										<th>募集进度</th>
+										<th>收益方式</th>
+										<th>产品经理</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>汇能一号</td>
+										<td>债券型</td>
+										<td>2017-8-13</td>
+										<td>恒泰金融</td>
+										<td>20000000</td>
+										<td>1500000</td>
+										<td>80%</td>
+										<td>固定收益</td>
+										<td>黄志良</td>
+										<td>
+											
+											<a href="projectdetail.html" class="btn btn-default btn-sm">查看</a>
+											
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>汇能一号</td>
+										<td>债券型</td>
+										<td>2017-8-13</td>
+										<td>恒泰金融</td>
+										<td>20000000</td>
+										<td>1500000</td>
+										<td>80%</td>
+										<td>固定收益</td>
+										<td>黄志良</td>
+										<td>
+											
+											<a href="projectdetail.html" class="btn btn-default btn-sm">查看</a>
+											
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>汇能一号</td>
+										<td>债券型</td>
+										<td>2017-8-13</td>
+										<td>恒泰金融</td>
+										<td>20000000</td>
+										<td>1500000</td>
+										<td>80%</td>
+										<td>固定收益</td>
+										<td>黄志良</td>
+										<td>
+											
+											<a href="projectdetail.html" class="btn btn-default btn-sm">查看</a>
+											
+										</td>
+									</tr>
+									
+								</tbody>
+							</table>
+							<!--<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">上一页</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">下一页</span>
+										</a>
+									</li>
+								</ul>
+							</nav>-->
+							<!--弹窗 wj-->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title" id="myModalLabel">添加项目详情页</h4>
+									</div>
+									<div class="modal-body">
+										<form class="form-horizontal">
+											<div >
+												<div style="margin-bottom: 15px;">
+													<b>项目信息</b>
+												</div>
+												<div class="row">
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">项目编码</label>
+														<div class="col-sm-6" style="display: inline-block;">
+															<input class="form-control" type="text" id="formGroupInputSmall" placeholder="自动生成">
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">项目ID</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="手动输入">
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">项目名称</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="手动输入">
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">融资方</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="手动输入">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">融资规模</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="下拉选择">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">融资期限（月）</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="下拉选择">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">融资类型</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="下拉选择">
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											</div>
+											
+											
+											<div class="row">
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">项目经理</label>
+														<div class="col-sm-6" style="display: inline-block;">
+															<input class="form-control" type="text" id="formGroupInputSmall" placeholder="选择查询">
+														</div>
+														<button type="button" class="btn btn1">选择</button>
+													</div>
+												</div>
+												
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">项目经理联系方式</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="自动带出">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">融资方对接人</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="选择查询">
+														</div>
+														<button type="button" class="btn btn1">选择</button>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group form-group-sm">
+														<label class="col-sm-3 control-label" for="formGroupInputSmall">对接人联系方式</label>
+														<div class="col-sm-6">
+															<input class="form-control" type="text" id="" placeholder="自动带出">
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary">确认添加</button>
+										<button type="button" class="btn btn-primary">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+</div>
+	</body>
+	<script src="../js/main.js"></script>
+	<script>
+		function add() {
+
+			$('#myModal').modal('show')
+		}
+	</script>
+</html>

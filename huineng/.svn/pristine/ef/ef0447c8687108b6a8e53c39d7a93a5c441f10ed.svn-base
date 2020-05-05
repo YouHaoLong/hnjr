@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>产品管理</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/dashboard.css" rel="stylesheet">
+		<link href="../css/index.css" rel="stylesheet">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+		.chanpintab>li {
+			margin-right: 10px;
+		}
+		
+		.chanpintab>li>a {
+			padding: 15px 20px;
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="../images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li>
+							<a href="../index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li class="active">
+							<a href="productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li>
+							<a href="../project/projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li>
+							<a href="../customer/customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="../assets/enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="../assets/outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li>
+								<a href="../totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>资源管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon  glyphicon-user "></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>部门管理</a>
+									</li>
+									
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<h3 class="sub-header">基本信息</h3>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>基金产品ID：</b><span>115628354</span></div>
+						<div class="col-xs-6 col-sm-3"><b>产品代码：</b><span>500524</span></div>
+						<div class="col-xs-6 col-sm-3"><b>项目ID：</b><span>20170823001</span></div>
+						<div class="col-xs-6 col-sm-3"><b>项目名称：</b><span>恒泰金融</span></div>
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>产品名称：</b><span>汇能一号</span></div>
+						<div class="col-xs-6 col-sm-3"><b>产品类型：</b><span>有限合同</span></div>
+
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>融资方：</b><span>汇能证券</span></div>
+						<div class="col-xs-6 col-sm-3"><b>预期募集金额：</b><span>2,000,000</span></div>
+						<div class="col-xs-6 col-sm-3"><b>期限（月）：</b><span>2</span></div>
+						<div class="col-xs-6 col-sm-3"><b>是否分期：</b><span>否</span></div>
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>付息方式：</b><span>定期</span></div>
+						<div class="col-xs-6 col-sm-3"><b>托管银行：</b><span>建设银行</span></div>
+						<div class="col-xs-6 col-sm-3"><b>委贷银行：</b><span>招商银行</span></div>
+						<div class="col-xs-6 col-sm-3"><b>产品收益类型：</b><span>固定+浮动</span></div>
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>产品经理：</b><span>李×</span></div>
+						<div class="col-xs-6 col-sm-3"><b>产品经理联系方式：</b><span>131987654321</span></div>
+						<div class="col-xs-6 col-sm-3"><b>对接人：</b><span>黄XX</span></div>
+						<div class="col-xs-6 col-sm-3"><b>对接人联系方式：</b><span>13123456789</span></div>
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6"><b>投资期限：</b><span>A类：12个月；B类：6个月；C类：3个月</span></div>
+						<div class="col-xs-6"><b>认购起点：</b><span>人民币100万起，超过部分按10万元整数倍数递增</span></div>
+
+					</div>
+					<div class="chanpinmarrgin">
+						<ul class="nav nav-tabs chanpintab" id="nav-tabs">
+							<li class="active">
+								<a href="#t-state" data-toggle="tab">产品状态</a>
+							</li>
+							<li>
+								<a href="#t-profit" data-toggle="tab">收益分配</a>
+							</li>
+							<li>
+								<a href="#t-buylist" data-toggle="tab">产品申购</a>
+							</li>
+							<li>
+								<a href="#t-payment" data-toggle="tab">产品本息支付</a>
+							</li>
+							<li>
+								<a href="#t-report" data-toggle="tab">产品报告</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="t-state">
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>产品状态：</b><span>募集中</span></div>
+									<div class="col-xs-6 col-sm-3"><b>实际成立日期：</b><span>2017-08-23</span></div>
+									<div class="col-xs-6 col-sm-3"><b>实际发行日期：</b><span>2017-08-25</span></div>
+									<div class="col-xs-6 col-sm-3"><b>实际募集金额：</b><span>30,000,000</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>代销方式：</b><span>自主</span></div>
+									<div class="col-xs-6 col-sm-3"><b>投资顾问：</b><span>有限合同</span></div>
+
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>基金类型：</b><span>债券类</span></div>
+									<div class="col-xs-6 col-sm-3"><b>基金管理人：</b><span>周XX</span></div>
+									<div class="col-xs-6 col-sm-3"><b>募集对象：</b><span>公开募集</span></div>
+									<div class="col-xs-6 col-sm-3"><b>承销规模：</b><span>3,000,000</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>管理费（%）：</b><span>0.6%</span></div>
+									<div class="col-xs-6 col-sm-3"><b>托管费（%）：</b><span>0.2%</span></div>
+									<div class="col-xs-6 col-sm-3"><b>认购费（%）：</b><span>1%</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>参与方式：</b><span>自发</span></div>
+									<div class="col-xs-6 col-sm-3"><b>退出方式：</b><span>默认</span></div>
+									<div class="col-xs-6 col-sm-3"><b>税收类型：</b><span>公开募集</span></div>
+									<div class="col-xs-6 col-sm-3"><b>税率：</b><span>15%</span></div>
+								</div>
+							</div>
+
+							<div class="tab-pane fade " id="t-profit">
+								<div class="table-responsive col-xs-6" style="margin-top: 10px;">
+									<table class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th>实际出资额（单位：万元）</th>
+												<th>A类：12个月</th>
+												<th>B类：6个月</th>
+												<th>C类：3个月</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>100
+													<=实际出资额 <300</td>
+														<td>11.90%</td>
+														<td>10.90%</td>
+														<td>9.40%</td>
+											</tr>
+											<tr>
+												<td>300
+													<=实际出资额<600</td>
+														<td>12.40%</td>
+														<td>11.40%</td>
+														<td>9.90%</td>
+
+											</tr>
+											<tr>
+												<td>600
+													<=实际出资额<1000</td>
+														<td>12.90%</td>
+														<td>11.90%</td>
+														<td>10.40%</td>
+
+											</tr>
+											<tr>
+												<td>1000
+													< 实际出资额</td>
+														<td>10.40%</td>
+														<td>10.40%</td>
+														<td>10.40%</td>
+
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+
+							<div class="tab-pane fade " id="t-buylist">
+
+								<div class="panel panel-default" style="margin-top: 20px;">
+									<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button">添加申购记录</a>
+												</div>
+												<div class="col-xs-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;"></div>
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+											</div>
+
+										</form>
+
+									</div>
+									<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+
+													<th>用户</th>
+													<th>手机</th>
+													<th>申购日期</th>
+													<th>申购金额</th>
+													<th>到款金额</th>
+													<th>上次划款日期</th>
+													<th>所属部门</th>
+													<th>理财经理</th>
+													<th>到期日期</th>
+													<th>状态</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr>
+
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>1,000,000</td>
+													<td>50,000</td>
+													<td>2017-8-13</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>审核中</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">添加付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														<button type="button" class="btn btn-default btn-sm">付款确认</button>
+
+													</td>
+												</tr>
+												<tr>
+
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>1,000,000</td>
+													<td>50,000</td>
+													<td>2017-8-13</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>审核中</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">添加付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														<button type="button" class="btn btn-default btn-sm">付款确认</button>
+
+													</td>
+												</tr>
+												<tr>
+
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>1,000,000</td>
+													<td>50,000</td>
+													<td>2017-8-13</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>审核中</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">添加付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														<button type="button" class="btn btn-default btn-sm">付款确认</button>
+
+													</td>
+												</tr>
+
+											</tbody>
+										</table>
+										<!--<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">上一页</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">下一页</span>
+										</a>
+									</li>
+								</ul>
+							</nav>-->
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane fade " id="t-payment">
+								<div class="panel panel-default" style="margin-top: 20px;">
+									<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button">批量确认</a>
+												</div>
+												<div class="col-xs-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">用户姓名</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="用户姓名">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">手机号</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="手机号">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">理财经理</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="理财经理">
+													</div>
+												</div>
+												<div class="col-md-2 padding">
+													<div class="input-group">
+														<span class="input-group-addon">状态</span>
+														<input type="text" class="form-control" name="title" value="" placeholder="状态">
+													</div>
+												</div>
+
+											</div>
+											<div class="row totalbtn">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;"></div>
+
+												<div class="col-xs-5 padding">
+
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarStart1" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})"> -
+													<input type="text" class="form-control Wdate" style="height:34px;" id="calendarEnd1" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												</div>
+												<div class="clo-md-1 padding">
+													<button type="button" class="btn btn-primary">查询</button>
+												</div>
+											</div>
+
+										</form>
+
+									</div>
+									<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th></th>
+													<th>用户</th>
+													<th>手机</th>
+													<th>申购日期</th>
+													<th>申购金额</th>
+													<th>支付类型</th>
+													<th>应付金额</th>
+													<th>应付日期</th>
+													<th>所属部门</th>
+													<th>理财经理</th>
+													<th>状态</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr>
+													<th scope="row"><input type="checkbox" name="infoID" class="infoID" value="option1"></th>
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>1,000,000</td>
+													<td>50,000</td>
+													<td>2017-8-13</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>审核中</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														
+
+													</td>
+												</tr>
+												<tr>
+													<th scope="row"><input type="checkbox" name="infoID" class="infoID" value="option1"></th>
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>1,000,000</td>
+													<td>50,000</td>
+													<td>2017-8-13</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>审核中</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														
+
+													</td>
+												</tr>
+												<tr>
+													<th scope="row"><input type="checkbox" name="infoID" class="infoID" value="option1"></th>
+													<td>黄志良</td>
+													<td>131XXXX1313</td>
+													<td>2017-8-13</td>
+													<td>1,000,000</td>
+													<td>50,000</td>
+													<td>2017-8-13</td>
+													<td>业务一部</td>
+													<td>zoe</td>
+													<td>2017-8-12</td>
+													<td>审核中</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">付款记录</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														
+
+													</td>
+												</tr>
+
+											</tbody>
+										</table>
+										<!--<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">上一页</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">下一页</span>
+										</a>
+									</li>
+								</ul>
+							</nav>-->
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane fade " id="t-report">
+								
+								<div class="panel panel-default" style="margin-top: 20px;">
+									<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button">添加记录</a>
+												</div>
+												
+											</div>
+										
+										</form>
+
+									</div>
+									<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>标题</th>
+													<th>添加日期</th>
+													<th>添加人</th>
+													<th>附件</th>
+													<th>是否需要审批</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr>
+													
+													<td>1</td>
+													<td>产品报告</td>
+													<td>2017-8-13</td>
+													<td>黄XX</td>
+													<td>有</td>
+													<td>否</td>
+												
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">审批</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														
+
+													</td>
+												</tr>
+												
+
+											</tbody>
+										</table>
+										
+									</div>
+
+								</div>
+
+								
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$('#nav-tabs li a[href="#t-state"]').click(function(e) {
+
+			});
+		});
+	</script>
+
+</html>

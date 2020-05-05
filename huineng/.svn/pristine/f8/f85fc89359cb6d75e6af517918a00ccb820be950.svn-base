@@ -1,0 +1,198 @@
+
+
+$("#ChangChart").change(function() {
+	
+	var clas = $('#ChangChart option:selected').attr('value');
+
+	listload(1, clas);
+
+});
+
+
+//提成管理
+
+function listload(page, pagesize) {
+	$('#page').html('');
+	$('#jtbody').html('');
+	$('#now').val(page);
+	$.ajax({
+		url: '/product/getAllUserRoyaltyMethod', // 跳转到 action
+		type: 'POST',
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data:{
+			'page':page,
+			'pagesize':pagesize
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			var allList = data.obj.list;
+			for(var i = 0; i < allList.length; i++) {
+		
+				var html = '';
+				if(allList[i].state==1){
+					state='未审核'
+				}else if(allList[i].state==2){
+					state='已审核'
+				}else if(allList[i].state==3){
+					state='审核不通过'
+				}else if(allList[i].state==4){
+					state='付款完成'
+				}
+				if(allList[i].draw_type==0){
+				 var draw_type='前端费用'
+				}else if(allList[i].draw_type==1){
+				var draw_type='后端费用'
+				}
+				if(allList[i].draw_state==0){
+				var	draw_state='已发放'
+				}else if(allList[i].draw_state==1){
+				var	draw_state='待发放'
+				}
+				
+				html += '<tr><td scope="row"><input type="checkbox" name="infoID" class="infoID" value="'+allList[i].drawId+'"></td><td>'+allList[i].productName+'</td><td>'+allList[i].productCreate+'</td><td>'+allList[i].userName+'</td><td>'+allList[i].mobile_one+'</td><td>'+allList[i].applyMoney+'</td><td>'+state+'</td><td>'+allList[i].endTime+'</td><td>'+allList[i].employeeName+'</td><td>'+allList[i].phone+'</td><td>'+allList[i].draw_money+'</td><td>'+draw_type+'</td><td>'+draw_state+'</td><td>'+allList[i].update_date+'</td><td><button type="button" class="btn btn-primary btn-sm" onclick="grant('+allList[i].drawId+')">发放奖励</button><button type="button" class="btn btn-default btn-sm">审核</button></td></tr>';
+
+				$('#jtbody').append(html);
+			}
+			
+			var page = '';
+			page += '<input type="hidden" id="pagess" value="" /><li><a href="javascript:fenye1(1)" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li><li id="last"><a href="javascript:fenye1(2)" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+			$('#page').append(page);
+            $('#pagess').val(data.obj.total);
+			pagess();
+			
+			
+		},
+		error: function() {
+			console.log('请求失败')
+		}
+	});
+}
+function pagess() {
+	
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+	for(var i = 1; i <= page; i++) {
+		var oTest = document.getElementById("page");
+		var newNode = document.createElement("li");
+		var reforeNode = document.getElementById("last");
+		
+		newNode.innerHTML = "<a href='javascript:fenye(" + i + ");'>" + i + "</a>";
+		oTest.insertBefore(newNode, reforeNode);
+	}
+
+}
+function fenye(index) {
+	var clas = $('#ChangChart option:selected').attr('value');
+	listload(index, clas);
+}
+
+function fenye1(index) {
+	var now = $('#now').val();
+	var pagess = $('#pagess').val();
+	var clas = $('#ChangChart option:selected').attr('value');
+	pagess = pagess / clas;
+	var page = parseInt(pagess + 1);
+
+	if(index == 1) {
+		now = parseInt(now - 1);
+		if(now >= 1) {
+			listload(now, clas);
+
+		} else {
+			alert('这是第一页');
+		}
+
+	} else if(index == 2) {
+		now = parseInt(now) + parseInt(1);
+
+		if(now <= page) {
+			listload(now, clas);
+
+		} else {
+			alert('这是最后一页');
+		}
+
+	}
+
+}
+//发放奖励
+function grant(draw){
+	$("#grant").modal('show')
+	$('#delcon').html('');
+	var html = '';
+	html += '<button type="button" class="btn btn-primary" onclick="yes('+draw+')">是</button><button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancel()">否</button>';
+	$('#delcon').append(html);
+}
+function cancel(){
+	$("#grant").modal('hide')
+}
+function yes(draw){
+	$.ajax({
+		type:"POST",
+		url:"/product/updateDrawPercentage",
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data:{
+			'drawId':draw,
+			'drawState':0,
+			'updateId':1
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			if(data.success==true){
+				alert(data.msg)
+				$("#grant").modal('hide')
+			}else{
+				alert(data.msg)
+			}
+			var clas = $('#ChangChart option:selected').attr('value');
+			listload(1, clas);
+		}
+	});
+}
+//批量确认
+function duopay(){
+	$("#grant").modal('show')
+	$('#delcon').html('');
+	var html = '';
+	html += '<button type="button" class="btn btn-primary" onclick="batch()">是</button><button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancel()">否</button>';
+	$('#delcon').append(html);
+}
+
+
+
+function batch(){
+	obj = document.getElementsByName("infoID");
+	check_val = [];
+    for(k in obj){
+        if(obj[k].checked)
+            check_val.push(obj[k].value);
+    }
+    var b = check_val.join(","); 
+    
+    var clas = $('#ChangChart option:selected').attr('value');
+		$.ajax({
+		type:"POST",
+		url:"/product/updateDrawPercentage",
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data:{
+			'drawId':b,
+			'drawState':0,
+			'updateId':1
+		},
+		dataType: "json", //返回结果格式
+		success: function(data) {
+			console.log(data)
+			alert(data.msg)
+			$("#grant").modal('hide')
+			var clas = $('#ChangChart option:selected').attr('value');
+			listload(1, clas);
+		},
+		error: function() {
+
+		}
+	});
+}

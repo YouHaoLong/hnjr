@@ -1,0 +1,56 @@
+jQuery(document).ready(function() {
+	//alert(2);
+});
+
+
+$("#ChangChart").change(function() {
+			console.log('改变');
+			var clas = $('#ChangChart option:selected').attr('value');
+			if(clas == 1) {
+				console.log(clas);
+			} else {
+				//折线图
+console.log(clas);
+			}
+		});
+
+function listload(page,rows) {
+	$('#mytab').html('');
+	$.ajax({
+		url: '/role/dataGrid', // 跳转到 action
+		type: 'POST',
+        data:{"page":page,'rows':rows,'sort':'id','order':'asc'},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		dataType: "json", //返回结果格式
+		success: function(data) {
+
+			
+
+			var allList = data.rows;
+
+			for(var i = 0; i < allList.length; i++) {
+				
+				
+				if(allList[i].status==0){
+					var status='正常';
+				}else if(allList[i].status==1){
+					var status='停用';
+				}
+				
+				var html = '';
+
+				html += '<tr><td>'+allList[i].id+'</td><td>'+allList[i].name+'</td><td>'+allList[i].seq+'</td><td>'+allList[i].description+'</td><td>'+status+'</td><td><a href="" class="btn btn-default btn-sm">授权</a><a href="" class="btn btn-default btn-sm">编辑</a><a href="" class="btn btn-default btn-sm">删除</a></td></tr>';
+
+				$('#mytab').append(html);
+
+			}
+
+			
+
+		},
+		error: function() {
+
+		}
+	});
+
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>产品管理</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/dashboard.css" rel="stylesheet">
+		<link href="../css/index.css" rel="stylesheet">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+		.chanpintab>li {
+			margin-right: 10px;
+		}
+		
+		.chanpintab>li>a {
+			padding: 15px 20px;
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+				<div class="navbar-header col-md-2" style="padding-left: 10px; padding-right: 0;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+					<a class="navbar-brand" href="#"><img src="../images/logo.png" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right col-md-10">
+						<li class="title">
+							汇能金融办公系统<span>OA System</span>
+						</li>
+						<li>
+							<a href="#">退出</a>
+						</li>
+						<li>
+							欢迎您，<span>黄志良</span>
+						</li>
+
+						<li class="renwu">
+							今日已办：<span>15</span>件
+						</li>
+						<li class="renwu">
+							今日待办：<span>10</span>件
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+
+					<ul id="main-nav" class="nav nav-sidebar" style="">
+						<li>
+							<a href="../index.html">
+								<i class="glyphicon glyphicon-th-large"></i> 首页
+							</a>
+						</li>
+						<li>
+							<a href="../product/productlist.html">
+								<i class="glyphicon glyphicon-credit-card"></i> 产品管理
+							</a>
+						</li>
+						<li class="active">
+							<a href="../project/projectlist.html">
+								<i class="glyphicon glyphicon-folder-close"></i> 项目管理
+							</a>
+						</li>
+						<li>
+							<a href="../customer/customer.html"><i class="glyphicon glyphicon-user"></i> 客户管理</a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-floppy-disk"></i> 财务管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="../assets/enterlist.html"><i class="glyphicon glyphicon-floppy-open"></i>入账管理</a>
+									</li>
+									<li>
+										<a href="../assets/outlist.html"><i class="glyphicon glyphicon-floppy-save"></i>出账管理</a>
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li>
+								<a href="../totaldata.html"><i class="glyphicon glyphicon-list-alt"></i> 汇总数据</a>
+							</li>
+							<li>
+								<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+									<i class="glyphicon glyphicon-cog"></i> 系统管理
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+								<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-user"></i>用户管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-th-list"></i>菜单管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-asterisk"></i>角色管理</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a>
+									</li>
+									<li>
+										<a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a>
+									</li>
+								</ul>
+							</li>
+
+							<!--<li>
+								<a href="./grid.html">
+									<i class="glyphicon glyphicon-globe"></i> 分发配置
+									<span class="label label-warning pull-right">5</span>
+								</a>
+							</li>-->
+
+							<li>
+								<a href="#">
+									<i class="glyphicon glyphicon-fire"></i> 关于系统
+								</a>
+							</li>
+					</ul>
+
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<h3 class="sub-header">基本信息</h3>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>项目编码：</b><span>115628354</span></div>
+						<div class="col-xs-6 col-sm-3"><b>产品代码：</b><span>500524</span></div>
+						<div class="col-xs-6 col-sm-3"><b>项目ID：</b><span>20170823001</span></div>
+						<div class="col-xs-6 col-sm-3"><b>项目名称：</b><span>恒泰金融</span></div>
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>产品名称：</b><span>汇能一号</span></div>
+						<div class="col-xs-6 col-sm-3"><b>产品类型：</b><span>有限合同</span></div>
+
+					</div>
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>融资方：</b><span>汇能证券</span></div>
+						<div class="col-xs-6 col-sm-3"><b>融资规模：</b><span>2,000,000</span></div>
+						<div class="col-xs-6 col-sm-3"><b>融资期限（月）：</b><span>2</span></div>
+						<div class="col-xs-6 col-sm-3"><b>是否分期：</b><span>否</span></div>
+					</div>
+					
+					<div class="row margin chanpinborder">
+						<div class="col-xs-6 col-sm-3"><b>项目经理：</b><span>李×</span></div>
+						<div class="col-xs-6 col-sm-3"><b>项目经理联系方式：</b><span>131987654321</span></div>
+						<div class="col-xs-6 col-sm-3"><b>对接人：</b><span>黄XX</span></div>
+						<div class="col-xs-6 col-sm-3"><b>对接人联系方式：</b><span>13123456789</span></div>
+					</div>
+					
+					<div class="chanpinmarrgin">
+						<ul class="nav nav-tabs chanpintab" id="nav-tabs">
+							<li class="active">
+								<a href="#t-state" data-toggle="tab">项目状态</a>
+							</li>
+							<li>
+								<a href="#t-profit" data-toggle="tab">项目进度</a>
+							</li>
+							<li>
+								<a href="#t-buylist" data-toggle="tab">项目放款记录</a>
+							</li>
+							<li>
+								<a href="#t-payment" data-toggle="tab">项目回款记录</a>
+							</li>
+						
+						</ul>
+						<div class="tab-content">
+							
+							<div class="tab-pane fade in active" id="t-state">
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>项目状态：</b><span>立项审核</span></div>
+									<div class="col-xs-6 col-sm-3"><b>项目发起日期：</b><span>2017-08-23</span></div>
+									<div class="col-xs-6 col-sm-3"><b>合同方式：</b><span>有限合同</span></div>
+									<div class="col-xs-6 col-sm-3"><b>当前募集进度：</b><span>100%</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>贷款利率：</b><span>1%</span></div>
+									<div class="col-xs-6 col-sm-3"><b>处置利率：</b><span>2%</span></div>
+									<div class="col-xs-6 col-sm-3"><b>财务顾问费率</b><span>1%</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>放款状态：</b><span>已放款</span></div>
+									<div class="col-xs-6 col-sm-3"><b>总计放款金额：</b><span>2,000,000</span></div>
+									<div class="col-xs-6 col-sm-3"><b>执行放款时间：</b><span>2017-9-5</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>项目确认到款：</b><span>已确认</span></div>
+									<div class="col-xs-6 col-sm-3"><b>应付金额：</b><span>2,000,000</span></div>
+									<div class="col-xs-6 col-sm-3"><b>确认到款时间：</b><span>2017-9-6</span></div>
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>回款状态：</b><span>待回款</span></div>
+									<div class="col-xs-6 col-sm-3"><b>回款计划：</b><span>附件</span></div>
+									<div class="col-xs-6 col-sm-3"><b>回款计划上传时间：</b><span>2017-9-6</span></div>
+									
+								</div>
+								<div class="row margin chanpinborder">
+									<div class="col-xs-6 col-sm-3"><b>预计回款时间：</b><span>2018-9-6</span></div>
+									<div class="col-xs-6 col-sm-3"><b>应收款金额：</b><span>2,100,000</span></div>
+									<div class="col-xs-6 col-sm-3"><b>已收款金额：</b><span>2,000,000</span></div>
+									<div class="col-xs-6 col-sm-3"><b>上一次收款时间：</b><span>2017-9-6</span></div>
+								</div>
+							</div>
+
+							<div class="tab-pane fade " id="t-profit">
+								<div class="panel panel-default" style="margin-top: 20px;">
+									<div class="panel-heading">
+
+										<form method="get" class="form-horizontal form-inline">
+											<div class="row">
+												<div class="col-md-2" style="width: 11%; padding-right: 0;">
+													<a class="btn btn-default" href="#" role="button">添加项目流程</a>
+												</div>
+												
+											</div>
+										
+										</form>
+
+									</div>
+									<div class="panel-body">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>名称</th>
+													<th>上一次处理时间</th>
+													<th>状态</th>
+													<th>负责人</th>
+												
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr>
+													
+													<td>1</td>
+													<td>立项阶段</td>
+													<td>2017-8-13</td>
+													<td>处理中</td>
+													<td>黄志良</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">新增</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														
+
+													</td>
+												</tr>
+												<tr>
+													
+													<td>2</td>
+													<td>审核阶段</td>
+													<td>2017-8-13</td>
+													<td>待上一步完成</td>
+													<td>黄志良</td>
+													<td>
+														<button type="button" class="btn btn-primary btn-sm">审批</button>
+														<button type="button" class="btn btn-default btn-sm">查看</button>
+														
+
+													</td>
+												</tr>
+												
+
+											</tbody>
+										</table>
+										
+									</div>
+
+								</div>
+							</div>
+
+							<div class="tab-pane fade " id="t-buylist">
+
+								cc
+
+							</div>
+							<div class="tab-pane fade " id="t-payment">
+								dd
+
+							</div>
+							
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$('#nav-tabs li a[href="#t-state"]').click(function(e) {
+
+			});
+		});
+	</script>
+
+</html>
