@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>推荐好友</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="../css/share.css"/>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<style>
+.right{ padding: 15px; background: #FFF; }
+
+.rate{ width: 150px;height: 200px;border: 2px solid #999;border-radius: 5px;text-align: center;padding-top: 20px; }
+.rateimg{ height: 78px; }
+.ratenb{ margin: 25px 0 15px; }
+.rateyl{ width: 100%;height: 40px;background: #999;border-radius: 0 0 5px 5px;color: #fff;line-height: 40px; }
+</style>
+
+<body>
+	<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    	<div class="container">
+	    <div class="navbar-header">
+	    	<img src="../images/logo.png" style="height: 50px;"/>
+	    </div>
+	    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+	      	<ul class="nav navbar-nav navul">
+		        <li><a href="user.html">首页 </a></li>
+		        <li><a href="../challenge/initiate.html">挑战赛</a></li>
+		        <li><a href="topUps.html">优财交易</a></li>
+		        <li class="active"><a href="user.html">个人中心</a></li>
+		        <div style="padding:0 15px;" class="navbar-right">
+	      		<img src="../images/Login.png"/>
+	      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+	      		
+	      	</div>
+	      	</ul>
+	      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+	      	<div style="padding-left: 15px; float: right;" >
+	      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+	      		<span class="badge navbar-right">1</span>
+	      		</span>
+	      	</div>
+	      	
+	      	
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container" style="margin-top: 95px;">
+		<div class="row">
+			<div class="col-md-3 pad7">
+				<div id="left_top">
+					<div> <img src="../images/touxiang.jpg" id="topimg"/> </div>
+					<div class="toptext">
+						<b>明天更好</b>
+						<div>132****7946</div>
+					</div>
+					<div class="topicon">
+						<img src="../images/Own.png"/>
+						<img src="../images/Information.png"/>
+						<img src="../images/Safety.png"/>
+					</div>
+					<button class="topbut">立即签到</button>
+				</div>
+				<div id="left-bot" style="margin:10px 0 ;background: #fff;">
+					<ul id="main-nav" class="nav nav-sidebar" aria-labelledby="dropdownMenuDivider">
+						<li >
+							<a href="user.html">
+								<img src="../images/Property1.png" /> 账户资产
+							</a>
+						</li>
+						<li class="active">
+							<a href="invites.html">
+								<img src="../images/Friends1.png"/> 推荐好友
+							</a>
+						</li>
+						<li>
+							<a href="security.html">
+								<i class="glyphicon glyphicon-cog"></i> 个人设置
+							</a>
+						</li>
+						<li>
+							<a href="newcenter.html"><i class="glyphicon glyphicon-bell"></i> 消息通知</a>
+						</li>
+						
+					</ul>
+				
+				</div>
+			</div>
+			<div class="col-md-9 pad7">
+				<div class="right">
+					<div class="lookup">
+						<b class="title">推荐好友</b>
+					</div>
+					<div class="withdlist" style="text-align: center;">
+						<div class="dis navbar-left">
+							<span class="">已邀请：</span>
+							<span class="col_11e">206认</span>
+						</div>
+						<div class="dis">
+							<span class="">已投资：</span>
+							<span class="col_11e">46人</span>
+						</div>
+						<div class="dis navbar-right">
+							<span class="">推荐将军：</span>
+							<span class="col_11e">46人 <b>>></b></span>
+						</div>
+					</div>
+					<hr />
+					<div class="withdlist ">
+						<span class="">你的推荐码：</span>
+						<span class="col_11e">365668</span>
+					</div>
+					<div class="withdlist">
+						<span class="">推荐链接：</span>
+						<a class="">www.baidu.com</a>
+						<button class="btn mgleft" >复制</button>
+					</div>
+					<div class="withdlist">
+						<span class="col_7a7">复制您的“邀请链接”或“推广码”，通过QQ、微信、方式发送给好友，邀请好友投资收益，赶快行动吧。</span>
+					</div>
+					<div class="withdlist">
+						<img src="../images/qq.png"/>
+						<img src="../images/weibo.png" class="mgleft"/>
+						<img src="../images/weixin1.png" class="mgleft"/>
+					</div>
+					<div class="lookup"style="margin-top: 30px;">
+						<b class="title">活动规则</b>
+					</div>
+					<div class="withdlist col_7a7">
+						<div>
+							Lorem ipsum dolor sit amet,consectetur adipiscing elit.Aenean euismod bibendum laoreet.Proin gravida dolor sit
+						</div>
+						<div>
+							amet lacus accumsan et viverra justo commodo.Proin sodales pulvinar tempor.Cum sociis natoque penatibus et
+						</div>
+						<div>
+							magnis dis parturient montes,nascetur ridiculus mus.Nam fermentum,nulla luctus pharetra vulputate,felis tellus mollis orci,sed rhoncus sapien nunc eget.
+						</div>
+					</div>
+					
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	</body>
+<script>
+$(function(){
+    $('.navul li a').click(function(e){
+       console.log($(this).attr('href'))
+       $(this).parent().addClass('active').siblings().removeClass('active');
+       // alert($(this))
+//     href = $(this).attr('href')
+//     window.location.href = href
+   });
+});
+ var r = window.location.href;
+ console.log(r)
+var href =''
+console.log(href)
+</script>
+</html>

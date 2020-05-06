@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <title>消息通知</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/messageNotification.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="../images/logo.png" style="height: 50px;"/>
+        </div>
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navul">
+                <li><a href="user.html">首页 </a></li>
+                <li><a href="../challenge/initiate.html">挑战赛</a></li>
+                <li><a href="topUps.html">优财交易</a></li>
+                <li class="active"><a href="user.html">个人中心</a></li>
+            </ul>
+            <div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+            <div style="padding-left: 15px; float: right; position:relative " >
+		      		<p class="xiaoxi">
+		      		<span class="badge navbar-right">1</span>
+		      		</p>
+            </div>
+            <div style="padding:0 15px;" class="navbar-right">
+                <img src="../images/Login.png"/>
+                <span>您已登录成功,<span id="Username">134****3453</span></span>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!--主体-->
+<nav id="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 ">
+                    <div class="personage">
+                        <!--头像-->
+                            <div class="touxiang">
+                                <div class="tx">
+                                    <img src="../images/touxiang.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="name_phone">
+                                <p>明天更好</p>
+                                <p>123****7890</p>
+                            </div>
+                            <div class="JL">
+                                <!--实名认证-->
+                                <div class="authentication"></div>
+                                <!--绑定手机-->
+                                <div class="mobile"></div>
+                                <!--安全中心-->
+                                <div class="safety"></div>
+                            </div>
+                        <!--签到按钮-->
+                            <button class="sn">
+                                立即签到
+                            </button>
+                    </div>
+
+
+                    <!--列表-->
+
+                        <ul class="list">
+                            <li>
+                                <a href="user.html">
+                                    <p class="Account"></p>
+                                    账户资产
+                                </a>
+                            </li>
+                            <li>
+                                <a href="invites.html">
+                                    <p class="friend"></p>
+                                    推荐好友</a>
+                            </li>
+                            <li>
+                                <a href="security.html">
+                                    <p class="setting"></p>
+                                    个人设置</a>
+                            </li>
+                            <li class="default">
+                                <a href="newcenter.html">
+                                    <p class="notification"></p>
+                                    消息通知
+                                </a>
+                                <span class="">1</span>
+                            </li>
+                        </ul>
+                </div>
+
+
+
+<!--详细内容部分-->
+                <div class="col-md-9">
+                    <div id="detail" class="clear">
+                        <!--消息通知-->
+                        <h4>消息通知</h4>
+                            <ul class="rt">
+                                <li>共<span>3</span>封,</li>
+                                <li>未读<span>2</span>封,</li>
+                                <li>已读<span>1</span>封</li>
+
+                                <li>
+                                    <div class="check_all">
+                                        <input type="checkbox" class="checkbox_all">
+                                        <span>全选</span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <button type="button" class="delete">删除</button>
+                                </li>
+                            </ul>
+
+                        <!--表格部分-->
+                            <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <td>全部</td>
+                                            <td>发送人</td>
+                                            <td>内容</td>
+                                            <td>日期</td>
+                                        </tr>
+                                    </thead>
+                                <tbody class="information">
+
+                                    <tr class="yellow">
+                                        <td>
+                                            <input type="checkbox" name="checkname">
+                                              <a type="button"
+                                                 class="un_read"
+                                                 data-toggle="modal"
+                                                 data-target="#un_read"> 未读</a>
+                                        </td>
+                                        <td>
+                                            <a href="#"
+                                               type="button"
+                                               data-toggle="modal"
+                                               data-target="#un_read">古林英雄系统</a>
+                                        </td>
+
+                                        <td>
+                                            <a href="#"
+                                               type="button"
+                                               data-toggle="modal"
+                                               data-target="#un_read">
+                                                恭喜你获得3个道具...
+                                            </a>
+                                        </td>
+                                        <td class="date"
+                                            type="button"
+                                            data-toggle="modal"
+                                            data-target="#un_read">
+                                            <a href="#">2017-12-06 17:24:02</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="yellow">
+                                        <td>
+                                            <input type="checkbox" name="checkname">
+                                            <a type="button"
+                                               class="un_read"
+                                               data-toggle="modal"
+                                               data-target="#un_read"> 未读</a>
+                                        </td>
+                                        <td>
+                                            <a href="#"
+                                               type="button"
+                                               data-toggle="modal"
+                                               data-target="#un_read">古林英雄系统</a>
+                                        </td>
+
+                                        <td>
+                                            <a href="#"
+                                               type="button"
+                                               data-toggle="modal"
+                                               data-target="#un_read">
+                                                恭喜你获得3个道具...
+                                            </a>
+                                        </td>
+                                        <td class="date"
+                                            type="button"
+                                            data-toggle="modal"
+                                            data-target="#un_read">
+                                            <a href="#">2017-12-06 17:24:02</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="checkname">
+                                            <a type="button"
+                                               class="un_read"
+                                               data-toggle="modal"
+                                               data-target="#un_read">已读</a>
+                                        </td>
+                                        <td>
+                                            <a href="#"data-toggle="modal"
+                                               data-target="#un_read">古林英雄系统</a>
+                                        </td>
+                                        <td>
+                                            <a href="#"data-toggle="modal"
+                                               data-target="#un_read">
+                                                恭喜你获得3个道具...
+                                            </a>
+                                        </td>
+                                        <td class="date"data-toggle="modal"
+                                            data-target="#un_read">
+                                            <a href="#">2017-12-06 17:24:02</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        <!--**************************************-->
+
+
+                        <!--分页-->
+                            <div id="paging">
+                                <div class="page">
+                                    <button class="previous_page">上一页</button>
+                                    <input type="text" value="1" class="page_number">
+                                    <button class="next_page">下一页</button>
+                                </div>
+                                <div class="page_number">
+                                    <p>共<span>120</span>条,<span>2</span>页记录.</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+<!--*********************************************** -->
+            </div>
+        </div>
+</nav>
+
+<!--消息通知弹窗-->
+<div class="modal fade" tabindex="-1" role="dialog" id="un_read" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title">系统消息</h5>
+
+
+                <div class="modal-body">
+
+                    <p>发送人：<span>股林英雄系统</span><span class="date">2017-12-20 19:30:34</span></p>
+
+                    <p>尊敬的用户：您好！欢迎您使用股林英雄，为了保护您的合法权益，帮助您更好地使用股林英雄网站产品，
+                        请您在网上及时进行实名认证以获</p>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default">下一条</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/messageNotification.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.right{background: #FFF; }
+.table>thead>tr>th,.table>tbody>tr>td{ border: none; }
+.table thead{ background:#ededed ; }
+.pad15{ padding: 0 15px; }
+.padleft{ padding-left: 15px !important; }
+.padtop{ padding-top: 15px; }
+.paging{ text-align: center; margin: 30px; }
+#pages{ width: 60px; text-align: center; padding: 4px; }
+.btn{ padding: 5px 20px !important; }

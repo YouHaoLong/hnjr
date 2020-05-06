@@ -1,0 +1,26 @@
+	
+
+	.withdlist{
+		padding-top: 20px;
+		width: 324px;
+		margin: auto;
+		text-align: left;
+	}
+	#nav-tabs .active a{
+	color: #E9811E !important;
+	}
+	#nav-tabs .active {
+		border-bottom:2px solid  #E9811E !important;
+	}
+	.nav_ul a:hover {color:#e9811e !important;background:transparent !important;outline:0;}
+	.nav_ul a{color:#333}
+	.center .navbar-nav{
+		float: none;
+	}
+	.ipt{
+		width: 324px;
+		background: #edecec;
+		border: none;
+		padding: 7px;
+		margin-top: 10px;
+	}

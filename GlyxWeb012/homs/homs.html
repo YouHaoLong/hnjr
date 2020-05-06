@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>优财交易</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/share.css" />
+		<link rel="stylesheet" href="../css/homs.css" type="text/css" />
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/echarts.js"></script>
+		<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	    	<div class="container">
+		    <div class="navbar-header">
+		      
+	  		<img src="../images/logo.png" style="height: 50px;"/>
+		    </div>
+		    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav navul">
+			        <li class="active"><a href="#">首页 </a></li>
+			        <li><a href="#">挑战赛</a></li>
+			        <li><a href="#">优财交易</a></li>
+			        <li><a href="#">个人中心</a></li>
+		      	</ul>
+		      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+		      	<div style="padding-left: 15px; float: right;" >
+		      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+		      		<span class="badge navbar-right">1</span>
+		      		</span>
+		      	</div>
+		      	<div style="padding:0 15px;" class="navbar-right">
+		      		<img src="../images/Login.png"/>
+		      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+		      		
+		      	</div>
+		      	
+		    </div>
+		  </div>
+		</nav>
+		<div class="container main clearfix">
+			<div class="main_left pull-left">
+				<div class="information">
+					<div class="information_top">
+						<div class="information_topimg">
+							<img src="../images/index_logo.png" />
+						</div>
+						<div class="information_topiphone">135444444</div>
+					</div>
+					<div class="information_bottom">
+						<div class="information_b">初始资金：<span class="color2">200000</span></div>
+						<div class="row information_line"><div class="col-md-6 padrightnot">可用余额：<span class="color2">5000</span></div><div class="col-md-6 padrightnot">总资产：<span class="color2">200000</span></div></div>
+							<div class="row information_line"><div class="col-md-6 padrightnot">持仓总市值：<span class="color2">150000</span></div><div class="col-md-6 padrightnot">持仓浮动盈亏：<span class="color3">-150</span></div></div>
+							<div class="row information_line"><div class="col-md-6 padrightnot">预警线：<span class="color2">180000</span></div><div class="col-md-6 padrightnot">平仓线：<span class="color2">150000</span></div></div>
+					</div>
+				</div>
+				
+				<div class="information" style="margin-bottom: 0;">
+					<div class="ourposition">我的持仓</div>
+					<div class="ourpositionline"><div class="col-md-3 text-center padnot color2">名称/代码</div><div class="col-md-3 text-center padnot color2">盈亏/市值</div><div class="col-md-3 text-center padnot color2">持仓/可卖</div><div class="col-md-3 text-center padnot color2">成本/最新</div></div>
+					<ul class="ourpositioncon">
+					  <li>
+					  	<a href="#">
+					  		<p class="col-md-3"><span>平安银行</span><span>100001</span></p>
+					  		<p class="col-md-3"><span>-150</span><span>1000</span></p>
+					  		<p class="col-md-3"><span>100</span><span>100</span></p>
+					  		<p class="col-md-3"><span>10.65</span><span>1356</span></p>
+					  	</a>
+					  </li>
+					   <li>
+					  	<a href="#">
+					  		<p class="col-md-3"><span>平安银行</span><span>100001</span></p>
+					  		<p class="col-md-3"><span>-150</span><span>1000</span></p>
+					  		<p class="col-md-3"><span>100</span><span>100</span></p>
+					  		<p class="col-md-3"><span>10.65</span><span>1356</span></p>
+					  	</a>
+					  </li>
+					   <li>
+					  	<a href="#">
+					  		<p class="col-md-3"><span>平安银行</span><span>100001</span></p>
+					  		<p class="col-md-3"><span>-150</span><span>1000</span></p>
+					  		<p class="col-md-3"><span>100</span><span>100</span></p>
+					  		<p class="col-md-3"><span>10.65</span><span>1356</span></p>
+					  	</a>
+					  </li>
+						<li>
+					  	<a href="#">
+					  		<p class="col-md-3"><span>平安银行</span><span>100001</span></p>
+					  		<p class="col-md-3"><span>-150</span><span>1000</span></p>
+					  		<p class="col-md-3"><span>100</span><span>100</span></p>
+					  		<p class="col-md-3"><span>10.65</span><span>1356</span></p>
+					  	</a>
+					  </li>
+					   <li>
+					  	<a href="#">
+					  		<p class="col-md-3"><span>平安银行</span><span>100001</span></p>
+					  		<p class="col-md-3"><span>-150</span><span>1000</span></p>
+					  		<p class="col-md-3"><span>100</span><span>100</span></p>
+					  		<p class="col-md-3"><span>10.65</span><span>1356</span></p>
+					  	</a>
+					  </li>
+					  
+					</ul>
+					<div class="homs_fenye clearfix">
+						<div class="homs_fenyel pull-left">共<span>14</span>条,<span>1</span>页记录</div>
+						<div class="homs_fenyer pull-right"><a href="#">上一页</a><span>1</span><a href="#">下一页</a></div>
+					</div>
+				</div>
+					<div class="information" >
+					<div class="ourposition">自选股</div>
+					
+					<div class="ourpositionline"><div class="col-md-2 text-center padnot color2">名称/代码</div><div class="col-md-2 text-center padnot color2">当前价</div><div class="col-md-2 text-center padnot color2">涨跌幅</div><div class="col-md-2 text-center padnot color2">最高价</div><div class="col-md-2 text-center padnot color2">当前价</div><div class="col-md-2 text-center padnot color2">操作</div></div>
+					<ul class="ourpositioncon">
+					  <li>
+					  	<a href="#">
+					  		<p class="col-md-2"><span>平安银行</span><span>100001</span></p>
+					  		<p class="col-md-2 line1">13.26</p>
+					  		<p class="col-md-2 line1">-1.65%</p>
+					  		<p class="col-md-2 line1">13.27</p>
+					  		<p class="col-md-2 line1">13.09</p>
+					  		<p class="col-md-2 line1"><span class="zx_close" onclick="sc_zxg()"></span></p>
+					  	</a>
+					  </li>
+					  
+					  
+					</ul>
+					<div class="homs_fenye clearfix">
+						<div class="homs_fenyel pull-left">共<span>14</span>条,<span>1</span>页记录</div>
+						<div class="homs_fenyer pull-right"><a href="#">上一页</a><span>1</span><a href="#">下一页</a></div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="main_right pull-right">
+				<div class="search" style="position: relative;" >
+					<input type="text"/><button class="glyphicon glyphicon-search" aria-hidden="true"></button>
+					<div id="searchmain" style="width: 100%; background: #fff; z-index: 1000; padding-bottom: 60px; position: absolute; top: 40px; right: 0; display: none;">
+					<ul class="nav nav-stacked nav-tabs" role="tablist" style="width: 100%;">
+							<li style="font-size:15px ;">
+								<span>
+									<span class="navspan" style="text-align: center;">代码</span>
+									<span class="navspan1">名称</span>
+									<span class="navspan1">简拼</span>
+									<span class="navspan" style="text-align: center;">类型</span>
+								</span>
+							</li>
+							<li role="presentation" class="active">
+								<a href="#">
+									<span class="navspan" style="text-align: center;">代码代码</span>
+									<span class="navspan1">名称名称名称名称名称名称</span>
+									<span class="navspan1">JDKFJDFJD</span>
+									<span class="navspan" style="text-align: center;"> 类型类型 </span>
+									<span class="glyphicon glyphicon-menu-right"></span>
+								</a>
+								
+							</li>
+							<li role="presentation">
+								<a href="#">
+									<span class="navspan" style="text-align: center;">代码代码</span>
+									<span class="navspan1">名称名称名称名称名称名称</span>
+									<span class="navspan1">JDKFJDFJD</span>
+									<span class="navspan" style="text-align: center;"> 类型类型 </span>
+									<span class="glyphicon glyphicon-menu-right"></span>
+								</a>
+								
+							</li>
+							
+							
+							
+						</ul>
+					<ul>
+					
+									
+				</div>
+				</div>
+
+				
+	
+				<div class="top" style="padding: 10px 0;">
+					<div style="padding: 0 15px;">
+						<div class="dis" style="font-size: 16px;">
+							<span>平安银行</span> <span>000001</span>
+						</div>
+						<div class="dis time">
+							<span>12-06</span> <span>14:34:22</span>
+						</div>
+						<div class="dis">
+							<button class="btn" style="margin-right: 20px;"/>加入自选</button>
+							<button class="buybtn"/>买入</button>
+						</div>
+					</div>
+					<hr />
+					<div style="padding: 0 15px;">
+						<div>
+							<div class="topsub1">
+								<span style="font-size: 20px;">32804%</span>
+							</div>
+							<div class="topsub" >
+								<span>昨收：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>今开：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>最高：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>最低：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>成交量：</span> <span>11455手</span>
+							</div>
+						</div>
+						<div>
+							<div class="topsub1">
+								<span>-41.32</span> <span>-1.32%</span>
+							</div>
+							<div class="topsub" >
+								<span>成交额：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>总市值：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>涨停：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>跌停：</span> <span>14.33</span>
+							</div>
+							<div class="topsub" >
+								<span>涨幅：</span> <span>-1.65%</span>
+							</div>
+						</div>
+					</div>
+					<div class="main_nav"><a href="">分时</a><a href="">日k</a><a href="#">周k</a><a href="#">月k</a><input type="hidden" id="kmainstock" value=""/></div>
+					<div id="main" style="width: 100%; height: 600px;"></div>
+				</div>
+
+				<div class="main_rightbb">
+						<ul class="nav nav-tabs homs_nav" role="tablist">
+							<li role="presentation" >
+								<a href="#buy" aria-controls="home" role="tab" data-toggle="tab">买入</a>
+							</li>
+							<li role="presentation">
+								<a href="#sell" aria-controls="profile" role="tab" data-toggle="tab">卖出</a>
+							</li>
+							<li role="presentation">
+								<a href="#remove" aria-controls="profile" role="tab" data-toggle="tab" onclick="removecx()">撤单</a>
+							</li>
+							<li role="presentation" class="active">
+								<a href="#chaxun" aria-controls="profile" role="tab" data-toggle="tab">查询</a>
+							</li>
+							
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content homs_bottom">
+							
+							<div role="tabpanel" class="tab-pane" id="buy">
+							   <div class="mai clearfix">
+							   		<div class="mai_l pull-left">
+							   			<form>
+							   				<div class="mai_input">
+							   					<label>股票代码：</label>
+							   					<input type="text" value="" />
+							   					<label>股票名称：</label>
+							   					<input type="text" value="" readonly="" />
+							   				</div>
+							   				<div class="mai_input">
+							   					<label>当前价格：</label>
+							   					<input type="text" value=""  readonly=""/>
+							   					<label>最大可买：</label>
+							   					<input type="text" value="" readonly=""/>
+							   				</div>
+							   				<div class="mai_input">
+							   					<label>买入价格：</label>
+							   					<input type="text" value="" />
+							   					<label>可用资金：</label>
+							   					<input type="text" value="" readonly="" />
+							   				</div>
+							   				<div class="mai_input">
+							   					<label>买入数量：</label>
+							   					<input type="text" value="" />
+							   					<label>买入金额：</label>
+							   					<input type="text" value="" readonly=""/>
+							   				</div>
+							   				<div class="mai_input">
+							   					<label style="min-height: 1px;"></label>
+							   					<div class="mai_radio">
+							   						<label><input name="Fruit" type="radio" value="" />全部 </label> 
+													<label><input name="Fruit" type="radio" value="" />1/3</label> 
+													<label><input name="Fruit" type="radio" value="" />1/3</label> 
+
+
+							   					</div>
+							   				</div>
+							   				<div class="mai_input" style="text-align: center;">
+							   					
+							   					<button style="background: #E9811E;">买入</button>
+							   					<button>重置</button>
+							   				</div>
+							   			</form>
+							   		</div>
+							   		<div class="mai_r pull-right">
+							   			<div class="mai_rtitle">
+							   				 平安银行
+							   			</div>
+							   			<div class="mai_wd1 clearfix" style="border-bottom:1px solid #cfd4df ;">
+							   				<div class="col-md-4">卖五(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">卖四(元/手) </div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">卖三(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">卖二(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">卖一(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+
+							   			</div>
+							   			<div class="mai_wd1 clearfix">
+							   				<div class="col-md-4">买一(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">买二(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">买三(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">买四(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+							   				<div class="col-md-4">买五(元/手)</div><div class="col-md-4 text-center">22</div><div class="col-md-4 text-right">22</div>
+
+							   			</div>
+							   			<div class="mai_rbb clearfix">
+							   				<p>最新：<span>0.00</span></p>
+							   				<p>涨停：<span>0.00</span></p>
+							   				<p>昨收：<span>0.00</span></p>
+							   				<p>跌停：<span>0.00</span></p>
+							   			</div>
+							   		</div>
+							   </div>
+								
+							</div>
+							<div role="tabpanel" class="tab-pane" id="sell">
+								22
+							</div>
+							<!--撤单-->
+							<div role="tabpanel" class="tab-pane" id="remove">
+								<div class="mai clearfix" style="padding: 25px;">
+									<div class="">
+										<table class="table" style="word-break:break-all; word-wrap:break-all;">
+											<thead>
+												<tr>
+													<th>股票代码</th>
+													<th>股票名称</th>
+													<th>委托日期</th>
+													<th>委托时间</th>
+													<th>委托价格</th>
+													<th>委托数量</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody id="myremove">
+												<tr>
+													<td>50320</td>
+													<td>平安银行</td>
+													<td>2014-05-07</td>
+													<td>12:25:13</td>
+													<td>4.23</td>
+													<td>10000</td>
+													<td>
+														<button class="removebtn" onclick="show_widows()">撤单</button>
+													</td>
+												</tr>
+												<tr>
+													<td>50320</td>
+													<td>平安银行</td>
+													<td>2014-05-07</td>
+													<td>12:25:13</td>
+													<td>4.23</td>
+													<td>10000</td>
+													<td>
+														<button class="removebtn" onclick="show_widows()">撤单</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<nav class="paging">
+										<input class="pagbtn" type="button" value="上一页">
+										<!--<input id="pages" class="ipt" type="text" value="1">-->
+										<span>1</span>	
+										<input class="pagbtn" type="button" value="下一页">
+									</nav>
+								</div>
+								<!--撤单弹窗-->
+								<div class="modal fade in" id="prompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+												<div class="center">
+													<h4 class="modal-title" id="myModalLabel">撤单</h4>
+												</div>
+											</div>
+											<div class="modal-body" style="text-align: center;">
+												<div class="head">
+													您是否确定撤单？
+												</div>
+												<div class="nextbtn" style="margin: 60px 0 40px;">
+										   			<button type="button" class="btn" >确定撤单</button>
+										   		</div>
+											
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							
+								
+							<!--查询-->
+							<div role="tabpanel" class="tab-pane active" id="chaxun">
+							 	<ul class="nav nav-tabs chaxuntab" role="tablist">
+									<li role="presentation" class="active" >
+										<a href="#flowing" aria-controls="home" role="tab" data-toggle="tab">资金流水</a>
+									</li>
+									<li role="presentation">
+										<a href="#daydeal" aria-controls="profile" role="tab" data-toggle="tab">当日成交</a>
+									</li>
+									<li role="presentation">
+										<a href="#dayentrust" aria-controls="profile" role="tab" data-toggle="tab">当日委托</a>
+									</li>
+									<li role="presentation">
+										<a href="#historyentrust" aria-controls="profile" role="tab" data-toggle="tab">历史委托</a>
+									</li>
+									<li role="presentation">
+										<a href="#record" aria-controls="profile" role="tab" data-toggle="tab">成交记录</a>
+									</li>
+									<li role="presentation">
+										<a href="#delivery" aria-controls="profile" role="tab" data-toggle="tab">交割单</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<!--资金流水-->
+									<div role="tabpanel" class="tab-pane active" id="flowing">
+										<div class="mai clearfix" style="padding: 15px;">
+											<div class="query">
+												<input type="text" class="form-control Wdate" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})">
+												 -
+												<input type="text" class="form-control Wdate" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												
+												<button type="button" class="querybtn">搜索</button>
+											
+											</div>
+											<div class="">
+												<table class="table" style="word-break:break-all; word-wrap:break-all;">
+													<thead>
+														<tr>
+															<th>订单编号</th>
+															<th>股票代码</th>
+															<th>股票名称</th>
+															<th>成交时间</th>
+															<th>成交价格</th>
+															<th>成交金额</th>
+															<th>成交数量</th>
+															<th>成交余额</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody id="myflowing">
+														<tr>
+															<td>h123456</td>
+															<td>50320</td>
+															<td>平安银行</td>
+															<td>20140507 12:25:13</td>
+															<td>4.23</td>
+															<td>10000</td>
+															<td>1000</td>
+															<td>10000</td>
+															<td class="tdpad">
+																<div class="bg_515" >买</div>
+															</td>
+														</tr>
+														<tr>
+															<td>h123456</td>
+															<td>50320</td>
+															<td>平安银行</td>
+															<td>20140507 12:25:13</td>
+															<td>4.23</td>
+															<td>10000</td>
+															<td>1000</td>
+															<td>10000</td>
+															<td class="col_515">
+																<div class="bg_651">卖 </div>	
+															</td>
+														</tr>
+														
+													</tbody>
+												</table>
+											</div>
+											<nav class="paging">
+												<input class="pagbtn" type="button" value="上一页">
+												<span>1</span>	
+												<input class="pagbtn" type="button" value="下一页">
+											</nav>
+										</div>
+										
+									</div>
+									
+									<!--当日成交-->
+									<div role="tabpanel" class="tab-pane " id="daydeal">
+										<div class="mai clearfix" style="padding: 15px;">
+											<div class="">
+												<table class="table" style="word-break:break-all; word-wrap:break-all;">
+													<thead>
+														<tr>
+															<th>股票代码</th>
+															<th>股票名称</th>
+															<th>委托价格</th>
+															<th>成交时间</th>
+															<th>成交价格</th>
+															<th>成交金额</th>
+															<th>成交数量</th>
+															<th>成交状态</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody id="mydaydeal">
+														<tr>
+															<td>h123456</td>
+															<td>50320</td>
+															<td>平安银行</td>
+															<td>20140507 12:25:13</td>
+															<td>4.23</td>
+															<td>10000</td>
+															<td>1000</td>
+															<td>10000</td>
+															<td class="col_515">
+																<div class="bg_651">卖 </div>	
+															</td>
+														</tr>
+														<tr>
+															<td>h123456</td>
+															<td>50320</td>
+															<td>平安银行</td>
+															<td>20140507 12:25:13</td>
+															<td>4.23</td>
+															<td>10000</td>
+															<td>1000</td>
+															<td>10000</td>
+															<td class="tdpad">
+																<div class="bg_515" >买</div>
+															</td>
+														</tr>
+														
+													</tbody>
+												</table>
+											</div>
+											<nav class="paging">
+												<input class="pagbtn" type="button" value="上一页">
+												<span>1</span>	
+												<input class="pagbtn" type="button" value="下一页">
+											</nav>
+										</div>
+										
+									</div>
+									
+									<!--当日委托-->
+									<div role="tabpanel" class="tab-pane " id="dayentrust">
+										<div class="mai clearfix" style="padding: 15px;">
+											<div class="">
+												<table class="table" style="word-break:break-all; word-wrap:break-all;">
+													<thead>
+														<tr>
+															<th>股票代码</th>
+															<th>股票名称</th>
+															<th>委托价格</th>
+															<th>委托数量</th>
+															<th>委托日期</th>
+															<th>成交时间</th>
+															<th>成交价格</th>
+															<th>成交金额</th>
+															<th>成交数量</th>
+															<th>成交状态</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody id="mydayentrust">
+														<tr>
+															<td>50320</td>
+															<td>平安银行</td>
+															<td>13.8</td>
+															<td>100</td>
+															<td>20140507</td> 
+															<td>12:25:13</td>
+															<td>4.23</td>
+															<td>100</td>
+															<td>1000</td>
+															<td>已成交</td>
+															<td class="tdpad">
+																<div class="bg_515" >买</div>
+															</td>
+														</tr>
+														<tr>
+															<td>50320</td>
+															<td>平安银行</td>
+															<td>13.8</td>
+															<td>100</td>
+															<td>20140507</td> 
+															<td>12:25:13</td>
+															<td>4.23</td>
+															<td>100</td>
+															<td>1000</td>
+															<td>已成交</td>
+															<td class="col_515">
+																<div class="bg_651">卖 </div>	
+															</td>
+														</tr>
+														
+														
+													</tbody>
+												</table>
+											</div>
+											<nav class="paging">
+												<input class="pagbtn" type="button" value="上一页">
+												<span>1</span>	
+												<input class="pagbtn" type="button" value="下一页">
+											</nav>
+										</div>
+										
+									</div>
+									
+									<!--历史委托-->
+									<div role="tabpanel" class="tab-pane " id="historyentrust">
+										<div class="mai clearfix" style="padding: 15px;">
+											<div class="query">
+												<input type="text" class="form-control Wdate" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})">
+												 -
+												<input type="text" class="form-control Wdate" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												
+												<button type="button" class="querybtn">搜索</button>
+												<div class="dis magleft">
+													<input type="text" class="form-control width25" placeholder="股票名称/股票代码/委托状态" />
+													<button type="button" class="querybtn">搜索</button>
+												</div>
+											</div>
+											<div class="">
+												<table class="table" style="word-break:break-all; word-wrap:break-all;">
+													<thead>
+														<tr>
+															<th>股票代码</th>
+															<th>股票名称</th>
+															<th>委托日期</th>
+															<th>委托时间</th>
+															<th>委托价格</th>
+															<th>委托数量</th>
+															<th>委托状态</th>
+															<th>操作</th>
+														</tr>
+													</thead>
+													<tbody id="mydayentrust">
+														<tr>
+															<td>00001</td>
+															<td>平安银行</td>
+															<td>20140507</td> 
+															<td>12:25:13</td>
+															<td>4.23</td>
+															<td>100</td>
+															<td>已成交</td>
+															<td class="tdpad">
+																<div class="bg_515" >买</div>
+															</td>
+														</tr>
+														
+														<tr>
+															<td>00001</td>
+															<td>平安银行</td>
+															<td>20140507</td> 
+															<td>12:25:13</td>
+															<td>4.23</td>
+															<td>100</td>
+															<td>已成交</td>
+															<td class="col_515">
+																<div class="bg_651">卖 </div>	
+															</td>
+														</tr>
+														
+														
+														
+													</tbody>
+												</table>
+											</div>
+											<nav class="paging">
+												<input class="pagbtn" type="button" value="上一页">
+												<span>1</span>	
+												<input class="pagbtn" type="button" value="下一页">
+											</nav>
+										</div>
+										
+									</div>
+									
+									<!--成交记录-->
+									<div role="tabpanel" class="tab-pane " id="record">
+										<div class="mai clearfix" style="padding: 15px;">
+											<div class="query">
+												<input type="text" class="form-control Wdate" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})">
+												 -
+												<input type="text" class="form-control Wdate" id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												
+												<button type="button" class="querybtn">搜索</button>
+												<div class="dis magleft">
+													<input type="text" class="form-control width25" placeholder="股票名称/股票代码/委托状态" />
+													<button type="button" class="querybtn">搜索</button>
+												</div>
+											</div>
+											<div class="">
+												<table class="table" style="word-break:break-all; word-wrap:break-all;">
+													<thead>
+														<tr>
+															<th>股票代码</th>
+															<th>股票名称</th>
+															<th>委托价格</th>
+															<th>成交时间</th>
+															<th>成交价格</th>
+															<th>成交金额</th>
+															<th>成交数量</th>
+															<th>成交状态</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody id="myrecord">
+														<tr>
+															<td>00001</td>
+															<td>平安银行</td>
+															<td>4.23</td>
+															<td>2014050712:25:13</td> 
+															<td>4.23</td>
+															<td>100</td>
+															<td>100</td>
+															<td>已成交</td>
+															<td class="col_515">
+																<div class="bg_651">卖 </div>	
+															</td>
+														</tr>
+														<tr>
+															<td>00001</td>
+															<td>平安银行</td>
+															<td>20140507</td> 
+															<td>12:25:13</td>
+															<td>4.23</td>
+															<td>100</td>
+															<td>100</td>
+															<td>已成交</td>
+															<td>
+																<div class="bg_515">买</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<nav class="paging">
+												<input class="pagbtn" type="button" value="上一页">
+												<span>1</span>	
+												<input class="pagbtn" type="button" value="下一页">
+											</nav>
+										</div>
+										
+									</div>
+									
+									<!--交割单-->
+									<div role="tabpanel" class="tab-pane " id="delivery">
+										<div class="mai clearfix" style="padding: 15px;">
+											<div class="query">
+												<input type="text" class="form-control Wdate" id="calendarStart" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,onpicked:function(){calendarEnd.focus();}})">
+												 -
+												<input type="text" class="form-control Wdate"  id="calendarEnd" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})">
+												
+												<button type="button" class="querybtn">搜索</button>
+												<div class="dis magleft" >
+													<input type="text" class="form-control width25" placeholder="股票名称/股票代码/委托状态" />
+													<button type="button" class="querybtn">搜索</button>
+												</div>
+											</div>
+											<div class="">
+												<table class="table" style="word-break:break-all; word-wrap:break-all;">
+													<thead>
+														<tr>
+															<th>股票代码</th>
+															<th>股票名称</th>
+															<th>成交时间</th>
+															<th>成交价格</th>
+															<th>成交金额</th>
+															<th>成交数量</th>
+															<th>佣金</th>
+															<th>印花税</th>
+															<th>过户费</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody id="mydelivery">
+														<tr>
+															<td>00001</td>
+															<td>平安银行</td>
+															<td>2014050712:25:13</td> 
+															<td>4.23</td>
+															<td>100</td>
+															<td>100</td>
+															<td>100</td>
+															<td>100</td>
+															<td>100</td>
+															<td class="tdpad">
+																<div class="bg_515" >买</div>
+															</td>
+														</tr>
+														<tr>
+															<td>00001</td>
+															<td>平安银行</td>
+															<td>2014050712:25:13</td> 
+															<td>4.23</td>
+															<td>100</td>
+															<td>100</td>
+															<td>100</td>
+															<td>100</td>
+															<td>100</td>
+															<td class="tdpad">
+																<div class="bg_651">卖 </div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<nav class="paging">
+												<input class="pagbtn" type="button" value="上一页">
+												<span>1</span>	
+												<input class="pagbtn" type="button" value="下一页">
+											</nav>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						
+						</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="container">
+			<div class="bottom_top"><p>用户服务协议 </p><p>隐私权声明 </p><p>免责声明</p></div>
+			<div class="bottom_b">Copyright © 2016-2017 深圳前海优财网络科技有限公司 All Rights Reserved 粤ICP备16034290号-2</div>
+		</footer>
+	
+	</body>
+	<script>
+		function sc_zxg(){
+			alert(1);
+		}
+		function show_widows () {
+			
+			$("#prompt").modal('show')
+			console.log($("#prompt"))
+			
+		}
+		
+var myChart = echarts.init(document.getElementById('main'));	
+var upColor = '#00da3c';
+var downColor = '#ec0000';
+var ftime = ["09:30","09:31","09:32","09:33","09:34","09:35","09:36","09:37","09:38","09:39","09:40","09:41","09:42","09:43","09:44","09:45","09:46","09:47","09:48","09:49","09:50","09:51","09:52","09:53","09:54","09:55","09:56","09:57","09:58","09:59","10:00","10:01","10:02","10:03","10:04","10:05","10:06","10:07","10:08","10:09","10:10","10:11","10:12","10:13","10:14","10:15","10:16","10:17","10:18","10:19","10:20","10:21","10:22","10:23","10:24","10:25","10:26","10:27","10:28","10:29","10:30","10:31","10:32","10:33","10:34","10:35","10:36","10:37","10:38","10:39","10:40","10:41","10:42","10:43","10:44","10:45","10:46","10:47","10:48","10:49","10:50","10:51","10:52","10:53","10:54","10:55","10:56","10:57","10:58","10:59","11:00","11:01","11:02","11:03","11:04","11:05","11:06","11:07","11:08","11:09","11:10","11:11","11:12","11:13","11:14","11:15","11:16","11:17","11:18","11:19","11:20","11:21","11:22","11:23","11:24","11:25","11:26","11:27","11:28","11:29","11:30","13:00","13:01","13:02","13:03","13:04","13:05","13:06","13:07","13:08","13:09","13:10","13:11","13:12","13:13","13:14","13:15","13:16","13:17","13:18","13:19","13:20","13:21","13:22","13:23","13:24","13:25","13:26","13:27","13:28","13:29","13:30","13:31","13:32","13:33","13:34","13:35","13:36","13:37","13:38","13:39","13:40","13:41","13:42","13:43","13:44","13:45","13:46","13:47","13:48","13:49","13:50","13:51","13:52","13:53","13:54","13:55","13:56","13:57","13:58","13:59","14:00","14:01","14:02","14:03","14:04","14:05","14:06","14:07","14:08","14:09","14:10","14:11","14:12","14:13","14:14","14:15","14:16","14:17","14:18","14:19","14:20","14:21","14:22","14:23","14:24","14:25","14:26","14:27","14:28","14:29","14:30","14:31","14:32","14:33","14:34","14:35","14:36","14:37","14:38","14:39","14:40","14:41","14:42","14:43","14:44","14:45","14:46","14:47","14:48","14:49","14:50","14:51","14:52","14:53","14:54","14:55","14:56","14:57","14:58","14:59","15:00"];
+
+function splitData(rawData) {
+    var categoryData = [];
+    var values = [];
+    var volumes = [];
+    for (var i = 0; i < rawData.length; i++) {
+        categoryData.push(rawData[i].splice(0, 1)[0]);
+   
+//      var vals=[];
+//      vals[0]=rawData[i][0];
+//     
+//      vals[1]=rawData[i][1];
+//      vals[2]=rawData[i][2];
+//      vals[3]=rawData[i][3];
+//      vals[4]=rawData[i][4];
+//      values[i]=vals;
+values.push(rawData[i])
+        volumes.push([i, rawData[i][4], rawData[i][0] > rawData[i][1] ? 1 : -1]);
+    }
+  console.log(categoryData)
+  
+    return {
+        categoryData: categoryData,
+        values: values,
+        volumes: volumes
+    };
+}
+
+function calculateMA(dayCount, data) {
+//	console.log(data);
+    var result = [];
+    for (var i = 0, len = data.values.length; i < len; i++) {
+    	
+        if (i < dayCount) {
+            result.push('-');
+            continue;
+        }
+        var sum = 0;
+//      for (var j = 0; j < dayCount; j++) {
+//          sum += data.values[i - j][1];
+          sum += data.values[i][3];
+//      }
+//      result.push(+(sum / dayCount).toFixed(3));
+        result.push(sum);
+    }
+    console.log(result);
+    return result;
+}
+
+$.get('../js/stock-DJI.json', function (rawData) {
+
+    var data = splitData(rawData);
+
+  option1 = {
+        backgroundColor: '#fff',
+        animation: false,
+        legend: {
+            bottom: 10,
+            left: 'center',
+            data: ['Dow-Jones index', 'MA5', 'MA10', 'MA20', 'MA30']
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            },
+            backgroundColor: 'rgba(245, 245, 245, 0.8)',
+            borderWidth: 1,
+            borderColor: '#ccc',
+            padding: 10,
+            textStyle: {
+                color: '#000'
+            },
+            position: function (pos, params, el, elRect, size) {
+            	console.log(el)
+                var obj = {top: 10};
+                obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 30;
+                return obj;
+            }
+            // extraCssText: 'width: 170px'
+        },
+        axisPointer: {
+            link: {xAxisIndex: 'all'},
+            label: {
+                backgroundColor: '#777'
+            }
+        },
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: false
+                },
+                brush: {
+                    type: ['lineX', 'clear']
+                }
+            }
+        },
+        brush: {
+            xAxisIndex: 'all',
+            brushLink: 'all',
+            outOfBrush: {
+                colorAlpha: 0.1
+            }
+        },
+        visualMap: {
+            show: false,
+            seriesIndex: 5,
+            dimension: 2,
+            pieces: [{
+                value: 1,
+                color: downColor
+            }, {
+                value: -1,
+                color: upColor
+            }]
+        },
+        grid: [
+            {
+                left: '10%',
+                right: '8%',
+                height: '50%'
+            },
+            {
+                left: '10%',
+                right: '8%',
+                top: '63%',
+                height: '16%'
+            }
+        ],
+        xAxis: [
+            {
+                type: 'category',
+                data: ftime,
+                scale: true,
+                boundaryGap : false,
+                axisLine: {onZero: false},
+                splitLine: {show: false},
+                splitNumber: 20,
+                min: 'dataMin',
+                max: 'dataMax',
+                axisPointer: {
+                    z: 100
+                }
+            },
+            {
+                type: 'category',
+                gridIndex: 1,
+                data: ftime,
+                scale: true,
+                boundaryGap : false,
+                axisLine: {onZero: false},
+                axisTick: {show: false},
+                splitLine: {show: false},
+                axisLabel: {show: false},
+                splitNumber: 20,
+                min: 'dataMin',
+                max: 'dataMax'
+                // axisPointer: {
+                //     label: {
+                //         formatter: function (params) {
+                //             var seriesValue = (params.seriesData[0] || {}).value;
+                //             return params.value
+                //             + (seriesValue != null
+                //                 ? '\n' + echarts.format.addCommas(seriesValue)
+                //                 : ''
+                //             );
+                //         }
+                //     }
+                // }
+            }
+        ],
+        yAxis: [
+            {
+                scale: true,
+                splitArea: {
+                    show: true
+                }
+            },
+            {
+                scale: true,
+                gridIndex: 1,
+                splitNumber: 2,
+                axisLabel: {show: false},
+                axisLine: {show: false},
+                axisTick: {show: false},
+                splitLine: {show: false}
+            }
+        ],
+        dataZoom: [
+            {
+                type: 'inside',
+                xAxisIndex: [0, 1],
+                start: 98,
+                end: 100
+            },
+            {
+                show: true,
+                xAxisIndex: [0, 1],
+                type: 'slider',
+                top: '85%',
+                start: 98,
+                end: 100
+            }
+        ],
+        series: [
+            {
+                name: 'Dow-Jones index',
+                type: 'candlestick',
+//        	  data: data.values,
+                itemStyle: {
+                    normal: {
+                        color: downColor,
+                        color0: upColor,
+                        borderColor: null,
+                        borderColor0: null
+                    }
+                },
+                tooltip: {
+                    formatter: function (params) {
+                        param = param[0];
+                        return [
+                            'Date: ' + param.name + '<hr size=1 style="margin: 3px 0">',
+                            'Open: ' + param.data[0] + '<br/>',
+                            'Close: ' + param.data[1] + '<br/>',
+                            'Lowest: ' + param.data[2] + '<br/>',
+                            'Highest: ' + param.data[3] + '<br/>'
+                        ].join('');
+                    }
+                }
+            },
+            {
+                name: 'MA5',
+                type: 'line',
+             data:calculateMA(5, data),
+                smooth: true,
+                lineStyle: {
+                    normal: {opacity: 0.5}
+                }
+            },
+            {
+                name: 'MA10',
+                type: 'line',
+//              data: calculateMA(10, data),
+                smooth: true,
+                lineStyle: {
+                    normal: {opacity: 0.5}
+                }
+            },
+            {
+                name: 'MA20',
+                type: 'line',
+//              data: calculateMA(20, data),
+                smooth: true,
+                lineStyle: {
+                    normal: {opacity: 0.5}
+                }
+            },
+            {
+                name: 'MA30',
+                type: 'line',
+ //             data: calculateMA(30, data),
+                smooth: true,
+                lineStyle: {
+                    normal: {opacity: 0.5}
+                }
+            },
+            {
+                name: 'Volume',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: data.volumes
+            }
+        ]
+    }
+
+    // myChart.on('brushSelected', renderBrushed);
+
+    // function renderBrushed(params) {
+    //     var sum = 0;
+    //     var min = Infinity;
+    //     var max = -Infinity;
+    //     var countBySeries = [];
+    //     var brushComponent = params.brushComponents[0];
+
+    //     var rawIndices = brushComponent.series[0].rawIndices;
+    //     for (var i = 0; i < rawIndices.length; i++) {
+    //         var val = data.values[rawIndices[i]][1];
+    //         sum += val;
+    //         min = Math.min(val, min);
+    //         max = Math.max(val, max);
+    //     }
+
+    //     panel.innerHTML = [
+    //         '<h3>STATISTICS:</h3>',
+    //         'SUM of open: ' + (sum / rawIndices.length).toFixed(4) + '<br>',
+    //         'MIN of open: ' + min.toFixed(4) + '<br>',
+    //         'MAX of open: ' + max.toFixed(4) + '<br>'
+    //     ].join(' ');
+    // }
+
+     myChart.setOption(option1);
+});
+	</script>
+	
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>牛币兑换</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="../css/share.css"/>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<style>
+.right{ padding: 15px; background: #FFF; }
+.withdlist{padding-top: 40px;}
+.rate{ width: 150px;height: 200px;border: 2px solid #999;border-radius: 5px;text-align: center;padding-top: 20px; }
+.rateimg{ height: 78px; }
+.ratenb{ margin: 25px 0 15px; }
+.rateyl{ width: 100%;height: 40px;background: #999;border-radius: 0 0 5px 5px;color: #fff;line-height: 40px; border: none;}
+.active .rate{
+	border-color: #E9811E;	
+}
+.active .rateyl{
+	background: #E9811E;
+	outline: none;
+}
+
+.active .ratenb{
+	color: #E9811E;
+}
+</style>
+
+<body>
+	<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    	<div class="container">
+	    <div class="navbar-header">
+	    	<img src="../images/logo.png" style="height: 50px;"/>
+	    </div>
+	    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+	      	<ul class="nav navbar-nav navul">
+		        <li><a href="#">首页 </a></li>
+		        <li><a href="#">挑战赛</a></li>
+		        <li><a href="#">优财交易</a></li>
+		        <li class="active"><a href="#">个人中心</a></li>
+		        <div style="padding:0 15px;" class="navbar-right">
+	      		<img src="../images/Login.png"/>
+	      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+	      		
+	      	</div>
+	      	</ul>
+	      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+	      	<div style="padding-left: 15px; float: right;" >
+	      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+	      		<span class="badge navbar-right">1</span>
+	      		</span>
+	      	</div>
+	      	
+	      	
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container" style="margin-top: 95px;">
+		<div class="row">
+			<div class="col-md-3 pad7">
+				<div id="left_top">
+					<div> <img src="../images/touxiang.jpg" id="topimg"/> </div>
+					<div class="toptext">
+						<b>明天更好</b>
+						<div>132****7946</div>
+					</div>
+					<div class="topicon">
+						<img src="../images/Own.png"/>
+						<img src="../images/Information.png"/>
+						<img src="../images/Safety.png"/>
+					</div>
+					<button class="topbut">立即签到</button>
+				</div>
+				<div id="left-bot" style="margin:10px 0 ;background: #fff;">
+					<ul id="main-nav" class="nav nav-sidebar" aria-labelledby="dropdownMenuDivider">
+						<li class="active">
+							<a href="#">
+								<img src="../images/Property.png" /> 账户资产
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="../images/Friends.png"/> 推荐好友
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="glyphicon glyphicon-cog"></i> 个人设置
+							</a>
+						</li>
+						<li>
+							<a href="#"><i class="glyphicon glyphicon-bell"></i> 消息通知</a>
+						</li>
+						
+					</ul>
+				
+				</div>
+			</div>
+			<div class="col-md-9 pad7">
+				<div class="right">
+					<div class="lookup">
+						<b class="title">牛币兑换</b>
+					</div>
+					<div class="withdlist" style="text-align: center;">
+						<div class="dis navbar-left">
+							<span class="col_11e">我的银两：</span>
+							<span class="col_7a7">206银两</span>
+							<button class="btn" style="margin-left: 30px;margin-right: -30px;" >充值</button>
+						</div>
+						<div class="dis">
+							<span class="col_11e">牛币余额：</span>
+							<span class="col_7a7">0牛币</span>
+						</div>
+						<div class="dis navbar-right">
+							<button class="btn">确定兑换</button>
+						</div>
+						
+					</div>
+					
+					<div class="withdlist">
+							<span>兑换说明：</span>
+							<span class="col_7a7">【银两】【牛币】为股林英雄游戏币称谓，可以在游戏中购买、使用等；银两与人民币汇率是1:1，所以可以进行直接兑换，铜币只存在于股林英雄游戏世界中交易流通。</span>
+					</div>
+					<ul class="withdlist" style="margin: auto;">
+						<li class="dis" style="width: 24%;margin: auto;">
+							<div class="rate">
+							<img class="rateimg" src="../images/8.png"/>
+							<div class="ratenb">10000牛币</div>
+							<button class="rateyl">需要<span>1000</span>银两</button>
+							</div>
+						</li>
+						<li class="dis" style="width: 24%;text-align: center;">
+							<div class="rate">
+							<img class="rateimg" src="../images/8.png"/>
+							<div class="ratenb">5000牛币</div>
+							<button class="rateyl">需要<span>500</span>银两</button>
+							</div>
+						</li>
+						<li class="dis" style="width: 24%;text-align: center;">
+							<div class="rate">
+							<img class="rateimg" src="../images/8.png"/>
+							<div class="ratenb">1000牛币</div>
+							<button class="rateyl">需要<span>100</span>银两</button>
+							</div>
+						</li>
+						<li class="dis" style="width: 24%;text-align: center;">
+							<div class="rate">
+							<img class="rateimg" src="../images/8.png"/>
+							<div class="ratenb">500牛币</div>
+							<button class="rateyl">需要<span>50</span>银两</button>
+							</div>
+						</li>
+						
+					
+						<li class="dis" style="width: 24%;margin: 15px auto; ">
+							<div class="rate">
+							<img class="rateimg" src="../images/8.png"/>
+							<div class="ratenb">100牛币</div>
+							<button class="rateyl">需要<span>10</span>银两</button>
+							</div>
+						</li>
+						<li class="dis" style="width: 24%;margin: 15px auto;">
+							<div class="rate">
+							<img class="rateimg" src="../images/8.png"/>
+							<div class="ratenb">10牛币</div>
+							<button class="rateyl">需要<span id="ratval">1</span>银两</button>
+							</div>
+						</li>
+						
+					</ul>	
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	</body>
+<script>
+var money = ''	
+$(function(){
+	   $('.withdlist li').click(function(e){
+	       e.preventDefault();
+	       $(this).addClass('active').siblings().removeClass('active');
+	       money = $(this).children().children().children().html()
+	       console.log(money)
+	   });
+});	
+//var money = ''
+//$(function(){
+// $('.active').click(function(){
+//     $(this).addClass('xuanz').siblings().parent().removeClass('xuanz');
+//     
+//     $(this).parent().addClass('xua')
+//     $(this).prev().addClass('xz')
+//     money = $(this).children('span').html()
+// });
+//});
+
+</script>
+</html>

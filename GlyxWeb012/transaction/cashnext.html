@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>账户提现</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="../css/share.css"/>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<style>
+
+.right{
+	padding: 15px;
+	background: #FFF;	
+}
+
+</style>
+
+<body>
+	<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    	<div class="container">
+	    <div class="navbar-header">
+	    	<img src="../images/logo.png" style="height: 50px;"/>
+	    </div>
+	    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+	      	<ul class="nav navbar-nav navul">
+		        <li><a href="#">首页 </a></li>
+		        <li><a href="#">挑战赛</a></li>
+		        <li><a href="#">优财交易</a></li>
+		        <li class="active"><a href="#">个人中心</a></li>
+		        <div style="padding:0 15px;" class="navbar-right">
+	      		<img src="../images/Login.png"/>
+	      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+	      		
+	      	</div>
+	      	</ul>
+	      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+	      	<div style="padding-left: 15px; float: right;" >
+	      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+	      		<span class="badge navbar-right">1</span>
+	      		</span>
+	      	</div>
+	      	
+	      	
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container" style="margin-top: 95px;">
+		<div class="row">
+			<div class="col-md-3 pad7">
+				<div id="left_top">
+					<div> <img src="../images/01.png" id="topimg"/> </div>
+					<div class="toptext">
+						<b>明天更好</b>
+						<div>132****7946</div>
+					</div>
+					<div class="topicon">
+						<img src="../images/Own.png"/>
+						<img src="../images/Information.png"/>
+						<img src="../images/Safety.png"/>
+					</div>
+					<button class="topbut">立即签到</button>
+				</div>
+				<div id="left-bot" style="margin:10px 0 ;background: #fff;">
+					<ul id="main-nav" class="nav nav-sidebar" aria-labelledby="dropdownMenuDivider">
+						<li class="active">
+							<a href="#">
+								<img src="../images/Property.png" /> 账户资产
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="../images/Friends.png"/> 推荐好友
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="glyphicon glyphicon-cog"></i> 个人设置
+							</a>
+						</li>
+						<li>
+							<a href="#"><i class="glyphicon glyphicon-bell"></i> 消息通知</a>
+						</li>
+						
+					</ul>
+				
+				</div>
+			</div>
+			<div class="col-md-9 pad7">
+				<div class="right">
+					<div class="lookup">
+						<b class="title">账户提现</b>
+						<span class="navbar-right col_7a7">安全提示：充值/提现</span>
+					</div>
+					<div class="withdlist">
+						<span class="col_11e">注：</span>
+						<span class="col_7a7">提示：每笔提现手续费为1元，每笔提现不可低于2元，到账时间为T+1。</span>
+					</div>
+					<div class="withdlist">
+						<span class="">可提金额：</span>
+						<span class="col_11e">564,345.00</span>
+					</div>
+					<div class="withdlist">
+						<span >手机号码：</span>
+						<span class="col_7a7">13267465638</span>
+					</div>
+					<div class="withdlist">
+						<span>银行卡号：</span>
+						<span class="col_7a7">7861 6922 1335 6458</span>
+					</div>
+					<div class="withdlist">
+						<span class="">提现金额：</span>
+						<input class="ipt" type="text" placeholder="请输入你的提现金额" />
+					</div>
+					
+					<div class="withdlist ">
+						<span class="withdipt">手机验证码：</span>
+						<div id="" style="display: inline-block;width: 300px;">
+							<div class="input-group">
+							 	<input type="text" class="form-control" placeholder="请输入手机验证码" aria-describedby="basic-addon2">
+							  	<span class="input-group-addon" id="basic-addon2">发送验证码</span>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn1">确定</button>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	</body>
+<script>
+	$(function(){
+   $('.navbar-nav li').click(function(e){
+       e.preventDefault();
+       $(this).addClass('active').siblings().removeClass('active');
+   });
+});
+</script>
+</html>

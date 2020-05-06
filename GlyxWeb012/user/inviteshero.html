@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <title>推荐将军</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/messageNotification.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="../images/logo.png" style="height: 50px;"/>
+        </div>
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navul">
+                <li><a href="#">首页 </a></li>
+                <li><a href="#">挑战赛</a></li>
+                <li><a href="#">优财交易</a></li>
+                <li class="active"><a href="#">个人中心</a></li>
+            </ul>
+            <div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+            <div style="padding-left: 15px; float: right;position: relative" >
+                <p class="xiaoxi">
+                    <span class="badge navbar-right">1</span>
+                </p>
+            </div>
+            <div style="padding:0 15px;" class="navbar-right">
+                <img src="../images/Login.png"/>
+                <span>您已登录成功,<span id="Username">134****3453</span></span>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+<!--主体-->
+<nav id="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 ">
+                    <div class="personage">
+
+                        <!--头像-->
+                        <div class="touxiang">
+                            <div class="tx">
+                                <img src="../images/touxiang.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="name_phone">
+                            <p>明天更好</p>
+                            <p>123****7890</p>
+                        </div>
+                        <div class="JL">
+                            <!--实名认证-->
+                            <div class="authentication"></div>
+                            <!--绑定手机-->
+                            <div class="mobile"></div>
+                            <!--安全中心-->
+                            <div class="safety"></div>
+                        </div>
+                        <!--签到按钮-->
+                        <button class="sn">
+                            立即签到
+                        </button>
+                    </div>
+
+
+                    <!--列表-->
+
+                    <ul class="list">
+                        <li>
+                            <a href="user.html">
+                                <p class="Account"></p>
+                                账户资产
+                            </a>
+                        </li>
+                        <li class="default">
+                            <a href="invites.html">
+                                <p class="friend"></p>
+                                推荐好友</a>
+                        </li>
+                        <li>
+                            <a href="security.html">
+                                <p class="setting"></p>
+                                个人设置</a>
+                        </li>
+                        <li>
+                            <a href="newcenter.html">
+                                <p class="notification"></p>
+                                消息通知
+                            </a>
+                            <span class="">1</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <!--详细内容部分-->
+                <div class="col-md-9">
+                    <div id="detail" class="clear">
+                        <!--推荐将军-->
+                        <h4>推荐将军</h4>
+                        <ul class="rt GR">
+                            <li>共<span>3</span>封,</li>
+                            <li>未读<span>2</span>封,</li>
+                            <li>已读<span>1</span>封</li>
+                        </ul>
+
+                    <!--表格部分-->
+                        <table class="table GR">
+
+                                <thead>
+                                <tr>
+                                    <td>昵称</td>
+                                    <td>手机号</td>
+                                    <td>项目</td>
+                                    <td>状态</td>
+                                    <td>阶段</td>
+                                    <td>级别</td>
+                                    <td>总收益</td>
+                                    <td>结果</td>
+                                </tr>
+                                </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <span>明天更好</span>
+                                </td>
+                                <td>
+                                    <span>138****7815</span>
+                                </td>
+                                <td>
+                                    <span>246316期挑战赛</span>
+                                </td>
+                                <td>
+                                  <span>已结算</span>
+                                </td>
+                                <td>
+                                    <span>发起挑战</span>
+                                </td>
+                                <td>
+                                    <span>准将军</span>
+                                </td>
+                                <td>
+                                    <span>0.001</span>
+                                </td>
+                                <td>
+                                    <span class="Failure">失败</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>明天更好</span>
+                                </td>
+                                <td>
+                                    <span>138****7815</span>
+                                </td>
+                                <td>
+                                    <span>246316期挑战赛</span>
+                                </td>
+                                <td>
+                                    <span>已结算</span>
+                                </td>
+                                <td>
+                                    <span>发起挑战</span>
+                                </td>
+                                <td>
+                                    <span>准将军</span>
+                                </td>
+                                <td>
+                                    <span>0.001</span>
+                                </td>
+                                <td>
+                                    <span class="succeed">成功</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--分页-->
+                        <div id="paging">
+                            <div class="page">
+                                <button class="previous_page">上一页</button>
+                                <input type="text" value="2" class="page_number">
+                                <button class="next_page">下一页</button>
+                            </div>
+                            <div class="page_number">
+                                <p>共<span>120</span>条,<span>2</span>页记录.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--*********************************************** -->
+            </div>
+        </div>
+
+</nav>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/messageNotification.js"></script>
+</body>
+</html>

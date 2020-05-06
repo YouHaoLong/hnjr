@@ -1,0 +1,91 @@
+.nav_ul{ float: none !important; display: block; margin-top: 20px; }
+.nav_ul a{ color:#333 !important; padding: 5px 15px !important; background: transparent !important;border-bottom: 2px solid transparent; }
+.nav_ul a:hover {color:#e9811e !important;background:transparent;outline:0;} 
+
+.data_left{
+	float: left;
+	display: inline-block;
+	width: 120px !important;
+	text-align: center;
+}
+.data_right{
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.data_bot{
+	padding-bottom: 30px;
+	margin-top: 10px;
+}
+.data_bot,.panel-body,.bg{
+	padding: 15px;
+	background: #fff;
+	
+}
+
+.topic,.topic2{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	margin-right: 10px;
+}
+.topic1{
+	margin-top: 10px;
+	padding-left: 83px;
+}
+.topic2{
+	width: 83px;
+}
+.cityslct{
+	width: 150px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	color: #7a7a7a;
+	margin-right: 15px;
+}
+
+.progress{
+	display: inline-block;
+	width: 50%;
+	margin-bottom: 0;
+	height: 5px;
+}
+.progress-bar-success{
+	background: #3e6ee6;
+}
+.progtext{
+	display: inline-block;
+	color: #3e6ee6;
+	margin-left:20px ;
+	margin-right: 10px;
+}
+.setUpimg{
+	margin:0 10px 30px 0 ;
+}
+
+.setupclick{
+	text-align: center;
+	display: inline-block;
+}
+.pad5{
+	padding-top: 5px;
+}
+.width3{
+	width: 300px;
+}
+.center{
+	text-align: center;
+}
+.radio{
+	margin: 0;
+}
+@media (max-width: 768px){
+	.modal-dialog {
+	    width: 500px;
+	   
+	}
+}
+
+
+

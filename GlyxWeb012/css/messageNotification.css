@@ -1,0 +1,537 @@
+body{
+    font:14px "microsoft yahei",Arial,Helvetica,sans-serif;
+    color:#616161;
+    margin:0;
+    background-color: #eff0f3;
+}
+p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+img{
+    /*vertical-align:bottom;*/
+    vertical-align: middle;
+}
+a{
+    color:#616161;
+    text-decoration:none;
+    cursor:pointer;
+}
+/*:link  未访问的*/
+/*:visited 访问过后的*/
+/*:hover  鼠标悬停*/
+/*:active 激活元素时*/
+/*:focus  元素获取焦点时*/
+a:hover{
+    color:#EDA668;
+    text-decoration:none;
+}
+a:active{
+    text-decoration:none;
+    outline:none;
+}
+a:visited{
+    text-decoration:none;
+    outline:none;
+}
+a:focus{
+    color:#616161;
+    text-decoration: none;
+    outline:none;
+}
+input{
+    outline:none;
+}
+button{
+    border-radius: 4px;
+}
+button:visited{
+    outline:none;
+}
+button:focus{
+    outline:none;
+}
+button:active{
+    outline:none;
+}
+.lf{float:left;}
+.rt{float:right;padding-right: 15px;}
+.clear{clear:both;}
+
+
+
+input[type=checkbox]{
+    width: 15px;
+    height:15px;
+    vertical-align:-3px;
+    margin-right: 5px;
+}
+
+/*取消轮廓*/
+button{outline:none;}
+/*悬停下滑线*/
+button:hover{
+    text-decoration:underline;
+}
+/*加了.active 的a*/
+li.active>a{
+    color:#e9811e;
+}
+
+
+
+/*头部*/
+html, body {
+    width:100%;
+    height:100%;
+    background: #f0f1f4;
+} /*非常重要的样式让背景图片100%适应整个屏幕*/
+/*.my-navbar {
+    padding:15px 0;
+    background:#fff;
+}
+.my-navbar a {transition: color 0.5s ease-in-out;}/*-webkit-transition ;-moz-transition*/
+/*.my-navbar .navbar-right{margin-right: 40px;margin-top: 10px; }
+.navul{ padding-left:124px ;}
+.retreat{
+    margin-left:40px ;
+    margin-right:20px ;
+}*/
+/*背景图片*/
+/*.my-navbar p.xiaoxi{
+    display: inline-block;
+    width: 21px;
+    height: 26px;
+    background: url(../images/jingling/jingling.png) -74px -108px;
+    position:absolute;
+    top: 10px;
+    right:0px;
+}
+.my-navbar .badge{
+    background: #c70c0c;
+    position: absolute;
+    top: -12px;
+    left: 12px;
+    font-weight: 100;
+}
+
+#Username{
+    color:#ea8729;
+}
+#bs-example-navbar-collapse-1>ul>li>a:hover{
+    background-color: transparent;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!*主体部分*!*/
+#nav{
+    margin-top:95px;
+}
+#nav .container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#nav div.personage{
+    height: 350px;
+    background-color: #fff;
+    padding-top:30px;
+}
+/*头像*/
+#nav div.personage div.touxiang{
+    width: 100%;
+    height:100px;
+}
+#nav div.personage div.touxiang img{
+    width: 100px;
+    height: 100px;
+    border-radius: 80px;
+}
+#nav div.personage div.touxiang{
+    /*居中*/
+    width: 100px;
+    margin:0 auto;
+}
+
+
+
+
+
+#nav div.name_phone p{
+    text-align: center;
+    margin-top:16px;
+}
+#nav div.name_phone p:first-child{
+    font-size:1.8rem;
+    font-weight:bold;
+}
+
+
+/*精灵图*/
+#nav div.authentication{
+  width: 24px;
+  height: 25px;
+background: url(../images/jingling/jingling.png) 0px -35px;
+    margin-left:55px;
+}
+#nav div.mobile{
+    width: 24px;
+    height: 25px;
+    background: url(../images/jingling/jingling.png) -38px 0;
+    margin:0 55px;
+}
+#nav div.safety{
+    width: 21px;
+    height: 24px;
+    background: url(../images/jingling/jingling.png) 0px -70px;
+}
+#nav div.JL{
+    width: 100%;
+    height: 55px;
+}
+#nav div.JL div{
+    float:left;
+    margin-top:30px;
+}
+
+
+/*立即签到*/
+#nav button.sn{
+    width: 64%;
+    height: 38px;
+    border-radius: 15px;
+    background: #fff;
+    border:1px solid #ec9541;
+    color:#ec9541;
+    margin-top:38px;
+    margin-left: 55px;
+}
+
+
+
+/*列表*/
+#nav ul.list{
+    margin-top:15px;
+    background: #fff;
+    min-height: 350px;
+}
+#nav ul.list li{
+    border-bottom:1px solid #ccc;
+    text-align: center;
+    padding:4%;
+    position: relative;
+}
+#nav ul.list li a{
+    font-size: 1.5rem;
+    width: 100%;
+}
+#nav ul.list li a p{
+    margin-right:18px;
+}
+
+
+#nav ul.list p.Account{/*如果没有default就显示没有颜色钱包*/
+display: inline-block;
+    width: 21px;
+    height: 23px;
+    background: url(../images/jingling/jingling.png) -37px -202px;
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+#nav ul.list li.default p.Account{/*如果有default就显示有颜色钱包*/
+    display: inline-block;
+    width: 21px;
+    height: 23px;
+    background: url(../images/jingling/jingling.png) 0px -202px;/*-37px -202px*/
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+
+
+
+#nav ul.list p.friend{
+    display: inline-block;
+    width: 21px;
+    height: 23px;
+    background: url(../images/jingling/jingling.png) -37px -172px;
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+#nav ul.list li.default p.friend{
+    display: inline-block;
+    width: 21px;
+    height: 23px;
+    background: url(../images/jingling/jingling.png) 0px -172px;
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+
+#nav ul.list p.setting{
+    display: inline-block;
+    width: 21px;
+    height: 23px;
+    background: url(../images/jingling/jingling.png) -37px -144px;
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+
+/*这里的样式是可变更的*/
+#nav ul.list li.default  p.notification{/*如果有default就显示有颜色的铃铛*/
+    display: inline-block;
+    width: 21px;
+    height: 26px;
+    background: url(../images/jingling/jingling.png) 0px -108px;/*-38px -108px*/
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+#nav ul.list p.notification{/*如果没有default就显示没有颜色的铃铛*/
+    display: inline-block;
+    width: 21px;
+    height: 26px;
+    background: url(../images/jingling/jingling.png) -38px -108px;/*-38px -108px*/
+    position:absolute;
+    top: 8px;
+    left: 70px;
+}
+/*default样式*/
+#nav ul.list li.default{
+    border-right:3px solid #e9811e;
+}
+#nav ul.list li.default a{
+    color:#ea8729;
+}
+
+/*通知小红圈*/
+#nav ul.list li:last-child span{
+width: 20px;
+height: 20px;
+background: #c70c0c;
+border-radius: 50%;
+position:absolute;
+top:12px;
+right:40px;
+color:#fff;
+}
+
+/*、、、、、、、、、、*/
+.weidu{
+	color: #E9811E !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*<!--详细内容部分-->*/
+#detail{
+    min-height:715px;
+    background: #fff;
+    position: relative;
+    padding-top: 15px;
+}
+#detail h4{
+    display: inline;
+    color:#333333;
+    line-height: 76px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+#detail ul{
+    margin-top:26px;
+    height:30px;
+    line-height:30px;
+}
+#detail ul li{
+    float:left;
+    margin-right:5px;
+}
+
+#detail ul li:nth-child(2) span{
+    color:#ea8729;
+}
+#detail ul li:nth-child(4){
+    margin-left:30px;
+}
+#detail ul li:nth-child(5){
+    margin-left:10px;
+    margin-right:30px;
+}
+#detail ul li:nth-child(5) button.delete{
+    background: #ea8729;
+    border:1px solid #e9811e;
+    padding:0px 20px;
+    color:#fff;
+    height: 26px;
+    line-height: 26px;
+}
+
+
+/*表格样式*/
+#detail .table thead{
+    background: #ededed;
+}
+#detail .table thead tr td{
+    font-size: 14px;
+    font-weight: bold;
+    text-align:center;
+}
+#detail .table tbody tr td{
+    text-align: center;
+}
+#detail .table>thead>tr>th{
+    border:none;
+}
+#detail .table>tbody>tr>td{
+    border:none;
+}
+#detail tbody tr td a{
+    font-size: 14px;
+}
+/*未读的颜色样式*/
+#detail tbody tr.yellow a{
+    color:#ea8729;
+}
+
+
+
+
+
+/*分页*/
+#paging{
+    position: absolute;
+    top:600px;
+    left:278px;
+}
+#paging div{
+    text-align:center;
+}
+#paging div.page button.previous_page{
+    background: #c2c2c2;
+    color:#fff;
+    border:1px solid #c2c2c2;
+    width: 99px;
+    height: 35px;
+}
+#paging div.page button.next_page{
+    background: #ea8729;
+    color:#fff;
+    border:1px solid #ea8729;
+    width: 99px;
+    height: 35px;
+}
+#paging div.page input{
+    text-align: center;
+    width: 86px;
+    height: 35px;
+    border:1px solid #c6c6c6;
+    margin: 0 6px;
+    border-radius: 4px;
+}
+#paging div.page_number{
+    padding-top:20px;
+}
+
+
+
+/*推荐将军页面*/
+/*失败*/
+.Failure{
+    color:#c70c0c;
+}
+/*成功*/
+.succeed{
+    color:#ea8729;
+}
+
+.statcol{
+	color: #17a1b6;
+}
+.jbcol{
+	color:#3e6ee6;;
+}
+
+ul.GR{
+    margin-right:30px;
+}
+
+
+/*弹窗样式*/
+#un_read .modal-header{
+    background: #ea8729;
+    border-radius:14px ;
+    border-bottom:0;
+}
+#un_read h5{
+    color:#fff;
+    margin-left:20px;
+}
+#un_read .close{
+    opacity:1;
+    color:#fff;
+}
+
+#un_read .modal-body{
+    background: #fff;
+    border-radius:6px;
+    margin-top:20px;
+}
+#un_read .modal-body p{
+    line-height:20px;
+    color:#ee9f54;
+}
+#un_read .modal-body p:first-child{
+    margin-bottom: 30px;
+}
+#un_read .date{
+    margin-left:298px;
+}
+
+#un_read .modal-footer{
+    border:0;
+    text-align: center;
+    margin-top:30px;
+    padding-bottom: 4px;
+}
+#un_read .modal-footer button{
+    background: #ea8729;
+    color:#fff;
+    border:1px solid #ea8729;
+}
+#un_read .modal-content{
+    border-radius: 20px;
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    border:0;
+}
+#un_read .modal-dialog{
+    width: 760px;
+    margin-top:270px;
+}
+
+.paging{ text-align: center; margin: 30px; }
+#pages{ width: 60px; text-align: center; padding: 4px; }
+.btn{ padding: 5px 20px !important; }

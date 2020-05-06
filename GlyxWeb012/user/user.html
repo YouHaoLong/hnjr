@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>账户资产</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+	<link rel="stylesheet" href="../css/assets.css" />
+	<link rel="stylesheet" type="text/css" href="../css/share.css"/>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<style>
+
+
+</style>
+
+<body>
+	<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	    	<div class="container">
+		    <div class="navbar-header">
+		      
+	  		<img src="../images/logo.png" style="height: 50px;"/>
+		    </div>
+		    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav navul">
+			        <li><a href="user.html">首页 </a></li>
+			        <li><a href="../challenge/initiate.html">挑战赛</a></li>
+			        <li><a href="topUps.html">优财交易</a></li>
+			        <li class="active"><a href="user.html">个人中心</a></li>
+		      	</ul>
+		      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="../index.html">退出</a></div>
+		      	<div style="padding-left: 15px; float: right;" >
+		      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+		      		<span class="badge navbar-right">1</span>
+		      		</span>
+		      	</div>
+		      	<div style="padding:0 15px;" class="navbar-right">
+		      		<img src="../images/Login.png"/>
+		      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+		      		
+		      	</div>
+		      	
+		    </div>
+		  </div>
+		</nav>
+		
+
+	<div class="container" style="margin-top: 95px;">
+		<div class="row">
+			<div class="col-md-3" style="padding-right: 0;">
+				<div id="left_top">
+					<div> <img src="../images/touxiang.jpg" id="topimg"/> </div>
+					<div class="toptext">
+						<b class="title">明天更好</b>
+						<div style="margin-top: 15px;">132****7946</div>
+					</div>
+					<div class="topicon">
+						<div style="display: inline-block;width: 30%;">
+							<img src="../images/Own.png"/>
+						</div>
+						<div style="display: inline-block;width: 30%;">
+							<img src="../images/Information.png"/>
+						</div>
+						<div style="display: inline-block;width: 30%;">
+							<img src="../images/Safety.png"/>
+						</div>
+						
+						
+						
+					</div>
+					<button class="topbut" style="width: 60%;">立即签到</button>
+				</div>
+				<div id="left-bot" style="margin:10px 0 ;background: #fff;">
+					<ul id="main-nav" class="nav nav-sidebar" aria-labelledby="dropdownMenuDivider">
+						<li role="separator" class="active divider">
+							<a href="user.html">
+								<em class="W_ficon ficon_home S_ficon">E</em>
+								<img src="../images/Property.png" /> 账户资产
+							</a>
+						</li>
+						<li>
+							<a href="invites.html">
+								<img src="../images/Friends.png"/> 推荐好友
+							</a>
+						</li>
+						<li>
+							<a href="security.html">
+								<i class="glyphicon glyphicon-cog"></i> 个人设置
+							</a>
+						</li>
+						<li>
+							<a href="newcenter.html">
+								<i class="glyphicon glyphicon-bell"></i>
+								 消息通知
+								<span class="badge navbar-right" style="background: #c70c0c;">1</span> 
+							</a>
+						</li>
+						
+					</ul>
+				
+				</div>
+			</div>
+			<div class="col-md-9" style="padding-right: 0;">
+				<div class="right">
+					<div class="lookup">
+						<b>账户资产</b>
+						<a href="../transaction/cashlist.html" class="navbar-right">资金记录 <span>&raquo;</span></a>
+						<hr />
+					</div>
+					<div class="available">
+						<span class="col_7a7">可用银两：</span>
+						<b class="money" style="font-size: 20px;">0.00</b>
+						<div class="withdrawals navbar-right">
+							<div class="withdrawals">
+								<img src="../images/center.png"/>
+								<div><a href="withdrawals.html">提现</a></div>
+							</div>
+							<div class="withdrawals" style="margin-left: 40px;">
+								<img src='../images/Bankcard.png'/>
+								<div>银行卡管理</div>
+							</div>
+						</div>
+					</div>
+					<div class="available">
+						<div class="">
+							<div class="">
+								<img src="../images/Money.png"/>
+								<span class="withdtext">我的银两</span>
+								<span class="money">0.00</span>
+								<div class="dis">
+									<button class="btn">充值</button>
+									<a href="capitalRecord.html">
+									<button class="details">交易详情<span class="glyphicon glyphicon-menu-right"></span></button>
+									</a>
+								</div>
+								
+							</div>
+							<div style="margin-top: 15px;">
+								<img src="../images/niubi.png"/>
+								<span class="withdtext">我的牛币</span>
+								<span class="money">0.00</span>
+								<div class="dis">
+									<button class="btn">兑换</button>
+									<a href="capitalRecord.html">
+										<button class="details">交易详情<span class="glyphicon glyphicon-menu-right"></span></button>
+									</a>
+									
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+				<div class="bottom">
+					<div class="ljsy">
+						<div class="sub">
+							<div><b>累计收益</b></div>
+							<div><b>0.00</b></div>
+						</div>
+					</div>
+					<div class="ljsy1">
+						<div class="sub">
+							<div><b>累计收益</b></div>
+							<div><b>0.00</b></div>
+						</div>
+					</div>
+					<div class="ljsy2">
+						<div class="sub">
+							<div><b>累计收益</b></div>
+							<div><b>0.00</b></div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</body>
+<script>
+	$(function(){
+	   $('.navul li a').click(function(e){
+//	       e.preventDefault();
+	       console.log($(this).attr('href'))
+	       $(this).parent().addClass('active').siblings().removeClass('active');
+	       var href = $(this).attr('href')
+	       console.log(href)
+	       window.location.href = href
+	       
+	   });
+});
+</script>
+</html>

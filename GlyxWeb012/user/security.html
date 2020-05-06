@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>个人设置</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/share.css"/>
+	<link rel="stylesheet" href="../css/settings.css" />
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cityselect.js" ></script>	
+</head>
+<style>
+
+</style>
+
+<body>
+	<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    	<div class="container">
+	    <div class="navbar-header">
+	    	<img src="../images/logo.png" style="height: 50px;"/>
+	    </div>
+	    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+	      	<ul class="nav navbar-nav navul">
+		        <li><a href="user.html">首页 </a></li>
+		        <li><a href="../challenge/initiate.html">挑战赛</a></li>
+		        <li><a href="topUps.html">优财交易</a></li>
+		        <li class="active"><a href="user.html">个人中心</a></li>
+		        <div style="padding:0 15px;" class="navbar-right">
+	      		<img src="../images/Login.png"/>
+	      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+	      		
+	      	</div>
+	      	</ul>
+	      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+	      	<div style="padding-left: 15px; float: right;" >
+	      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+	      		<span class="badge navbar-right">1</span>
+	      		</span>
+	      	</div>
+	      	
+	      	
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container" style="margin-top: 95px;">
+		<div class="row">
+			
+			<div class="col-md-3 pad7">
+				<div id="left_top">
+					<div> <img src="../images/touxiang.jpg" id="topimg"/> </div>
+					<div class="toptext">
+						<b>明天更好</b>
+						<div>132****7946</div>
+					</div>
+					<div class="topicon">
+						<img src="../images/Own.png"/>
+						<img src="../images/Information.png"/>
+						<img src="../images/Safety.png"/>
+					</div>
+					<button class="topbut">立即签到</button>
+				</div>
+				<div id="left-bot bg_fff" style="margin:10px 0 ;">
+					<ul id="main-nav" class="nav nav-sidebar" aria-labelledby="dropdownMenuDivider">
+
+						
+						
+						<li role="separator">
+							<a href="user.html">
+								<!-- <em class="W_ficon ficon_home S_ficon">E</em> -->
+								<img src="../images/Property1.png" /> 账户资产
+							</a>
+						</li>
+						<li>
+							<a href="invites.html">
+								<img src="../images/Friends.png"/> 推荐好友
+							</a>
+						</li>
+						<li class="active divider">
+							<a href="security.html">
+								<i class="glyphicon glyphicon-cog"></i> 个人设置
+							</a>
+						</li>
+						<li>
+							<a href="newcenter.html">
+								<i class="glyphicon glyphicon-bell"></i>
+								 消息通知
+								<span class="badge navbar-right" style="background: #c70c0c;">1</span> 
+							</a>
+						</li>
+						
+						
+						
+						
+						
+						
+						
+					</ul>
+				
+				</div>
+			</div>
+			
+			<div class="col-md-9 pad7">
+				<div class="right">
+					<div>
+					<div class="panel-default">
+						<div class="bg">
+							<div class="lookup">
+								<b class="title">个人设置</b>
+							</div>
+							<ul class="nav navbar-nav nav_ul " id="nav-tabs">
+								<li class="active">
+									<a href="#t-data" data-toggle="tab">基本资料</a>
+								</li>
+								<li>
+									<a href="#t-setUp" data-toggle="tab" onclick="bbb()">安全设置</a>
+								</li>
+								<li>
+									<a href="#t-realName" data-toggle="tab">实名认证</a>
+								</li>
+								
+							</ul>
+						</div>
+						<div class="tab-content">
+							<!--基本资料-->
+							<div class="tab-pane fade in active" id="t-data">
+								<div class="">
+								<div class="panel-body">
+									<div class="data_top">
+										<div class="data_left">
+											<img id="toux" src="../images/touxiang.jpg" style="width: 120px;height: 120px;" />
+											<div style="margin-top: 5px;">当前图像</div>
+										</div>
+										<div class="data_right">
+											<button class="btn" style="margin-bottom: 15px;">修改图像</button>
+											<div class="col_7a7">您可以通过修改用户头像来展示自己!</div>
+											<div class="col_7a7">上传图片时不要小于<span class="col_11e">200*200</span>像素，不要大于<span>512KB</span>!</div>
+										</div>
+									</div>
+									</div>
+								<div class="data_bot">
+									<div class="lookup">
+										<b class="title">账户信息</b>
+									</div>
+									<div class="withdlist">
+										<span class="topic">注册手机：</span>
+										<span class="col_7a7">13876498762</span>
+										<span class="col_11e ">修改</span>
+									</div>
+									<div class="withdlist">
+										<span class="topic">用户名：</span>
+										<input class="ipt" type="text" placeholder="请输入用户名" value="明天更好" />
+										<div class="topic1 col_7a7">目前名称是“明天更好”，需要修改？不能超过<span class="col_11e">12</span>个字符</div>
+									</div>
+									
+									<div class="withdlist">
+										<span class="topic">性别：</span>
+										<div class="radio dis">
+										  <label>
+										    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+										  	男
+										  </label>
+										</div>
+										<div class="radio dis" style="margin-left: 20px;">
+										  <label>
+										    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+										  	女
+										  </label>
+										</div>
+									</div>
+									<div class="withdlist">
+										<span class="topic">所在城市：</span>
+										<div id="citySelect" class="dis" >                     
+									        <select class="prov cityslct" id="province"></select>  
+									        <select class="city cityslct" disabled="disabled" id="city"></select>  
+									        <select class="dist cityslct" disabled="disabled" id="county"></select>  
+										</div>  
+									</div>
+									<button class="btn btn1">保存</button>
+									</div>
+								
+								</div>
+							</div>
+							<!--安全设置-->
+							<div class="tab-pane fade " id="t-setUp">
+								<!--安全设置-->
+								<div id="setuplist" style="display: block;" >
+									<div class="panel-body" style="padding-top: 0;">
+										<div class="withdlist">
+											<span>你的账户安全级别：</span>
+											<span class="progtext">中</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+											    	<!--<span class="sr-only">40% Complete (success)</span>-->
+												</div>
+											</div>	
+										</div>
+										<div class="withdlist">
+											<img src="../images/Own.png" class="setUpimg"/>
+											<div class="dis">
+												<b class="title">实名认证</b>
+												<div class="col_7a7 pad5">
+													保障账户安全，确认身份认证才能提现，实名认证后身份证不允许修改、更换或注销。
+												</div>
+											</div>
+											<div class="setupclick navbar-right">
+												<span class="">已认证</span>
+												<div class="col_7a7 pad5">
+													<a href="#t-realName" data-toggle="tab">修改</a>
+												</div>
+											</div>	
+										</div>
+										<div class="withdlist">
+											<img src="../images/Information.png" class="setUpimg"/>
+											<div class="dis">
+												<b class="title">手机认证</b>
+												<div class="col_7a7 pad5">
+													您验证的手机：132****5638若以丢失或停用，请立即更换，避免账户被盗。
+												
+												</div>
+											</div>
+											<div class="setupclick navbar-right">
+												<span class="">已认证</span>
+												<div class="col_7a7 pad5">
+													<a href="#t-realName" data-toggle="tab">立即认证</a>
+												</div>
+											</div>	
+										</div>
+										<div class="withdlist"  style="padding-bottom: 50px;">
+											<img src="../images/Safety.png" class="setUpimg"/>
+											<div class="dis">
+												<b class="title">交易密码</b>
+												<div class="col_7a7 pad5">
+													互联网账户存在被盗风险，建议您定期更改密码以保护账户安全。
+												</div>
+											</div>
+											<div class="setupclick navbar-right">
+												<span class="">未设置</span>
+												<div class="col_7a7 pad5">
+													<a href="#" data-toggle="tab" onclick="aaa()">立即设置</a>
+												</div>
+											</div>	
+										</div>
+										
+									</div>
+									
+								</div>
+								<!--交易密码-->
+								<div id="Password" style="display: none;">
+									<div class="panel-body" style="padding-top: 0;">
+										<div class="withdlist">
+											<span class="topic">交易密码：</span>
+											<input class="ipt" type="text" placeholder="请输入你的六位数字密码" />
+										</div>
+										<div class="withdlist">
+											<span class="topic">再次确认：</span>
+											<input class="ipt" type="text" placeholder="请输入你的六位数字密码" />
+										</div>
+										<div class="withdlist ">
+											<span class="withdipt topic" style="width: 85px;">手机验证码：</span>
+											<div id="" style="display: inline-block;width: 300px;">
+												<div class="input-group">
+												 	<input type="text" class="form-control" placeholder="请输入手机验证码" aria-describedby="basic-addon2">
+												  	<span class="input-group-addon" id="basic-addon2">发送验证码</span>
+												</div>
+											</div>
+										</div>
+										<button class="btn btn1">确定</button>
+									</div>
+									
+								</div>
+								
+							</div>
+						
+							<!--实名认证-->
+							<div class="tab-pane fade " id="t-realName">
+							<div class="">
+							<div class="panel-body" style="padding-top: 0;">
+								<span class="col_7a7">注：以下真实姓名和身份证号将用于您在网站上签署的投资协议以及资金账户的开通，一旦认证通过，将无法更改请认真填写！</span>
+								<div class="withdlist">
+									<span class="topic">真实姓名：</span>
+									<input class="ipt" type="text" placeholder="请输入真实姓名" />
+								</div>
+								<div class="withdlist">
+									<span class="topic">身份证号：</span>
+									<input class="ipt" type="text" placeholder="请输入身份证号" />
+								</div>
+								<div class="withdlist">
+									<span class="topic">银行名称：</span>
+									<input class="ipt" type="text" placeholder="请输入银行名称" />
+								</div>
+								<div class="withdlist">
+									<span class="topic">手机号：</span>
+									<input class="ipt" type="text" placeholder="请输入手机号" />
+								</div>
+								<div class="withdlist">
+									<span class="topic">银行卡号：</span>
+									<input class="ipt" type="text" placeholder="请输入银行卡号" />
+								</div>
+								<button class="btn btn1">确定</button>
+							</div>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	</body>
+
+
+<script>
+	$("#citySelect").citySelect({  
+       nodata: "none",  
+       required: false,  
+     
+ }); 
+ function aaa () {
+ 	$("#setuplist").hide()
+ 	$("#Password").show()
+ }
+ function bbb () {
+ 	$("#setuplist").show()
+ 	$("#Password").hide()
+ }
+</script>
+</html>

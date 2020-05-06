@@ -1,0 +1,79 @@
+.right{
+	padding: 15px;
+	background: #FFF;	
+	padding-bottom: 45px;
+}
+.right .navbar-right{
+	margin-top: 0 !important;
+	margin-right: 0;
+}
+.lookup b{
+	font-size: 16px;
+}
+.money{
+	font-size: 18px;
+	color: #E9811E;
+	display: inline-block;
+	width: 60px;
+}
+.withdrawals{
+	display: inline-block;
+	text-align: center;
+}
+.available .navbar-right{
+	margin-top: -21px !important;
+	
+}
+.available{
+	padding-top:21px ;
+	
+}
+.btn{
+	display: inline-block;
+}
+
+.details{
+	padding: 0 10px 5px;
+	border: none;
+	border: 1px solid #C6C6C6;
+	background: #fff;
+	border-radius: 5px;
+}
+.withdtext{
+	margin: 15px;
+}
+.bottom{
+	background: #fff;
+	padding: 15px;
+	margin-top: 10px;
+	padding-bottom: 50px;
+}
+.ljsy,.ljsy1,.ljsy2{
+	display: inline-block;
+	width: 32.9%;
+	height: 150px;
+	background: url(../images/cumulative.png) center;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	
+}
+.ljsy1{
+	background: url(../images/recommend.png) center;
+	background-repeat: no-repeat;
+}
+.ljsy2{
+	background: url(../images/freeze.png) center;
+	background-repeat: no-repeat;
+}
+.ljsy img{
+	width: 100%;
+	height: 100%;
+}
+.sub{
+	color: #fff;
+	margin-top: 50px;
+	margin-left: 15px;
+}
+.btn{
+	margin-left: 30px;
+	margin-right: 20px;

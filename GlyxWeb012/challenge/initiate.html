@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>发起挑战赛</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/challenge/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/challenge/initiate.css"/>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+	</head>
+	<style>
+	.main{
+		padding-top: 0;
+	}	
+	.head{
+		height: 200px;
+		background: #E9811E;
+		line-height: 200px;
+		color: #fff;
+	}
+	</style>
+
+	<body>
+		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	    	<div class="container">
+		    <div class="navbar-header">
+		      
+	  		<img src="../images/logo.png" style="height: 50px;"/>
+		    </div>
+		    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav navul">
+			       <li><a href="../user/user.html">首页 </a></li>
+			       <li class="active"><a href="../challenge/initiate.html">挑战赛</a></li>
+			       <li><a href="../user/topUps.html">优财交易</a></li>
+			       <li><a href="../user/user.html">个人中心</a></li>
+		      	</ul>
+		      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+		      	<div style="padding-left: 15px; float: right;" >
+		      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+		      		<span class="badge navbar-right">1</span>
+		      		</span>
+		      	</div>
+		      	<div style="padding:0 15px;" class="navbar-right">
+		      		<img src="../images/Login.png"/>
+		      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+		      		
+		      	</div>
+		      	
+		    </div>
+		  </div>
+		</nav>
+		<div class="container" style="margin-top: 95px;">
+			<div class="main">
+				<div class="head">
+					<b>发起挑战赛</b>
+				</div>
+				<div class="step" style="margin-bottom: 0;">
+					<div class="center" style="border-bottom: 1px solid #e0e0e0;" >
+					<ul class="nav navbar-nav nav_ul pad15" id="nav-tabs" style="width: 310px;margin: auto;">
+						<li class="active">
+							<a href="#t-tael" data-toggle="tab">发起挑战赛</a>
+						</li>
+						<li>
+							<a href="details.html" data-toggle="tab">当前挑战赛</a>
+						</li>
+						<li>
+							<a href="history.html" data-toggle="tab">历史挑战赛</a>
+						</li>
+					</ul>
+					</div>
+					<div class="center">
+						<div class="withdlist">
+							<div>参赛金额：</div>
+							<select class="ipt">
+								<option>选择金额</option>
+								<option>500</option>
+								<option>500</option>
+							</select>
+						</div>
+						<div class="withdlist">
+							<div class="">杠杆比例：</div>
+							<select class="ipt">
+								<option>选择杠杆</option>
+								<option>1：1</option>
+								<option>1:2</option>
+							</select>
+						</div>
+						<div class="withdlist">
+							<div class="">参赛模式：</div>
+							<select class="ipt">
+								<option>参赛模式</option>
+								<option>1：1</option>
+								<option>1:2</option>
+							</select>
+						</div>
+						<div class="withdlist" style="text-align: center;margin-bottom: 20px;">
+							<input type="checkbox" />
+							<span>请阅读<span class="col_11e">《预选操盘手选拨风险协议》</span></span>
+						</div>
+					</div>
+			   		<div class="nextbtn">
+			   			<button type="button" class="btn" onclick="aa()" >确定</button>
+			   		</div>
+				</div>
+				<!--提示-->
+				<div class="modal fade in" id="prompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+								<div class="center">
+									<h4 class="modal-title" id="myModalLabel">提示</h4>
+								</div>
+							</div>
+							<div class="modal-body center">
+								<div class="head1">
+									您必须成为操盘手才可进行挑战赛的操作。
+								</div>
+								<div class="nextbtn" style="margin: 60px 0 40px;">
+						   			<button type="button" class="btn" ><a href="notice.html">立即申请</a></button>
+						   		</div>
+							
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>	
+	</body>
+<script>
+	function aa () {
+		$("#prompt").modal('show')
+		
+	}
+</script>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>填写资料</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/challenge/style.css"/>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+	</head>
+	<style>
+	.withdlist{
+		padding-top: 20px;
+		width: 33%;
+		display: inline-block;
+	}
+	
+	.file {
+	width: 245px;
+	height: 150px;	
+    position: relative;
+    display: inline-block;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+	}
+	.file input {
+	    position: absolute;
+	    font-size: 100px;
+	    right: 0;
+	    top: 0;
+	    opacity: 0;
+	}
+	.file:hover {
+	    border-color: #78C3F3;
+	    color: #004974;
+	    text-decoration: none;
+	}
+
+	</style>
+
+	<body>
+		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	    	<div class="container">
+		    <div class="navbar-header">
+		      
+	  		<img src="../images/logo.png" style="height: 50px;"/>
+		    </div>
+		    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav navul">
+			        <li><a href="../user/user.html">首页 </a></li>
+			        <li class="active"><a href="../challenge/initiate.html">挑战赛</a></li>
+			        <li><a href="../user/topUps.html">优财交易</a></li>
+			        <li><a href="../user/user.html">个人中心</a></li>
+		      	</ul>
+		      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+		      	<div style="padding-left: 15px; float: right;" >
+		      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+		      		<span class="badge navbar-right">1</span>
+		      		</span>
+		      	</div>
+		      	<div style="padding:0 15px;" class="navbar-right">
+		      		<img src="../images/Login.png"/>
+		      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+		      		
+		      	</div>
+		      	
+		    </div>
+		  </div>
+		</nav>
+		<div class="container" style="margin-top: 95px;">
+			<div class="main">
+				<div class="head">
+					<b>申购流程，只需4步完成！</b>
+				</div>
+				<div class="step" style="margin-bottom: 0;">
+					<div class="dis">
+						<div class="substep" >
+							<img src="../images/challenge/read.png"/>
+						</div>
+						<div class="arrow">
+							<img src="../images/challenge/arrow.png"/>
+						</div>
+						<div class="wid75">阅读须知</div>
+					</div>
+					<div class="dis">
+						<div class="substep" style="background: #E9811E;">
+							<img src="../images/challenge/fillIn1.png"/>
+						</div>
+						<div class="arrow">
+							<img src="../images/challenge/arrow1.png"/>
+						</div>
+						<div class="wid75">填写资料</div>
+					</div>
+					
+					<div class="dis">
+						<div class="substep">
+							<img src="../images/challenge/submit1.png"/>
+						</div>
+						<div class="arrow">
+							<img src="../images/challenge/arrow.png"/>
+						</div>
+						<div class="wid75">提交审核</div>
+					</div>
+					
+					<div class="dis">
+						<div class="substep">
+							<img src="../images/challenge/audit.png"/>
+						</div>
+						<div class="wid75">审核结果</div>
+					</div>
+					
+				</div>
+				<div style="padding: 15px 60px;">
+					<div class="head1" style="color:#333 ;">
+						<b>填写申请资料</b>
+					</div>
+					<hr />
+					<div>
+						<div class="withdlist">
+							<span class="">姓名：</span>
+							<input class="ipt" type="text" placeholder="请输入你的真实姓名" />
+						</div>
+						<div class="withdlist" style="text-align: center;">
+							<span class="">性别：</span>
+							<!--<input class="ipt" type="text" placeholder="请输入你的提现金额" />-->
+							<select class="ipt" style="width: 182px;">
+								<option>下拉选择</option>
+								<option>男</option>
+								<option>女</option>
+							</select>
+						</div>
+						<div class="withdlist" style="text-align: right;">
+							<span class="">电子邮箱：</span>
+							<input class="ipt" type="text" placeholder="请输入你的邮件地址" />
+						</div>
+					</div>
+					<div>
+						<div class="withdlist">
+							<span class="">年龄：</span>
+							<input class="ipt" type="text" placeholder="请输入你的真实年龄" />
+						</div>
+						<div class="withdlist" style="text-align: center;">
+							<span class="">股龄：</span>
+							<input class="ipt" type="text" placeholder="请输入你的股龄" />
+							
+						</div>
+						<div class="withdlist" style="text-align: right;">
+							<span class="">身份证号码：</span>
+							<input class="ipt" type="text" placeholder="请输入你的身份证号码" />
+						</div>
+					</div>
+					<div>
+						<div class="withdlist">
+							<span class="">学历：</span>
+							<input class="ipt" type="text" placeholder="请输入你的学历" />
+						</div>
+						
+					</div>
+					
+				    <div class="center" style="margin-top: 60px;">
+				     	<div>
+					     	<div class="file">
+					     		<img src="../images/challenge/positive.png" class="width1" id="fileimg"/>
+					     	 	<input type="file" accept="image/*" capture="camera" id="imgInp">
+					        </div> 
+						     <div class="file" style="margin-left: 60px;">
+						     	<img src="../images/challenge/wrongSide.png" class="width1" id="fileimg"/>
+								<input type="file" accept="image/*" capture="camera" id="imgInp1">
+						    </div> 
+				     	</div>
+				     	
+				     	<div class="text" style="margin: 50px 0 30px;">
+				        	<div>备注：本人保证以上资料属实，如有不实之处，愿意承担相应的法律责任。</div>
+					     	<div>
+					        	<input type="checkbox" />
+					        	<span>我已阅读并同意<span class="col_11e">《挑战赛用户协议》</span></span>
+					     	</div>
+				     	</div>
+				    </div>
+			   		<div class="nextbtn">
+			   			<button type="button" class="btn btn1" style="background: #34b7d7;" ><a href="notice.html">返回上一步</a></button>
+			   			<button type="button" class="btn" style="margin-left: 40px;"><a href="submit.html">提交</a></button>
+			   		</div>
+
+
+				</div>
+				
+			</div>
+			
+		</div>	
+	</body>
+<script>
+
+</script>
+</html>

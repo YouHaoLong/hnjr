@@ -1,0 +1,39 @@
+/*按钮*/
+.btn{ padding: 6px 30px; border: none; color: #fff !important; background: #ea8729; border-radius: 5px;outline: none !important;}
+.btn1{ margin-top: 20px; margin-bottom: 30px; }
+.input-group-addon{ background: #E9811E; color: #fff; border: none; }
+.withdipt{ float: left; margin-top: 8px; }
+/*背景颜色*/
+.bg_fff{ background: #FFF; }
+/*字体颜色*/
+.col_11e{ color: #ea8729 !important; }
+.col_e4b{ color: #269e4b; }
+.col_c0c{ color: #cb1c1c; }
+.col_7a7{ color: #a7a7a7; }
+.title{
+	font-size: 18px;
+}
+/*padding*/
+.pad7{ padding: 0 7px !important; }
+.mgleft{ margin-left: 30px; }
+.padleft0{
+	padding-left: 0 !important;
+}
+/*输入框*/
+.ipt{ padding: 5px; border: 1px solid #ccc; border-radius: 5px; color: #7a7a7a; }
+.dis{ display: inline-block; }
+/*导航条*/
+#nav-tabs .active a{
+	color: #E9811E !important;
+}
+#nav-tabs .active {
+	border-bottom:2px solid  #E9811E !important;
+}
+.nav_ul a:hover {color:#e9811e !important;background:transparent;outline:0;}
+.withdlist{ padding-top: 20px; }
+.navbar-right{
+	margin-top: 0;
+	margin-right: 0;
+}
+a{color:#333 !important;background: #fff !important;}
+a:hover{ text-decoration: none; }

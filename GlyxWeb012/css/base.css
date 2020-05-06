@@ -1,0 +1,73 @@
+/*头部*/
+html, body {width:100%;height:100%;background: #f0f1f4;} /*非常重要的样式让背景图片100%适应整个屏幕*/  
+.my-navbar {padding:15px 0;background:#fff}  
+.my-navbar a{background:#fff !important;color:#333 !important;}  
+.my-navbar a:hover {color:#e9811e !important;background:transparent;}  
+.my-navbar a {transition: color 0.5s ease-in-out;}/*-webkit-transition ;-moz-transition*/  
+.my-navbar .glyphicon{ font-size: 25px; color: #999;  }
+.my-navbar .navbar-right{margin-right: 0;margin-top: 10px !important; }
+.my-navbar .badge{background: #c70c0c;position: absolute;top: -10px;left: 15px;font-weight: 100;}
+button.navbar-toggle {background-color:#ccc;}/*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*/  
+button.navbar-toggle > span.icon-bar {background-color:#999}  
+.navul{ padding-left:20px ; }
+.retreat{
+	margin-left:40px ;
+	margin-right:20px ;
+}
+.navbar-header{margin-left:50px !important; margin-right: 30px !important;}
+
+#Username{color:#e9811e}
+/*左侧*/
+#left_top{ text-align: center; padding: 30px 15px 15px; background: #fff; } 
+#topimg{ width: 100px;height: 100px;border-radius:80px ; }
+.toptext{ margin: 15px 10px 10px; }
+.topicon{ margin: 20px 0; }
+.topicon img{width: 25px;height: 25px;}
+.topbut{ border:1px #E9811E solid ; background: none; border-radius: 50px; color: #E9811E; padding: 5px 30px; }
+.bottom_top,.bottom_b{
+	text-align: center;
+	margin-bottom: 10px;
+	color: #8492af !important;
+	font-size:12px ;
+}
+.bottom_top p{
+	display: inline-block;
+	margin: 0 10px;
+}
+.glyphicon {
+    top: 5px;
+    font-size: 20px;
+    color: #ccc;
+} 
+#main-nav li{
+	border-bottom: 1px solid #e0e0e0;
+}  
+.my-navbar .active a,#main-nav .active a,#main-nav .active i{
+	color: #E9811E !important;
+}
+#main-nav .active{
+	border-right: 3px solid #ea8729;
+}
+.leftimgs{
+	display: inline-block;width: 30%;
+}
+@media (max-width: 768px){
+	.navbar-right {
+    float: right!important;
+    
+}
+}
+.top_img{
+	width: 32px;
+	height: 32px;
+	border-radius:50% ;
+	overflow: hidden;
+	display: inline-block;
+	margin-right: 15px;
+}
+.top_img img{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+

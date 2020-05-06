@@ -1,0 +1,147 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+ pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
++ path + "/";
+%>
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>当前挑战赛</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="<%=basePath%>mobile/apply/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>mobile/apply/css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>mobile/apply/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>mobile/apply/css/initiate.css"/>
+		<script src="<%=basePath%>mobile/apply/js/jquery.min.js"></script>
+		<script src="<%=basePath%>mobile/apply/js/bootstrap.min.js"></script>
+	</head>
+	<style>
+	.head,.head1{
+		color: #333;
+	}
+	.table thead {
+	    background: #ededed;
+	}
+	.table>tbody>tr>td,.table>thead>tr>th{
+		border: none;
+	}
+	th{
+		text-align: center;
+	}
+	.head1{
+		font-size: 16px;
+	}
+	</style>
+
+	<body>
+		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+	    	<div class="container">
+		    <div class="navbar-header">
+		      
+	  		<img src="<%=basePath%>mobile/apply/images/challenge/logo.png" style="height: 50px;"/>
+		    </div>
+		    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav navul">
+			        <li class="active"><a href="#">首页 </a></li>
+			        <li><a href="#">挑战赛</a></li>
+			        <li><a href="#">优财交易</a></li>
+			        <li><a href="#">个人中心</a></li>
+		      	</ul>
+		      	<div class="retreat" style="float: right; margin-top: 13px;"><a href="#">退出</a></div>
+		      	<div style="padding-left: 15px; float: right;" >
+		      		<span class="glyphicon glyphicon-bell navbar-right" aria-hidden="true">
+		      		<span class="badge navbar-right">1</span>
+		      		</span>
+		      	</div>
+		      	<div style="padding:0 15px;" class="navbar-right">
+		      		<img src="<%=basePath%>mobile/apply/images/challenge/Login.png"/>
+		      		<span>您已登录成功,<span id="Username">134****3453</span></span>
+		      		
+		      	</div>
+		      	
+		    </div>
+		  </div>
+		</nav>
+		<div class="container" style="margin-top: 95px;">
+			<div class="main">
+				<div class="head">
+					<b>发起挑战赛</b>
+				</div>
+				<div class="step" style="margin-bottom: 0;">
+					<div class="center" style="border-bottom: 1px solid #e0e0e0;" >
+					<ul class="nav navbar-nav nav_ul pad15" id="nav-tabs" style="width: 310px;margin: auto;">
+						<li>
+							<a href="#t-tael" data-toggle="tab">发起挑战赛</a>
+						</li>
+						<li class="active">
+							<a href="#t-oxMoney" data-toggle="tab">当前挑战赛</a>
+						</li>
+						<li>
+							<a href="#t-withdrawals" data-toggle="tab">历史挑战赛</a>
+						</li>
+					</ul>
+					</div>
+					<div class="center">
+						<div class="panel-body" style="padding:15px 140px;">
+							<table class="table" style="word-break:break-all; word-wrap:break-all;">
+								<thead class="center">
+									<tr>
+										<th>代码/名称</th>
+										<th>单价</th>
+										<th>数量</th>
+										<th>成交金额</th>
+										<th>操作</th>
+										<th>日期</th>
+									</tr>
+								</thead>
+								<tbody id="mypayment">
+									<tr>
+										<td>恒泰金融600001</td>
+										<td>20.0</td>
+										<td>200</td>
+										<td>200</td>
+										<td class="col_11e">买入</td>
+										<td>2017-12-19 16:06:20</td>
+									</tr>
+									<tr>
+										<td>恒泰金融600001</td>
+										<td>20.0</td>
+										<td>200</td>
+										<td>200</td>
+										<td class="col_11e">买入</td>
+										<td>2017-12-19 16:06:20</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="nextbtn">
+					   			<button type="button" class="btn" >结束本局挑战赛</button>
+					   		</div>
+					   		<div class="head1">
+								<b>结束本局挑战赛须知</b>
+							</div>
+							<p>周赛晋级三局二胜，如要结束本局比赛，该局成绩清零，本轮周赛晋级依然有效，如若选择月赛晋级模式，请放弃本轮周赛挑战。同时，如您已经成功获得两局胜利，达到周赛的晋级标准，“申请结束比赛”则意味着提前结算，成功晋级。</p>
+						</div>
+					</div>
+			   		
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+		
+	
+	</body>
+
+</html>
